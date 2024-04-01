@@ -54,10 +54,19 @@ namespace PPPracticaEmpresarial.Formularios
 
             }
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void BtnVerContrasennia_MouseDown(object sender, MouseEventArgs e)
+        {
+            TxtContrasennia.UseSystemPasswordChar = false;
+        }
+
+        private void BtnVerContrasennia_MouseUp(object sender, MouseEventArgs e)
+        {
+            TxtContrasennia.UseSystemPasswordChar = true;
         }
     }
 }

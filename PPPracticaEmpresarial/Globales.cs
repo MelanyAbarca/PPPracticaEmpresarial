@@ -9,7 +9,7 @@ namespace PPPracticaEmpresarial
 {
     public static class Globales
     {
-        public static Form MiFormPrincipal = new Formularios.FrmMDI();
+        public static Form MiFormPrincipal = new Formularios.FrmDMI();
 
         public static Formularios.FrmUsuariosGestion MiFormGestionUsuarios = new Formularios.FrmUsuariosGestion();
 

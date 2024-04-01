@@ -151,14 +151,10 @@ namespace Logica.Models
         {
             bool R = false;
 
-            //TAREA: Crear la funcionalidad para activar un usuario, incluso este proceso,
-            //el SP y la implementacion en el UI, Es lo inverso al eliminar
-
-
             Conexion MiCnn = new Conexion();
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.UsuarioID));
 
-            int respuesta = MiCnn.EjecutarInsertUpdateDelete("SPUsuarioDesactivar");
+            int respuesta = MiCnn.EjecutarInsertUpdateDelete("SPUsuarioActivar");
 
             if (respuesta > 0)
             {

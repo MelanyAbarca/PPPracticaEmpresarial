@@ -11,10 +11,10 @@ namespace Logica.Services
 {
     public class Conexion
     {
-        //contiene info de la cadena de conexión a usar por la clase.
+        //Cadena de conexión a usar por la clase.
         string CadenaDeConexion { get; set; }
 
-        //listado para agregar los parámetros que se pasarán al procedimiento almacenado.
+        //listado para agregar los parámetros para el procedimiento almacenado.
 
         public List<SqlParameter> ListaDeParametros = new List<SqlParameter>();
 
@@ -98,12 +98,11 @@ namespace Logica.Services
             return Retorno;
         }
 
-        //Constructor. Carga la info del app.config en la cadena de conexión al momento
+        //Constructor que  carga la info del app.config en la cadena de conexión al momento
         //de crear una instancia nueva de la clase.
         public Conexion()
         {
             this.CadenaDeConexion = ConfigurationManager.ConnectionStrings["CNNSTR"].ToString();
         }
-
     }
 }

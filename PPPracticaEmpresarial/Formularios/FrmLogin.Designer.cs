@@ -35,6 +35,7 @@
             this.BtnIngresar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BtnVerContrasennia = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             // 
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreo.Location = new System.Drawing.Point(402, 59);
+            this.lblCorreo.Location = new System.Drawing.Point(402, 95);
             this.lblCorreo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(94, 29);
@@ -53,7 +54,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(402, 183);
+            this.label2.Location = new System.Drawing.Point(402, 219);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 29);
@@ -63,19 +64,19 @@
             // TxtEmail
             // 
             this.TxtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtEmail.Location = new System.Drawing.Point(407, 102);
+            this.TxtEmail.Location = new System.Drawing.Point(407, 138);
             this.TxtEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(327, 32);
+            this.TxtEmail.Size = new System.Drawing.Size(367, 32);
             this.TxtEmail.TabIndex = 2;
             // 
             // TxtContrasennia
             // 
             this.TxtContrasennia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtContrasennia.Location = new System.Drawing.Point(407, 215);
+            this.TxtContrasennia.Location = new System.Drawing.Point(407, 251);
             this.TxtContrasennia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtContrasennia.Name = "TxtContrasennia";
-            this.TxtContrasennia.Size = new System.Drawing.Size(327, 35);
+            this.TxtContrasennia.Size = new System.Drawing.Size(306, 35);
             this.TxtContrasennia.TabIndex = 3;
             this.TxtContrasennia.UseSystemPasswordChar = true;
             // 
@@ -84,7 +85,7 @@
             this.BtnIngresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BtnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnIngresar.Location = new System.Drawing.Point(472, 308);
+            this.BtnIngresar.Location = new System.Drawing.Point(483, 354);
             this.BtnIngresar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BtnIngresar.Name = "BtnIngresar";
             this.BtnIngresar.Size = new System.Drawing.Size(113, 47);
@@ -98,14 +99,14 @@
             this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancelar.Location = new System.Drawing.Point(593, 308);
+            this.BtnCancelar.Location = new System.Drawing.Point(633, 354);
             this.BtnCancelar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(141, 47);
             this.BtnCancelar.TabIndex = 5;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
-            this.BtnCancelar.Click += new System.EventHandler(this.button2_Click);
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // pictureBox1
             // 
@@ -116,17 +117,30 @@
             this.pictureBox1.Location = new System.Drawing.Point(44, 49);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 3, 4, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(319, 316);
+            this.pictureBox1.Size = new System.Drawing.Size(345, 319);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            // 
+            // BtnVerContrasennia
+            // 
+            this.BtnVerContrasennia.BackColor = System.Drawing.Color.LightCyan;
+            this.BtnVerContrasennia.Location = new System.Drawing.Point(720, 251);
+            this.BtnVerContrasennia.Name = "BtnVerContrasennia";
+            this.BtnVerContrasennia.Size = new System.Drawing.Size(54, 35);
+            this.BtnVerContrasennia.TabIndex = 7;
+            this.BtnVerContrasennia.Text = "VER";
+            this.BtnVerContrasennia.UseVisualStyleBackColor = false;
+            this.BtnVerContrasennia.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnVerContrasennia_MouseDown);
+            this.BtnVerContrasennia.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnVerContrasennia_MouseUp);
             // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(765, 417);
+            this.ClientSize = new System.Drawing.Size(791, 420);
+            this.Controls.Add(this.BtnVerContrasennia);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnIngresar);
@@ -155,5 +169,6 @@
         private System.Windows.Forms.Button BtnIngresar;
         private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button BtnVerContrasennia;
     }
 }

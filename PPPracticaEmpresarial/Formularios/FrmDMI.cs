@@ -1,0 +1,63 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace PPPracticaEmpresarial.Formularios
+{
+    public partial class FrmDMI : Form
+    {
+        public FrmDMI()
+        {
+            InitializeComponent();
+        }
+
+        private void FrmDMI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void gestiónDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          // Control para el formulario de gestion de usuarios 
+            
+            if (!Globales.MiFormGestionUsuarios.Visible)
+            {
+                Globales.MiFormGestionUsuarios = new FrmUsuariosGestion();
+
+                Globales.MiFormGestionUsuarios.Show();
+            }
+        }
+
+        private void FrmDMI_Load(object sender, EventArgs e)
+        {
+            string InfoUsuario = string.Format("{0} - {1} ({2})",
+                                        Globales.MiUsuarioGlobal.UsuarioNombre,
+                                        Globales.MiUsuarioGlobal.UsuarioCorreo,
+                                        Globales.MiUsuarioGlobal.MiRolTipo.UsuarioRolDescripcion);
+
+            LblUsuario.Text = InfoUsuario;
+
+            switch (Globales.MiUsuarioGlobal.MiRolTipo.UsuarioRolID)
+            {
+                case 1:
+                    // ADMIN: en este caso no se oculta nada
+                    break;
+                case 2:
+                    // Normal: en este caso se ocupa esconder algunas opciones(Gestion de
+                    // (Gestion de usuarios, roles, tipos de proovedor, tipos de compra)
+                    gestionDeUsuariosToolStripMenuItem.Visible = false;
+                    rolesDeUsuariosToolStripMenuItem.Visible = false;
+                    tiposDeProveedorToolStripMenuItem.Visible = false;
+                    tiposDeCompraToolStripMenuItem.Visible = false;
+                    break;
+            }
+
+        }
+    }
+}

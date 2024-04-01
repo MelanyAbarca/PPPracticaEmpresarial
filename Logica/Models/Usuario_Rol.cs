@@ -39,9 +39,5 @@ namespace Logica.Models
 
         }
 
-
-
-
-
     }
 }
