@@ -34,10 +34,11 @@
             this.gestiónDeProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuProcesos = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuReportes = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.registroDeComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoDeInventariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuSalir = new System.Windows.Forms.ToolStripMenuItem();
+            this.LblUsuario = new System.Windows.Forms.Label();
             this.MnuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,6 +98,12 @@
             this.MnuProcesos.Size = new System.Drawing.Size(146, 36);
             this.MnuProcesos.Text = "PROCESOS";
             // 
+            // registroDeComprasToolStripMenuItem
+            // 
+            this.registroDeComprasToolStripMenuItem.Name = "registroDeComprasToolStripMenuItem";
+            this.registroDeComprasToolStripMenuItem.Size = new System.Drawing.Size(339, 40);
+            this.registroDeComprasToolStripMenuItem.Text = "Registro de Compras";
+            // 
             // MnuReportes
             // 
             this.MnuReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -105,29 +112,34 @@
             this.MnuReportes.Size = new System.Drawing.Size(138, 36);
             this.MnuReportes.Text = "REPORTES";
             // 
-            // MnuSalir
-            // 
-            this.MnuSalir.Name = "MnuSalir";
-            this.MnuSalir.Size = new System.Drawing.Size(89, 36);
-            this.MnuSalir.Text = "SALIR";
-            // 
-            // registroDeComprasToolStripMenuItem
-            // 
-            this.registroDeComprasToolStripMenuItem.Name = "registroDeComprasToolStripMenuItem";
-            this.registroDeComprasToolStripMenuItem.Size = new System.Drawing.Size(339, 40);
-            this.registroDeComprasToolStripMenuItem.Text = "Registro de Compras";
-            // 
             // listadoDeInventariosToolStripMenuItem
             // 
             this.listadoDeInventariosToolStripMenuItem.Name = "listadoDeInventariosToolStripMenuItem";
             this.listadoDeInventariosToolStripMenuItem.Size = new System.Drawing.Size(351, 40);
             this.listadoDeInventariosToolStripMenuItem.Text = "Listado de Inventarios";
             // 
+            // MnuSalir
+            // 
+            this.MnuSalir.Name = "MnuSalir";
+            this.MnuSalir.Size = new System.Drawing.Size(89, 36);
+            this.MnuSalir.Text = "SALIR";
+            // 
+            // LblUsuario
+            // 
+            this.LblUsuario.AutoSize = true;
+            this.LblUsuario.BackColor = System.Drawing.Color.Azure;
+            this.LblUsuario.Location = new System.Drawing.Point(12, 507);
+            this.LblUsuario.Name = "LblUsuario";
+            this.LblUsuario.Size = new System.Drawing.Size(72, 20);
+            this.LblUsuario.TabIndex = 3;
+            this.LblUsuario.Text = "Usuario: ";
+            // 
             // FrmDMI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 536);
+            this.Controls.Add(this.LblUsuario);
             this.Controls.Add(this.MnuPrincipal);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.MnuPrincipal;
@@ -155,5 +167,6 @@
         private System.Windows.Forms.ToolStripMenuItem gestiónDeProductosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroDeComprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listadoDeInventariosToolStripMenuItem;
+        private System.Windows.Forms.Label LblUsuario;
     }
 }

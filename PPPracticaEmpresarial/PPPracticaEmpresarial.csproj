@@ -119,14 +119,14 @@
     <Folder Include="Reportes\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Logo Kelmar.png" />
+    <None Include="Resources\Logo Kelmar1.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Logica\Logica.csproj">
       <Project>{34e78c55-9801-4672-bdd2-44c8dfd49409}</Project>
       <Name>Logica</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\Logo Kelmar.png" />
-    <None Include="Resources\Logo Kelmar1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -26,39 +26,23 @@ namespace Logica.Models
         public bool Activo { get; set; }
 
 
-        // Propiedades Compuestas o Composiciones
+        // Propiedades Compuestas
 
         public Usuario_Rol MiRolTipo { get; set; }
 
-        // Normalmente cuando tenemos propiedades compuestas con tipos que hemos programado, 
-        // nosotros debemos instanciar dichas propiedades ya que son objetos. Para eso se recomienda
-        //hacerlo en el constructor de la clase
-
-        //Para hacerlo se debe escribir cto tab
+        // Instanciar de las propiedades mediante el cto tab
         public Usuario()
         {
-            //Al crear una nueva instancia de la clase Usuario, se ejecuta el codigo de este
-            // constructor, y tambien se crea una nueva instancia de la clase usuario_rol para
-            // el objeto MiRolTipo
-
             MiRolTipo = new Usuario_Rol();
         }
-
-
 
         // Funciones y Metodos
         public bool Agregar()
         {
 
-            // Cuando la funcion devuelve un bool me gusta inicializar la variable de retorno
-            //en false(tiende a negativo el resultado de la fn) y SOLO si la operacion 
-            // (en este caso insert) se cambia el valor R a true
-
             bool R = false;
 
-            // Aca va el codigo funcional que invoca a un  procedimiento almacenado que contiene
-            // el DML Insert
-
+            // Codigo funcional que invoca a el procedimiento almacenado y contenido en el DML Insert
 
             //Paso 1.6.1.y 1.6.2
             Conexion MiCnn = new Conexion();
@@ -76,8 +60,7 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Telefono", this.UsuarioTelefono));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Direccion", this.UsuarioDireccion));
 
-            //Normalmente los foreign keys tienen que ver con composiciones, en este caso tenemos
-            // que extraer el valor del objeto compuesto "MiRolTipo"
+            //Extraccion de la foreing Key para extraer el valor del objeto compuesto "MiRolTipo"
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@IdRol", this.MiRolTipo.UsuarioRolID));
 
@@ -110,9 +93,6 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.UsuarioCedula));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Telefono", this.UsuarioTelefono));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Direccion", this.UsuarioDireccion));
-
-            //Normalmente los foreign keys tienen que ver con composiciones, en este caso tenemos
-            // que extraer el valor del objeto compuesto "MiRolTipo"
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@IdRol", this.MiRolTipo.UsuarioRolID));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.UsuarioID));
@@ -171,7 +151,7 @@ namespace Logica.Models
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.UsuarioID));
 
-            // Necesito un datatable para capturar la info del usuario
+            // Captura la informacion del usuario
             DataTable dt = new DataTable();
 
             dt = MiCnn.EjecutarSELECT("SPUsuarioConsultarPorID");
@@ -200,9 +180,7 @@ namespace Logica.Models
 
             if (dt != null && dt.Rows.Count > 0)
             {
-                // Esta Consulta deberia de tener un registro, se crea un objeto de tipo
-                // de tipo datarow para capturar la info contenida en index 0 del dt
-                // (datatable)
+                // Objeto datarow que captura la info contenida en index 0 del dt
 
                 DataRow dr = dt.Rows[0];
 
@@ -291,9 +269,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            // En este caso como el procedimiento almacenado tiene un parametro, debemos
-            // por lo tanto definir ese parametro en la lista de parametros del objeto de
-            //conexion
+            //Definicion del parametro en la lista de parametros del objeto de conexion de listar usuarios activos
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@VerActivos", true));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@FiltroBusqueda", pFiltroBusqueda));

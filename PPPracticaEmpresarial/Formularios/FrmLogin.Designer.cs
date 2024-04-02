@@ -131,6 +131,7 @@
             this.BtnVerContrasennia.TabIndex = 7;
             this.BtnVerContrasennia.Text = "VER";
             this.BtnVerContrasennia.UseVisualStyleBackColor = false;
+            this.BtnVerContrasennia.Click += new System.EventHandler(this.BtnVerContrasennia_Click);
             this.BtnVerContrasennia.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnVerContrasennia_MouseDown);
             this.BtnVerContrasennia.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnVerContrasennia_MouseUp);
             // 

@@ -49,12 +49,8 @@ namespace PPPracticaEmpresarial.Formularios
                     // ADMIN: en este caso no se oculta nada
                     break;
                 case 2:
-                    // Normal: en este caso se ocupa esconder algunas opciones(Gestion de
-                    // (Gestion de usuarios, roles, tipos de proovedor, tipos de compra)
-                    gestionDeUsuariosToolStripMenuItem.Visible = false;
-                    rolesDeUsuariosToolStripMenuItem.Visible = false;
-                    tiposDeProveedorToolStripMenuItem.Visible = false;
-                    tiposDeCompraToolStripMenuItem.Visible = false;
+                    // Normal: en este caso se ocupa esconder algunas opciones (Gestion de usuarios)
+                    gestiónDeUsuariosToolStripMenuItem.Visible = false;
                     break;
             }
 

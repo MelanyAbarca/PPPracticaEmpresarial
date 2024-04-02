@@ -19,6 +19,7 @@ namespace PPPracticaEmpresarial.Formularios
 
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
+            // Validacion de que existe el usuario y contraseña
             if (!string.IsNullOrEmpty(TxtEmail.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtContrasennia.Text.Trim()))
             {
@@ -26,7 +27,7 @@ namespace PPPracticaEmpresarial.Formularios
                 string contrasennia = TxtContrasennia.Text.Trim();
 
                 // Validar que los datos digitados sean correctos
-                // Valores al usuario Global si la validación es correcta
+                // Valores se pasan al usuario Global si la validación es correcta
 
                 Globales.MiUsuarioGlobal = Globales.MiUsuarioGlobal.ValidarUsuario(usuario, contrasennia);
 
@@ -67,6 +68,12 @@ namespace PPPracticaEmpresarial.Formularios
         private void BtnVerContrasennia_MouseUp(object sender, MouseEventArgs e)
         {
             TxtContrasennia.UseSystemPasswordChar = true;
+        }
+
+        // Por eliminar ESTE
+        private void BtnVerContrasennia_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
