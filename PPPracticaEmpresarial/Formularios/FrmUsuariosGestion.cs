@@ -376,7 +376,6 @@ namespace PPPracticaEmpresarial.Formularios
                     TxtUsuarioContrasennia.Focus();
                     return false;
                 }
-
             }
 
             return R;
@@ -385,7 +384,7 @@ namespace PPPracticaEmpresarial.Formularios
         // BOTON CANCELAR
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-
+            //Application.Exit(FrmDMI);
         }
 
         // BOTON ELIMINAR 
@@ -488,7 +487,6 @@ namespace PPPracticaEmpresarial.Formularios
             {
                 TxtUsuarioCorreo.SelectAll();
             }
-
         }
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
@@ -509,5 +507,50 @@ namespace PPPracticaEmpresarial.Formularios
             }
         }
 
+        private void DgLista_DataBindingComplete_1(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DgLista.ClearSelection();
+        }
+
+        private void DgLista_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            // Seleccion de la fila, para traer la info del control 
+
+            if (DgLista.SelectedRows.Count == 1)
+            {
+                LimpiarFormulario();
+
+                DataGridViewRow MiFila = DgLista.SelectedRows[0];
+
+                int IdUsuario = Convert.ToInt32(MiFila.Cells["CUsuarioID"].Value);
+
+                // Reinstancia del usuario local
+                MiUsuarioLocal = new Logica.Models.Usuario();
+
+
+                // Valor ID del usuario local
+                MiUsuarioLocal.UsuarioID = IdUsuario;
+                MiUsuarioLocal = MiUsuarioLocal.ConsultarPorIDRetornaUsuario();
+
+                // Validamos que el usuario local tenga datos 
+
+                if (MiUsuarioLocal != null && MiUsuarioLocal.UsuarioID > 0)
+                {
+
+                    // Se llena los controles 
+
+                    TxtUsuarioID.Text = Convert.ToString(MiUsuarioLocal.UsuarioID);
+                    TxtUsuarioNombre.Text = MiUsuarioLocal.UsuarioNombre;
+                    TxtUsuarioCedula.Text = MiUsuarioLocal.UsuarioCedula;
+                    TxtUsuarioTelefono.Text = MiUsuarioLocal.UsuarioTelefono;
+                    TxtUsuarioCorreo.Text = MiUsuarioLocal.UsuarioCorreo;
+                    TxtUsuarioDireccion.Text = MiUsuarioLocal.UsuarioDireccion;
+
+                    // Cbox del tipo de usuario
+                    CbRolesUsuario.SelectedValue = MiUsuarioLocal.MiRolTipo.UsuarioRolID;
+
+                }
+            }
+        }
     }
 }

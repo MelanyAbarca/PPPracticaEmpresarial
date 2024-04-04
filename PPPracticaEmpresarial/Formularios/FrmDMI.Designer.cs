@@ -128,7 +128,8 @@
             // 
             this.LblUsuario.AutoSize = true;
             this.LblUsuario.BackColor = System.Drawing.Color.Azure;
-            this.LblUsuario.Location = new System.Drawing.Point(12, 507);
+            this.LblUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LblUsuario.Location = new System.Drawing.Point(1000, 9);
             this.LblUsuario.Name = "LblUsuario";
             this.LblUsuario.Size = new System.Drawing.Size(72, 20);
             this.LblUsuario.TabIndex = 3;

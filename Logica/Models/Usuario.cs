@@ -299,8 +299,7 @@ namespace Logica.Models
 
             if (dt != null && dt.Rows.Count > 0)
             {
-                // Esta Consulta deberia de tener un registro, se crea un objeto de tipo
-                // de tipo datarow para capturar la info contenida en index 0 del dt
+                // Objeto de tipo de tipo datarow para capturar la info contenida en index 0 del dt
                 // (datatable)
 
                 DataRow dr = dt.Rows[0];

@@ -39,7 +39,6 @@ namespace PPPracticaEmpresarial.Formularios
 
                     Globales.MiFormPrincipal.Show();
                     this.Hide();
-
                 }
                 else
                 {
@@ -70,10 +69,20 @@ namespace PPPracticaEmpresarial.Formularios
             TxtContrasennia.UseSystemPasswordChar = true;
         }
 
-        // Por eliminar ESTE
-        private void BtnVerContrasennia_Click(object sender, EventArgs e)
+        private void BtnIngresoDirecto_Click(object sender, EventArgs e)
         {
-
+            Globales.MiFormPrincipal.Show();
+            this.Hide();
         }
+
+        private void BtnIngresoDirecto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Shift & e.Alt & e.KeyCode == Keys.A)
+            {
+                // Si presionamos en el teclado la combinacion: "Shift + Alt + A"
+                BtnIngresoDirecto.Visible = true;
+            }
+        }
+
     }
 }

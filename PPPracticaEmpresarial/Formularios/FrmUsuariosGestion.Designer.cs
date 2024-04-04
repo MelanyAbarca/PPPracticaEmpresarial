@@ -32,6 +32,12 @@
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.CboxVerActivos = new System.Windows.Forms.CheckBox();
             this.DgLista = new System.Windows.Forms.DataGridView();
+            this.CUsuarioID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CUsuarioNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CUsuarioCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CUsuarioCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CUsuarioTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CUsuarioRolDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TxtUsuarioDireccion = new System.Windows.Forms.TextBox();
             this.CbRolesUsuario = new System.Windows.Forms.ComboBox();
@@ -54,12 +60,6 @@
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
-            this.CUsuarioID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CUsuarioNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CUsuarioCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CUsuarioCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CUsuarioTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CUsuarioRolDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgLista)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -110,7 +110,7 @@
             this.CUsuarioCorreo,
             this.CUsuarioTelefono,
             this.CUsuarioRolDescripcion});
-            this.DgLista.Location = new System.Drawing.Point(29, 79);
+            this.DgLista.Location = new System.Drawing.Point(29, 70);
             this.DgLista.MultiSelect = false;
             this.DgLista.Name = "DgLista";
             this.DgLista.ReadOnly = true;
@@ -118,240 +118,11 @@
             this.DgLista.RowHeadersWidth = 62;
             this.DgLista.RowTemplate.Height = 28;
             this.DgLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgLista.Size = new System.Drawing.Size(1201, 229);
+            this.DgLista.Size = new System.Drawing.Size(1165, 204);
             this.DgLista.TabIndex = 3;
             this.DgLista.VirtualMode = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.TxtUsuarioDireccion);
-            this.groupBox1.Controls.Add(this.CbRolesUsuario);
-            this.groupBox1.Controls.Add(this.TxtUsuarioContrasennia);
-            this.groupBox1.Controls.Add(this.TxtUsuarioCorreo);
-            this.groupBox1.Controls.Add(this.TxtUsuarioTelefono);
-            this.groupBox1.Controls.Add(this.TxtUsuarioCedula);
-            this.groupBox1.Controls.Add(this.TxtUsuarioNombre);
-            this.groupBox1.Controls.Add(this.TxtUsuarioID);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(29, 314);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1201, 335);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Informacion del Usuario";
-            // 
-            // TxtUsuarioDireccion
-            // 
-            this.TxtUsuarioDireccion.Location = new System.Drawing.Point(781, 172);
-            this.TxtUsuarioDireccion.Multiline = true;
-            this.TxtUsuarioDireccion.Name = "TxtUsuarioDireccion";
-            this.TxtUsuarioDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TxtUsuarioDireccion.Size = new System.Drawing.Size(401, 145);
-            this.TxtUsuarioDireccion.TabIndex = 15;
-            this.TxtUsuarioDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUsuarioDireccion_KeyPress);
-            // 
-            // CbRolesUsuario
-            // 
-            this.CbRolesUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CbRolesUsuario.FormattingEnabled = true;
-            this.CbRolesUsuario.Location = new System.Drawing.Point(833, 115);
-            this.CbRolesUsuario.Name = "CbRolesUsuario";
-            this.CbRolesUsuario.Size = new System.Drawing.Size(349, 37);
-            this.CbRolesUsuario.TabIndex = 14;
-            // 
-            // TxtUsuarioContrasennia
-            // 
-            this.TxtUsuarioContrasennia.Location = new System.Drawing.Point(836, 59);
-            this.TxtUsuarioContrasennia.Name = "TxtUsuarioContrasennia";
-            this.TxtUsuarioContrasennia.Size = new System.Drawing.Size(346, 35);
-            this.TxtUsuarioContrasennia.TabIndex = 13;
-            this.TxtUsuarioContrasennia.UseSystemPasswordChar = true;
-            this.TxtUsuarioContrasennia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUsuarioContrasennia_KeyPress);
-            // 
-            // TxtUsuarioCorreo
-            // 
-            this.TxtUsuarioCorreo.Location = new System.Drawing.Point(144, 282);
-            this.TxtUsuarioCorreo.Name = "TxtUsuarioCorreo";
-            this.TxtUsuarioCorreo.Size = new System.Drawing.Size(492, 35);
-            this.TxtUsuarioCorreo.TabIndex = 12;
-            this.TxtUsuarioCorreo.Enter += new System.EventHandler(this.TxtUsuarioCorreo_Enter);
-            this.TxtUsuarioCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUsuarioCorreo_KeyPress);
-            this.TxtUsuarioCorreo.Leave += new System.EventHandler(this.TxtUsuarioCorreo_Leave);
-            // 
-            // TxtUsuarioTelefono
-            // 
-            this.TxtUsuarioTelefono.Location = new System.Drawing.Point(144, 224);
-            this.TxtUsuarioTelefono.Name = "TxtUsuarioTelefono";
-            this.TxtUsuarioTelefono.Size = new System.Drawing.Size(492, 35);
-            this.TxtUsuarioTelefono.TabIndex = 11;
-            this.TxtUsuarioTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUsuarioTelefono_KeyPress);
-            // 
-            // TxtUsuarioCedula
-            // 
-            this.TxtUsuarioCedula.Location = new System.Drawing.Point(144, 172);
-            this.TxtUsuarioCedula.Name = "TxtUsuarioCedula";
-            this.TxtUsuarioCedula.Size = new System.Drawing.Size(492, 35);
-            this.TxtUsuarioCedula.TabIndex = 10;
-            this.TxtUsuarioCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUsuarioCedula_KeyPress);
-            // 
-            // TxtUsuarioNombre
-            // 
-            this.TxtUsuarioNombre.Location = new System.Drawing.Point(144, 120);
-            this.TxtUsuarioNombre.Name = "TxtUsuarioNombre";
-            this.TxtUsuarioNombre.Size = new System.Drawing.Size(492, 35);
-            this.TxtUsuarioNombre.TabIndex = 9;
-            this.TxtUsuarioNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUsuarioNombre_KeyPress);
-            // 
-            // TxtUsuarioID
-            // 
-            this.TxtUsuarioID.Location = new System.Drawing.Point(195, 59);
-            this.TxtUsuarioID.Name = "TxtUsuarioID";
-            this.TxtUsuarioID.ReadOnly = true;
-            this.TxtUsuarioID.Size = new System.Drawing.Size(441, 35);
-            this.TxtUsuarioID.TabIndex = 8;
-            this.TxtUsuarioID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(654, 175);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(121, 29);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Dirección:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(654, 118);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(179, 29);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Rol de Usuario:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(654, 68);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(142, 29);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Contraseña:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 288);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 29);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Email:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 230);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 29);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Teléfono:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 175);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 29);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Cédula:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 118);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 29);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Nombre:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Código Usuario: ";
-            // 
-            // BtnAgregar
-            // 
-            this.BtnAgregar.BackColor = System.Drawing.Color.Teal;
-            this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAgregar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnAgregar.Location = new System.Drawing.Point(57, 667);
-            this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.Size = new System.Drawing.Size(154, 43);
-            this.BtnAgregar.TabIndex = 5;
-            this.BtnAgregar.Text = "AGREGAR";
-            this.BtnAgregar.UseVisualStyleBackColor = false;
-            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
-            // 
-            // BtnLimpiar
-            // 
-            this.BtnLimpiar.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnLimpiar.Location = new System.Drawing.Point(536, 667);
-            this.BtnLimpiar.Name = "BtnLimpiar";
-            this.BtnLimpiar.Size = new System.Drawing.Size(154, 43);
-            this.BtnLimpiar.TabIndex = 6;
-            this.BtnLimpiar.Text = "LIMPIAR";
-            this.BtnLimpiar.UseVisualStyleBackColor = false;
-            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
-            // 
-            // BtnModificar
-            // 
-            this.BtnModificar.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.BtnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnModificar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnModificar.Location = new System.Drawing.Point(293, 667);
-            this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(161, 43);
-            this.BtnModificar.TabIndex = 7;
-            this.BtnModificar.Text = "MODIFICAR";
-            this.BtnModificar.UseVisualStyleBackColor = false;
-            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
-            // 
-            // BtnCancelar
-            // 
-            this.BtnCancelar.BackColor = System.Drawing.Color.LightCyan;
-            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCancelar.Location = new System.Drawing.Point(1008, 668);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(154, 43);
-            this.BtnCancelar.TabIndex = 8;
-            this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.UseVisualStyleBackColor = false;
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
-            // 
-            // BtnEliminar
-            // 
-            this.BtnEliminar.BackColor = System.Drawing.Color.CadetBlue;
-            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEliminar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BtnEliminar.Location = new System.Drawing.Point(772, 667);
-            this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(154, 43);
-            this.BtnEliminar.TabIndex = 9;
-            this.BtnEliminar.Text = "Eliminar";
-            this.BtnEliminar.UseVisualStyleBackColor = false;
-            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
+            this.DgLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgLista_CellClick_1);
+            this.DgLista.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgLista_DataBindingComplete_1);
             // 
             // CUsuarioID
             // 
@@ -411,11 +182,242 @@
             this.CUsuarioRolDescripcion.ReadOnly = true;
             this.CUsuarioRolDescripcion.Width = 160;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.TxtUsuarioDireccion);
+            this.groupBox1.Controls.Add(this.CbRolesUsuario);
+            this.groupBox1.Controls.Add(this.TxtUsuarioContrasennia);
+            this.groupBox1.Controls.Add(this.TxtUsuarioCorreo);
+            this.groupBox1.Controls.Add(this.TxtUsuarioTelefono);
+            this.groupBox1.Controls.Add(this.TxtUsuarioCedula);
+            this.groupBox1.Controls.Add(this.TxtUsuarioNombre);
+            this.groupBox1.Controls.Add(this.TxtUsuarioID);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(29, 280);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1165, 275);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Informacion del Usuario";
+            // 
+            // TxtUsuarioDireccion
+            // 
+            this.TxtUsuarioDireccion.Location = new System.Drawing.Point(719, 128);
+            this.TxtUsuarioDireccion.Multiline = true;
+            this.TxtUsuarioDireccion.Name = "TxtUsuarioDireccion";
+            this.TxtUsuarioDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.TxtUsuarioDireccion.Size = new System.Drawing.Size(401, 132);
+            this.TxtUsuarioDireccion.TabIndex = 15;
+            this.TxtUsuarioDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUsuarioDireccion_KeyPress);
+            // 
+            // CbRolesUsuario
+            // 
+            this.CbRolesUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbRolesUsuario.FormattingEnabled = true;
+            this.CbRolesUsuario.Location = new System.Drawing.Point(771, 78);
+            this.CbRolesUsuario.Name = "CbRolesUsuario";
+            this.CbRolesUsuario.Size = new System.Drawing.Size(349, 37);
+            this.CbRolesUsuario.TabIndex = 14;
+            // 
+            // TxtUsuarioContrasennia
+            // 
+            this.TxtUsuarioContrasennia.Location = new System.Drawing.Point(774, 33);
+            this.TxtUsuarioContrasennia.Name = "TxtUsuarioContrasennia";
+            this.TxtUsuarioContrasennia.Size = new System.Drawing.Size(346, 35);
+            this.TxtUsuarioContrasennia.TabIndex = 13;
+            this.TxtUsuarioContrasennia.UseSystemPasswordChar = true;
+            this.TxtUsuarioContrasennia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUsuarioContrasennia_KeyPress);
+            // 
+            // TxtUsuarioCorreo
+            // 
+            this.TxtUsuarioCorreo.Location = new System.Drawing.Point(144, 224);
+            this.TxtUsuarioCorreo.Name = "TxtUsuarioCorreo";
+            this.TxtUsuarioCorreo.Size = new System.Drawing.Size(418, 35);
+            this.TxtUsuarioCorreo.TabIndex = 12;
+            this.TxtUsuarioCorreo.Enter += new System.EventHandler(this.TxtUsuarioCorreo_Enter);
+            this.TxtUsuarioCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUsuarioCorreo_KeyPress);
+            this.TxtUsuarioCorreo.Leave += new System.EventHandler(this.TxtUsuarioCorreo_Leave);
+            // 
+            // TxtUsuarioTelefono
+            // 
+            this.TxtUsuarioTelefono.Location = new System.Drawing.Point(144, 176);
+            this.TxtUsuarioTelefono.Name = "TxtUsuarioTelefono";
+            this.TxtUsuarioTelefono.Size = new System.Drawing.Size(418, 35);
+            this.TxtUsuarioTelefono.TabIndex = 11;
+            this.TxtUsuarioTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUsuarioTelefono_KeyPress);
+            // 
+            // TxtUsuarioCedula
+            // 
+            this.TxtUsuarioCedula.Location = new System.Drawing.Point(144, 128);
+            this.TxtUsuarioCedula.Name = "TxtUsuarioCedula";
+            this.TxtUsuarioCedula.Size = new System.Drawing.Size(418, 35);
+            this.TxtUsuarioCedula.TabIndex = 10;
+            this.TxtUsuarioCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUsuarioCedula_KeyPress);
+            // 
+            // TxtUsuarioNombre
+            // 
+            this.TxtUsuarioNombre.Location = new System.Drawing.Point(144, 81);
+            this.TxtUsuarioNombre.Name = "TxtUsuarioNombre";
+            this.TxtUsuarioNombre.Size = new System.Drawing.Size(418, 35);
+            this.TxtUsuarioNombre.TabIndex = 9;
+            this.TxtUsuarioNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUsuarioNombre_KeyPress);
+            // 
+            // TxtUsuarioID
+            // 
+            this.TxtUsuarioID.Location = new System.Drawing.Point(195, 37);
+            this.TxtUsuarioID.Name = "TxtUsuarioID";
+            this.TxtUsuarioID.ReadOnly = true;
+            this.TxtUsuarioID.Size = new System.Drawing.Size(367, 35);
+            this.TxtUsuarioID.TabIndex = 8;
+            this.TxtUsuarioID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(592, 132);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(121, 29);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Dirección:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(592, 82);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(179, 29);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Rol de Usuario:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(592, 38);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(142, 29);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Contraseña:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 231);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 29);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Email:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 180);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 29);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Teléfono:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 133);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 29);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Cédula:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 29);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Nombre:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Código Usuario: ";
+            // 
+            // BtnAgregar
+            // 
+            this.BtnAgregar.BackColor = System.Drawing.Color.Teal;
+            this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAgregar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnAgregar.Location = new System.Drawing.Point(62, 566);
+            this.BtnAgregar.Name = "BtnAgregar";
+            this.BtnAgregar.Size = new System.Drawing.Size(154, 43);
+            this.BtnAgregar.TabIndex = 5;
+            this.BtnAgregar.Text = "AGREGAR";
+            this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
+            // 
+            // BtnLimpiar
+            // 
+            this.BtnLimpiar.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLimpiar.Location = new System.Drawing.Point(541, 566);
+            this.BtnLimpiar.Name = "BtnLimpiar";
+            this.BtnLimpiar.Size = new System.Drawing.Size(154, 43);
+            this.BtnLimpiar.TabIndex = 6;
+            this.BtnLimpiar.Text = "LIMPIAR";
+            this.BtnLimpiar.UseVisualStyleBackColor = false;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
+            // 
+            // BtnModificar
+            // 
+            this.BtnModificar.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.BtnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnModificar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnModificar.Location = new System.Drawing.Point(298, 566);
+            this.BtnModificar.Name = "BtnModificar";
+            this.BtnModificar.Size = new System.Drawing.Size(161, 43);
+            this.BtnModificar.TabIndex = 7;
+            this.BtnModificar.Text = "MODIFICAR";
+            this.BtnModificar.UseVisualStyleBackColor = false;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
+            // 
+            // BtnCancelar
+            // 
+            this.BtnCancelar.BackColor = System.Drawing.Color.LightCyan;
+            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCancelar.Location = new System.Drawing.Point(1013, 567);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(154, 43);
+            this.BtnCancelar.TabIndex = 8;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            // 
+            // BtnEliminar
+            // 
+            this.BtnEliminar.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEliminar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BtnEliminar.Location = new System.Drawing.Point(777, 566);
+            this.BtnEliminar.Name = "BtnEliminar";
+            this.BtnEliminar.Size = new System.Drawing.Size(154, 43);
+            this.BtnEliminar.TabIndex = 9;
+            this.BtnEliminar.Text = "Eliminar";
+            this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
+            // 
             // FrmUsuariosGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1256, 733);
+            this.ClientSize = new System.Drawing.Size(1214, 619);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnModificar);
