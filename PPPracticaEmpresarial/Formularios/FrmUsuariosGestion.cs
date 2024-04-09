@@ -411,7 +411,7 @@ namespace PPPracticaEmpresarial.Formularios
                         if (MiUsuarioLocal.Activar())
                         {
                             MessageBox.Show("El usuario ha sido activado correctamente",
-                                             "Acción satisfactoria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                             "Activación satisfactoria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                             LimpiarFormulario();
                             CargarListaDeUsuarios();
