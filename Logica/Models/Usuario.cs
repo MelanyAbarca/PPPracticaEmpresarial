@@ -43,8 +43,6 @@ namespace Logica.Models
             bool R = false;
 
             // Codigo funcional que invoca a el procedimiento almacenado y contenido en el DML Insert
-
-            //Paso 1.6.1.y 1.6.2
             Conexion MiCnn = new Conexion();
 
             //Agregar Parametros
@@ -63,11 +61,7 @@ namespace Logica.Models
             //Extraccion de la foreing Key para extraer el valor del objeto compuesto "MiRolTipo"
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@IdRol", this.MiRolTipo.UsuarioRolID));
-
-            // Paso 1.6.3 y 1.6.4
             int resultado = MiCnn.EjecutarInsertUpdateDelete("SPUsuarioAgregar");
-
-            // paso 1.6.5
             if (resultado > 0)
             {
                 R = true;
@@ -103,13 +97,11 @@ namespace Logica.Models
             {
                 R = true;
             }
-
-
-
             return R;
-
         }
 
+
+        // Eliminar el usuario
         public bool Eliminar()
         {
             bool R = false;
@@ -127,6 +119,7 @@ namespace Logica.Models
             return R;
         }
 
+        // Activar el usuario
         public bool Activar()
         {
             bool R = false;
@@ -173,15 +166,13 @@ namespace Logica.Models
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.UsuarioID));
 
-            // Necesito un datatable para capturar la info del usuario
+            // Dt que captura la info para el usuario
             DataTable dt = new DataTable();
 
             dt = MiCnn.EjecutarSELECT("SPUsuarioConsultarPorID");
 
             if (dt != null && dt.Rows.Count > 0)
             {
-                // Objeto datarow que captura la info contenida en index 0 del dt
-
                 DataRow dr = dt.Rows[0];
 
                 R.UsuarioID = Convert.ToInt32(dr["UsuarioID"]);
@@ -196,11 +187,8 @@ namespace Logica.Models
                 //Composiciones 
 
                 R.MiRolTipo.UsuarioRolID = Convert.ToInt32(dr["UsuarioRolID"]);
-                R.MiRolTipo.UsuarioRolDescripcion = Convert.ToString(dr["UsuarioRolDescripcion"]);
-
-
+                R.MiRolTipo.UsuarioRolDescripcion = Convert.ToString(dr["UsuarioRolDescripcion"]);     
             }
-
 
             return R;
 
@@ -210,9 +198,6 @@ namespace Logica.Models
         public bool ConsultarPorCedula()
         {
             bool R = false;
-
-            //Paso 1.3.1 Y 1.3.1
-
             Conexion MiCnn = new Conexion();
 
             // Agregamos el parametro de ceula 
@@ -220,40 +205,36 @@ namespace Logica.Models
 
             DataTable consulta = new DataTable();
 
-            // Paso 1.3.3 y 1.3.4 Llamar y retornar el Datatable
+            // Se llama y se retorna el Dt
 
             consulta = MiCnn.EjecutarSELECT("SPUsuarioConsultarPorCedula");
 
-            // Paso 1.3.5
+            // Positivo en la consulta
 
             if (consulta != null && consulta.Rows.Count > 0)
             {
                 R = true;
             }
 
-
             return R;
 
         }
 
+        // Vetificacion de la consulta en correo
         public bool ConsultarPorEmail()
         {
             bool R = false;
 
-            //Paso 1.4.1 Y 1.4.2
-
             Conexion MiCnn = new Conexion();
 
-            // Agregamos el parametro de correo
+            // Parametro del correo
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.UsuarioCorreo));
 
             DataTable consulta = new DataTable();
 
-            // Paso 1.4.3 y 1.4.4 Llamar y retornar el Datatable
+            // Retorno del dt
 
             consulta = MiCnn.EjecutarSELECT("SPUsuarioConsultarPorEmail");
-
-            // Paso 1.4.5
 
             if (consulta != null && consulta.Rows.Count > 0)
             {
@@ -300,8 +281,7 @@ namespace Logica.Models
             if (dt != null && dt.Rows.Count > 0)
             {
                 // Objeto de tipo de tipo datarow para capturar la info contenida en index 0 del dt
-                // (datatable)
-
+                
                 DataRow dr = dt.Rows[0];
 
                 R.UsuarioID = Convert.ToInt32(dr["UsuarioID"]);
@@ -330,25 +310,20 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            // En este caso como el procedimiento almacenado tiene un parametro, debemos
-            // por lo tanto definir ese parametro en la lista de parametros del objeto de
-            //conexion
+            // Definicion del parametro en la lista de parametros del objeto de conexion
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@VerActivos", false));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@FiltroBusqueda", pFiltroBusqueda));
 
             R = MiCnn.EjecutarSELECT("SPUsuariosListar");
-
-
-
             return R;
         }
 
+        // Validacion de ingreso del usuario
         public Usuario Validar(String pEmail, String pContrasennia)
         {
             Usuario R = new Usuario();
             return R;
         }
-
     }
 }

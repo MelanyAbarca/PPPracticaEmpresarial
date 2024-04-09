@@ -14,6 +14,8 @@ namespace Logica.Models
         public int CompraTipoID { get; set; }
         public string ComptaTipoDescripcion { get; set; }
 
+
+        // Ver la lista de las compras de kelmar
         public DataTable Listar()
         {
             DataTable R = new DataTable();

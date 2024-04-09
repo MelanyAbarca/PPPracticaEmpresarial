@@ -45,7 +45,7 @@ namespace Logica.Models
             throw new System.Exception("Not implemented");
         }
 
-        // Nueva funcion para mostrar la lista de items en la ventana de busqueda de productos
+        // Funcion que muestra la lista nueva de items en la ventana de busqueda de productos
         public DataTable ListarEnBusqueda()
         {
             DataTable R = new DataTable();

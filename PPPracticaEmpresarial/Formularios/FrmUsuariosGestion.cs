@@ -40,7 +40,7 @@ namespace PPPracticaEmpresarial.Formularios
 
             ListaUsuarios = new DataTable();
 
-            // Filtrar la lista de ususarios
+            // Filtro de la lista de ususarios
 
             string FiltroBusqueda = "";
             if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()) && TxtBuscar.Text.Count() >= 3)
@@ -79,7 +79,6 @@ namespace PPPracticaEmpresarial.Formularios
                 CbRolesUsuario.SelectedIndex = -1;
 
             }
-
         }
 
         private void DgLista_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -103,8 +102,8 @@ namespace PPPracticaEmpresarial.Formularios
 
         private void DgLista_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Para seleccionar un usuarios en datagrid se debe cargar la info del mismo en el usuario local 
-            // la informaci'on aparece en los controles graficos
+            //Para seleccionar un usuarios en datagrid se debe cargar la info del mismo en el usuario local la
+            // informaci'on aparece en los controles graficos
 
             if (DgLista.SelectedRows.Count == 1)
             {
@@ -142,22 +141,20 @@ namespace PPPracticaEmpresarial.Formularios
                     CbRolesUsuario.SelectedValue = MiUsuarioLocal.MiRolTipo.UsuarioRolID;
                 }
 
-
             }
 
-
         }
-    
+
         // BOTON AGREGAR
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             if (ValidarDatosDigitados())
             {
-                // Estas variables de almacenamiento de las consultas por correo y cedula
+                // Variables de las consultas
                 bool CedulaOK;
                 bool EmailOK;
 
-                //Pasos 1.1 y 1.2
+                //Almacenar el usuario local
                 MiUsuarioLocal = new Logica.Models.Usuario();
 
                 // Llenar los valores de los atributos con los datos digitados en el form
@@ -166,28 +163,23 @@ namespace PPPracticaEmpresarial.Formularios
                 MiUsuarioLocal.UsuarioTelefono = TxtUsuarioTelefono.Text.Trim();
                 MiUsuarioLocal.UsuarioCorreo = TxtUsuarioCorreo.Text.Trim();
                 MiUsuarioLocal.UsuarioContrasennia = TxtUsuarioContrasennia.Text.Trim();
-                // Composicion del rol linea 205
+                // Composicion del rol
                 MiUsuarioLocal.MiRolTipo.UsuarioRolID = Convert.ToInt32(CbRolesUsuario.SelectedValue);
                 MiUsuarioLocal.UsuarioDireccion = TxtUsuarioDireccion.Text.Trim();
 
                 //Realizar las consultas por email y por cedula
-                //Pasos 1.3 y 1.3.6 Almacenar un verdadero o falso
-                //en cedula OK = Usuario local en consulta
+                
                 CedulaOK = MiUsuarioLocal.ConsultarPorCedula();
 
-                // Pasos 1.4 y 1.4.6
+                // Email
                 EmailOK = MiUsuarioLocal.ConsultarPorEmail();
 
-                // Pasos 1.5 y 1.5.6
+                // Cedula
                 if (CedulaOK == false && EmailOK == false)
                 {
-                    // Se puede agregar el usuario ya que no existe un usuario cpn cedula y correo
-                    //digitados 
-
-                    // Se solicita al usuario confirmacion de si quiere agregar o no al usuario
-
+                    // Se procede a agregar el usuario y se lepregunta si esta seguro 
                     string msg = string.Format("¿Está seguro que desea agregar al usuario {0}?", MiUsuarioLocal.UsuarioNombre);
-                    DialogResult respuesta = MessageBox.Show(msg, "???", MessageBoxButtons.YesNo);
+                    DialogResult respuesta = MessageBox.Show(msg, "Añadir nuevo usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (respuesta == DialogResult.Yes)
                     {
@@ -195,7 +187,7 @@ namespace PPPracticaEmpresarial.Formularios
 
                         if (ok)
                         {
-                            MessageBox.Show("Usuario guardado corectamente!", ":)", MessageBoxButtons.OK);
+                            MessageBox.Show("Usuario guardado corectamente!", "Usuario agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             LimpiarFormulario();
 
                             // Se carga nuevamente la lista con el usuario agregado
@@ -203,7 +195,7 @@ namespace PPPracticaEmpresarial.Formularios
                         }
                         else
                         {
-                            MessageBox.Show("Usuario no se pudo agregar!", ":/", MessageBoxButtons.OK);
+                            MessageBox.Show("Usuario no se pudo agregar!", "Algo salió mal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
 
@@ -215,13 +207,13 @@ namespace PPPracticaEmpresarial.Formularios
 
                     if (CedulaOK)
                     {
-                        MessageBox.Show("Ya existe un usuario con la cedula digitada", "ERROR DE VALIDACION", MessageBoxButtons.OK);
+                        MessageBox.Show("Ya existe un usuario con la cedula digitada", "ERROR DE VALIDACION", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
                     if (EmailOK)
                     {
-                        MessageBox.Show("Ya existe un usuario con el correo digitado", "ERROR DE VALIDACION", MessageBoxButtons.OK);
+                        MessageBox.Show("Ya existe un usuario con el correo digitado", "ERROR DE VALIDACION", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -242,9 +234,7 @@ namespace PPPracticaEmpresarial.Formularios
                 MiUsuarioLocal.UsuarioCorreo = TxtUsuarioCorreo.Text.Trim();
 
 
-                // Como el cuadro de texto de la contra tiene un caracter en blanco puedo 
-                // asignar sin ningun problema el valor del cuadro de texto al atributo,
-                // en el SP se evalua si tiene o no datos.
+                // Atributo que en el SP se evalua si tiene o no datos.
 
                 MiUsuarioLocal.UsuarioContrasennia = TxtUsuarioContrasennia.Text.Trim();
 
@@ -256,18 +246,17 @@ namespace PPPracticaEmpresarial.Formularios
 
                 if (MiUsuarioLocal.ConsultarPorID())
                 {
-                    DialogResult respuesta = MessageBox.Show(" Esta seguro que desea modificar el usuario?", "???",
-                                                             MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult respuesta = MessageBox.Show(" Esta seguro que desea modificar el usuario?", "Modificación de usuarios",
+                                                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (respuesta == DialogResult.Yes)
                     {
                         if (MiUsuarioLocal.Editar())
                         {
 
-                            MessageBox.Show("El Usuario ha sido modificado correctamente", ":)",
-                                            MessageBoxButtons.OK);
+                            MessageBox.Show("El Usuario ha sido modificado correctamente", "Usuario modificado",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             LimpiarFormulario();
                             CargarListaDeUsuarios();
-
 
                         }
                     }
@@ -316,9 +305,8 @@ namespace PPPracticaEmpresarial.Formularios
                 }
                 else
                 {
-                    // (PARA AGREGAR) en caso en el que haya que evaluar la contra se debe agregar
-                    //condicion
-                    // logica
+                    // Evaluacion de la contra al agregar un usuario nuevo
+                    //condicion / logica
 
                     if (!string.IsNullOrEmpty(TxtUsuarioContrasennia.Text.Trim()))
                     {
@@ -327,7 +315,7 @@ namespace PPPracticaEmpresarial.Formularios
                     else
                     {
                         // Indicacion de que hace falta una contra
-                        MessageBox.Show("Debe digitar una contraseña para el usuario", "Error de validacion", MessageBoxButtons.OK);
+                        MessageBox.Show("Debe digitar una contraseña para el usuario", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         TxtUsuarioContrasennia.Focus();
                         return false;
 
@@ -340,7 +328,7 @@ namespace PPPracticaEmpresarial.Formularios
                 // Nombre
                 if (string.IsNullOrEmpty(TxtUsuarioNombre.Text.Trim()))
                 {
-                    MessageBox.Show("Debe digitar un nombre para el usuario", "Error de validacion", MessageBoxButtons.OK);
+                    MessageBox.Show("Debe digitar un nombre para el usuario", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     TxtUsuarioNombre.Focus();
                     return false;
                 }
@@ -348,7 +336,7 @@ namespace PPPracticaEmpresarial.Formularios
                 //Cedula
                 if (string.IsNullOrEmpty(TxtUsuarioCedula.Text.Trim()))
                 {
-                    MessageBox.Show("Debe digitar un cedula para el usuario", "Error de validacion", MessageBoxButtons.OK);
+                    MessageBox.Show("Debe digitar un cedula para el usuario", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     TxtUsuarioCedula.Focus();
                     return false;
                 }
@@ -356,7 +344,7 @@ namespace PPPracticaEmpresarial.Formularios
                 //Telefono
                 if (string.IsNullOrEmpty(TxtUsuarioTelefono.Text.Trim()))
                 {
-                    MessageBox.Show("Debe digitar un telefono para el usuario", "Error de validacion", MessageBoxButtons.OK);
+                    MessageBox.Show("Debe digitar un telefono para el usuario", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     TxtUsuarioTelefono.Focus();
                     return false;
                 }
@@ -364,7 +352,7 @@ namespace PPPracticaEmpresarial.Formularios
                 //Correo
                 if (string.IsNullOrEmpty(TxtUsuarioCorreo.Text.Trim()))
                 {
-                    MessageBox.Show("Debe digitar un correo para el usuario", "Error de validacion", MessageBoxButtons.OK);
+                    MessageBox.Show("Debe digitar un correo para el usuario", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     TxtUsuarioCorreo.Focus();
                     return false;
                 }
@@ -372,7 +360,7 @@ namespace PPPracticaEmpresarial.Formularios
                 // Roles de usuario
                 if (CbRolesUsuario.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Debe seleccionar un rol para el usuario", "Error de validacion", MessageBoxButtons.OK);
+                    MessageBox.Show("Por favor seleccione el rol de usuario", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     TxtUsuarioContrasennia.Focus();
                     return false;
                 }
@@ -384,7 +372,7 @@ namespace PPPracticaEmpresarial.Formularios
         // BOTON CANCELAR
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            //Application.Exit(FrmDMI);
+            Close();
         }
 
         // BOTON ELIMINAR 
@@ -396,7 +384,7 @@ namespace PPPracticaEmpresarial.Formularios
                 if (CboxVerActivos.Checked)
                 {
                     // Desactivar usuario
-                    DialogResult r = MessageBox.Show("Esta seguro de eliminar al usuario", "??",
+                    DialogResult r = MessageBox.Show("Esta seguro de eliminar al usuario", "Eliminar usuario",
                                                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (r == DialogResult.Yes)
@@ -404,7 +392,7 @@ namespace PPPracticaEmpresarial.Formularios
                         if (MiUsuarioLocal.Eliminar())
                         {
                             MessageBox.Show("El usuario ha sido eliminado correctamente",
-                                             "!!", MessageBoxButtons.OK);
+                                             "Usuario eliminado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                             LimpiarFormulario();
                             CargarListaDeUsuarios();
@@ -415,7 +403,7 @@ namespace PPPracticaEmpresarial.Formularios
                 else
                 {
                     // Activar usuario
-                    DialogResult r = MessageBox.Show("Esta seguro de activar nuevamente al usuario", "??",
+                    DialogResult r = MessageBox.Show("Esta seguro de activar nuevamente al usuario", "Reactivar Usuario",
                                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (r == DialogResult.Yes)
@@ -423,7 +411,7 @@ namespace PPPracticaEmpresarial.Formularios
                         if (MiUsuarioLocal.Activar())
                         {
                             MessageBox.Show("El usuario ha sido activado correctamente",
-                                             "!!", MessageBoxButtons.OK);
+                                             "Acción satisfactoria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                             LimpiarFormulario();
                             CargarListaDeUsuarios();
@@ -466,8 +454,8 @@ namespace PPPracticaEmpresarial.Formularios
         {
             e.Handled = Validaciones.CaracteresTexto(e, true);
         }
-        
-        
+
+
         // Validar si el correo esta incorrecto
         private void TxtUsuarioCorreo_Leave(object sender, EventArgs e)
         {
@@ -475,7 +463,7 @@ namespace PPPracticaEmpresarial.Formularios
             {
                 if (!Validaciones.ValidarEmail(TxtUsuarioCorreo.Text.Trim()))
                 {
-                    MessageBox.Show("El formato del correo es incorrecto", "ERROR DE VALIDACION", MessageBoxButtons.OK);
+                    MessageBox.Show("El formato del correo es incorrecto", "ERROR DE VALIDACION", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TxtUsuarioCorreo.Focus();
                 }
             }
@@ -552,5 +540,8 @@ namespace PPPracticaEmpresarial.Formularios
                 }
             }
         }
+
+        //
+
     }
 }

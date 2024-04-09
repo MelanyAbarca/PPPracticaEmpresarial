@@ -24,7 +24,7 @@ namespace Logica.Models
         public Proveedor MiProveedor { get; set; }
         public TipoCompra MiTipoCompra { get; set; }
 
-        // Composiciones Compuestas o complejas 
+        // Composiciones Compuestas
 
         public List<CompraDetalle> ListaDetalles { get; }
 
@@ -47,9 +47,7 @@ namespace Logica.Models
 
             R = MiCnn.EjecutarSELECT("SPCompraDetalleEsquema", true);
 
-            // Como estamos cargando el esquema, tambien viene la indicacion del PK(Primarykey)
-            // se debe anular esa opcion 
-
+            // Anula la opcion del pk al cargar el esquema
             R.PrimaryKey = null;
             return R;
 
@@ -62,7 +60,6 @@ namespace Logica.Models
             Conexion MiCnn = new Conexion();
 
             //Lista de parametros
-
             MiCnn.ListaDeParametros.Add(new SqlParameter("@IDProveedor", this.MiProveedor.ProveedorID));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@IDTipoCompra", this.MiTipoCompra.CompraTipoID));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@IDUsuario", this.MiUsuario.UsuarioID));
@@ -70,9 +67,7 @@ namespace Logica.Models
 
             Object retorno = MiCnn.EjecutarSELECTEscalar("SPCompraAgregar");
 
-            // Como la devolucion puede ser cualquier tipo(string, int, decimal, etc) se
-            // captura la respuesta en un object y luego se hace la conversion al tipo correcto.
-            // En este caso es un int(Por el scope Identity que me devuelve el "SPCompraAgregar").
+            // captura de la info mediante un scope Identity que me devuelve el "SPCompraAgregar".
 
             int IDCreada;
 
@@ -85,8 +80,7 @@ namespace Logica.Models
 
                     this.CompraID = IDCreada;
 
-                    // Hata este punto se puede asegurar que el insert en el encabezado salio
-                    // correctamente. Se procede con los insert en el detalle
+                    // Insert del detalle
 
                     foreach (CompraDetalle item in this.ListaDetalles)
                     {

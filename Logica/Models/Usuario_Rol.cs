@@ -28,9 +28,8 @@ namespace Logica.Models
 
         public DataTable Listar()
         {
-
+            //  Dt del listar(para mostrar los roles)
             DataTable R = new DataTable();
-
 
             Services.Conexion MiCnn = new Services.Conexion();
             R = MiCnn.EjecutarSELECT("SPUsuarioRolListar");

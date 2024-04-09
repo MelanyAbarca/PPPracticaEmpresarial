@@ -40,8 +40,7 @@ namespace Logica.Models
 
             bool R = false;
 
-            // Aca va el codigo funcional que invoca a un  procedimiento almacenado que contiene
-            // el DML Insert
+            // Codigo funcional que invoca a un  procedimiento almacenado que contiene el DML Insert
 
             Conexion MiCnn = new Conexion();
 
@@ -52,8 +51,7 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.ProveedorCedula));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Direccion", this.ProveedorDireccion));
 
-            //Normalmente los foreign keys tienen que ver con composiciones, en este caso tenemos
-            // que extraer el valor del objeto compuesto "Tipo proveedor"
+            //Extraccion del fk que se debe extraer del valor del objeto compuesto "Tipo proveedor"
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@IdTipoProveedor", this.MiTipoProveedor.ProveedorTipoDescripcion));
 
@@ -66,7 +64,7 @@ namespace Logica.Models
 
             return R;
         }
-
+        // Consulta del proveedor por medio del correo
         public bool ConsultarPorEmail()
         {
             bool R = false;
@@ -77,8 +75,6 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.ProveedorEmail));
 
             DataTable consulta = new DataTable();
-
-
 
             consulta = MiCnn.EjecutarSELECT("SPProveedorConsultarPorEmail");
 
@@ -99,7 +95,7 @@ namespace Logica.Models
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProveedorID));
 
-            // Necesito un datatable para capturar la info del usuario
+            // Necesito un datatable para capturar la info proveedor
             DataTable dt = new DataTable();
 
             dt = MiCnn.EjecutarSELECT("SPProveedorConsultarPorID");
@@ -112,35 +108,29 @@ namespace Logica.Models
             return R;
 
         }
+
+        // Consulta por medio de la cedila 
         public bool ConsultarPorCedula()
         {
             bool R = false;
 
-
-
             Conexion MiCnn = new Conexion();
 
-            // Agregamos el parametro de ceula 
+            // Paramentreo cedula agregado
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.ProveedorCedula));
 
             DataTable consulta = new DataTable();
 
-
-
             consulta = MiCnn.EjecutarSELECT("SPProveedorConsultarPorCedula");
-
-
 
             if (consulta != null && consulta.Rows.Count > 0)
             {
                 R = true;
             }
-
-
             return R;
-
         }
 
+        // Consulta del id devolviendo el proveedor
         public Proveedor ConsultarPorIDRetornaProveedor()
         {
             Proveedor R = new Proveedor();
@@ -156,8 +146,7 @@ namespace Logica.Models
 
             if (dt != null && dt.Rows.Count > 0)
             {
-                // Se crea un objeto de tipo datarow para capturar la info contenida en
-                // index 0 del datatable
+                // Objeto dt obteniendo el index 0
 
                 DataRow dr = dt.Rows[0];
 
@@ -171,7 +160,6 @@ namespace Logica.Models
 
                 R.MiTipoProveedor.ProveedorTipoDescripcion = Convert.ToString(dr["ProveedorTipoID"]);
                 R.MiTipoProveedor.ProveedorTipoDescripcion = Convert.ToString(dr["ProveedorTipoDescripcion"]);
-
 
             }
 
@@ -204,9 +192,6 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@FiltroBusqueda", pFiltroBusqueda));
 
             R = MiCnn.EjecutarSELECT("SPProveedorListar");
-
-
-
             return R;
         }
 

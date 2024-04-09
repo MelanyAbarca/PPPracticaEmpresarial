@@ -8,7 +8,7 @@ namespace Logica.Models
 {
     public class CompraDetalle
     {
-        // propiedades 
+        // Propiedades 
         public decimal Cantidad { get; set; }
         public decimal PrecioUnitario { get; set; }
 
@@ -18,7 +18,6 @@ namespace Logica.Models
         public CompraDetalle()
         {
             MiProducto = new Producto();
-
         }
     }
 }
