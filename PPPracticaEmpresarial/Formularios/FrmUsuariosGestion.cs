@@ -412,17 +412,13 @@ namespace PPPracticaEmpresarial.Formularios
                         {
                             MessageBox.Show("El usuario ha sido activado correctamente",
                                              "Activación satisfactoria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
                             LimpiarFormulario();
                             CargarListaDeUsuarios();
                         }
                     }
-
                 }
-
             }
         }
-
 
         // Traer la infromacion de los campos de texto para escribirla mediante las validaciones//
         private void TxtUsuarioNombre_KeyPress(object sender, KeyPressEventArgs e)
