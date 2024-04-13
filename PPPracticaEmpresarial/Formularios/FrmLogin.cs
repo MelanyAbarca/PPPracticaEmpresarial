@@ -34,15 +34,14 @@ namespace PPPracticaEmpresarial.Formularios
                 //Validar si la asignacion de validacion anterior esta correcta 
                 if (Globales.MiUsuarioGlobal.UsuarioID > 0)
                 {
-                    // Si la validacion es correcta el ID deberia tener un valor Mayor a 0
-                    // se da el permiso para ingresar al sistema
+                    // Si la validacion es correcta el ID deberia tener un valor Mayor a 0 y se le concede el ingreso
 
                     Globales.MiFormPrincipal.Show();
                     this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("Usuario o contraseña incorecta", "Error de validacion", MessageBoxButtons.OK);
+                    MessageBox.Show("Usuario o contraseña incorecta", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     TxtContrasennia.Focus();
                     TxtContrasennia.SelectAll();
@@ -50,7 +49,8 @@ namespace PPPracticaEmpresarial.Formularios
             }
             else
             {
-                MessageBox.Show("Faltan datos requeridos", "Error de validacion", MessageBoxButtons.OK);
+                // Indicaci'on en caso de que faten datos 
+                MessageBox.Show("Faltan datos requeridos", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }
@@ -69,20 +69,22 @@ namespace PPPracticaEmpresarial.Formularios
             TxtContrasennia.UseSystemPasswordChar = true;
         }
 
+
+        // BOTON INGRESO RAPIDO ELIMINAR DESPUES ************************
+        private void BtnIngresoDirecto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Shift & e.Alt & e.KeyCode == Keys.A)
+            {
+                // "Shift + Alt + A" combinaci'on de teclas 
+                BtnIngresoDirecto.Visible = true;
+            }
+        }
+
         private void BtnIngresoDirecto_Click(object sender, EventArgs e)
         {
             Globales.MiFormPrincipal.Show();
             this.Hide();
         }
-
-        private void BtnIngresoDirecto_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Shift & e.Alt & e.KeyCode == Keys.A)
-            {
-                // Si presionamos en el teclado la combinacion: "Shift + Alt + A"
-                BtnIngresoDirecto.Visible = true;
-            }
-        }
-
+        // BOTON INGRESO RAPIDO ELIMINAR DESPUES ************************
     }
 }

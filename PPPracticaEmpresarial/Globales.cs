@@ -13,14 +13,12 @@ namespace PPPracticaEmpresarial
 
         public static Formularios.FrmUsuariosGestion MiFormGestionUsuarios = new Formularios.FrmUsuariosGestion();
 
-        //Debemos tener un objeto de tipo usuario que permita almacenar los datos del
-        //usuario que sa haya logueado correctamente 
+        //Debemos tener un objeto de tipo usuario que permita almacenar los datos del usuario logueado correctamente 
 
         public static Logica.Models.Usuario MiUsuarioGlobal = new Logica.Models.Usuario();
 
-        // Creacion Global para atraer el formulario, se visualiza un unica instancia... 
-        // en el proyecto si debe existir esto para los mantenimientos 
-        public static Formularios.FrmRegistroCompra MiFormRegistroCompra = new Formularios.FrmRegistroCompra();
+        // Creacion Global para atraer el formulario.
+        public static Formularios.FrmProductosGestion MiFormGestionProductos = new Formularios.FrmProductosGestion();
 
         // Formulario Gestion de Proveedores
         public static Formularios.FrmProveedoresGestion MiFormGestionProveedores = new Formularios.FrmProveedoresGestion();

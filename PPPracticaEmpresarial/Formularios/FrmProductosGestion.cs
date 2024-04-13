@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PPPracticaEmpresarial.Formularios
 {
-    public partial class FrmRegistroCompra : Form
+    public partial class FrmProductosGestion : Form
     {
-        public FrmRegistroCompra()
+        public FrmProductosGestion()
         {
             InitializeComponent();
         }

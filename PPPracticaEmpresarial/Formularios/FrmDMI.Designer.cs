@@ -38,8 +38,11 @@
             this.MnuReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoDeInventariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuSalir = new System.Windows.Forms.ToolStripMenuItem();
-            this.LblUsuario = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.MnuPrincipal.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MnuPrincipal
@@ -83,12 +86,14 @@
             this.gestiónDeProveedoresToolStripMenuItem.Name = "gestiónDeProveedoresToolStripMenuItem";
             this.gestiónDeProveedoresToolStripMenuItem.Size = new System.Drawing.Size(372, 40);
             this.gestiónDeProveedoresToolStripMenuItem.Text = "Gestión de Proveedores";
+            this.gestiónDeProveedoresToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeProveedoresToolStripMenuItem_Click);
             // 
             // gestiónDeProductosToolStripMenuItem
             // 
             this.gestiónDeProductosToolStripMenuItem.Name = "gestiónDeProductosToolStripMenuItem";
             this.gestiónDeProductosToolStripMenuItem.Size = new System.Drawing.Size(372, 40);
             this.gestiónDeProductosToolStripMenuItem.Text = "Gestión de Productos";
+            this.gestiónDeProductosToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeProductosToolStripMenuItem_Click);
             // 
             // MnuProcesos
             // 
@@ -124,23 +129,38 @@
             this.MnuSalir.Size = new System.Drawing.Size(89, 36);
             this.MnuSalir.Text = "SALIR";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.LblUsuario});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 504);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1182, 32);
+            this.statusStrip1.TabIndex = 5;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI Black", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(227, 25);
+            this.toolStripStatusLabel1.Text = "Información de Usuario:";
+            // 
             // LblUsuario
             // 
-            this.LblUsuario.AutoSize = true;
-            this.LblUsuario.BackColor = System.Drawing.Color.Azure;
-            this.LblUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LblUsuario.Location = new System.Drawing.Point(1000, 9);
             this.LblUsuario.Name = "LblUsuario";
-            this.LblUsuario.Size = new System.Drawing.Size(72, 20);
-            this.LblUsuario.TabIndex = 3;
-            this.LblUsuario.Text = "Usuario: ";
+            this.LblUsuario.Size = new System.Drawing.Size(82, 25);
+            this.LblUsuario.Text = "[Usuario]";
             // 
             // FrmDMI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 536);
-            this.Controls.Add(this.LblUsuario);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.MnuPrincipal);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.MnuPrincipal;
@@ -151,6 +171,8 @@
             this.Load += new System.EventHandler(this.FrmDMI_Load);
             this.MnuPrincipal.ResumeLayout(false);
             this.MnuPrincipal.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,6 +190,8 @@
         private System.Windows.Forms.ToolStripMenuItem gestiónDeProductosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroDeComprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listadoDeInventariosToolStripMenuItem;
-        private System.Windows.Forms.Label LblUsuario;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel LblUsuario;
     }
 }

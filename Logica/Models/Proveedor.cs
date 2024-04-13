@@ -64,6 +64,75 @@ namespace Logica.Models
 
             return R;
         }
+
+
+
+        // PARA LOS BOTONES //
+
+        public bool Editar()
+        {
+            bool R = false;
+            Conexion MiCnn = new Conexion();
+
+            //Agregar Parametros
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.ProveedorEmail));
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.ProveedorNombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.ProveedorCedula));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Direccion", this.ProveedorDireccion));
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@IdRol", this.MiTipoProveedor.ProveedorTipoDescripcion));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProveedorID));
+
+            int resultado = MiCnn.EjecutarInsertUpdateDelete("SPProveedorModificar");
+
+            if (resultado > 0)
+            {
+                R = true;
+            }
+            return R;
+        }
+
+
+        // Eliminar el usuario
+        public bool Eliminar()
+        {
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProveedorID));
+
+            int respuesta = MiCnn.EjecutarInsertUpdateDelete("SPProveedorDesactivar");
+
+            if (respuesta > 0)
+            {
+                R = true;
+            }
+
+            return R;
+        }
+
+        // Activar el usuario
+        public bool Activar()
+        {
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProveedorID));
+
+            int respuesta = MiCnn.EjecutarInsertUpdateDelete("SPProveedorActivar");
+
+            if (respuesta > 0)
+            {
+                R = true;
+            }
+
+            return R;
+        }
+
+
+        // PARA LAS CONSULTAS //
+
         // Consulta del proveedor por medio del correo
         public bool ConsultarPorEmail()
         {
@@ -210,5 +279,6 @@ namespace Logica.Models
 
             return R;
         }
+
     }
 }

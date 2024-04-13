@@ -1,6 +1,6 @@
 ﻿namespace PPPracticaEmpresarial.Formularios
 {
-    partial class FrmRegistroCompra
+    partial class FrmProductosGestion
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // FrmRegistroCompra
+            // FrmProductosGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "FrmRegistroCompra";
-            this.Text = "Registro de Compra";
+            this.ClientSize = new System.Drawing.Size(1223, 534);
+            this.MaximizeBox = false;
+            this.Name = "FrmProductosGestion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Registro Productos";
             this.ResumeLayout(false);
 
         }

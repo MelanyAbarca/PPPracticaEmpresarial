@@ -24,8 +24,8 @@ namespace PPPracticaEmpresarial.Formularios
 
         private void gestiónDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          // Control para el formulario de gestion de usuarios 
-            
+            // Control para el formulario (inicializacion de gestion de usuarios)
+
             if (!Globales.MiFormGestionUsuarios.Visible)
             {
                 Globales.MiFormGestionUsuarios = new FrmUsuariosGestion();
@@ -43,6 +43,7 @@ namespace PPPracticaEmpresarial.Formularios
 
             LblUsuario.Text = InfoUsuario;
 
+            // Control para el formulario de gestion de usuarios dependiendo del usuario ADMIN-NORMAL
             switch (Globales.MiUsuarioGlobal.MiRolTipo.UsuarioRolID)
             {
                 case 1:
@@ -54,6 +55,28 @@ namespace PPPracticaEmpresarial.Formularios
                     break;
             }
 
+        }
+        // Control para el formulario (inicializacion de gestion de usuarios)
+
+        private void gestiónDeProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormGestionProveedores.Visible)
+            {
+                Globales.MiFormGestionProveedores = new FrmProveedoresGestion();
+
+                Globales.MiFormGestionProveedores.Show();
+            }
+        }
+
+        // Control para el formulario (inicializacion de gestion de usuarios)
+        private void gestiónDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormGestionProductos.Visible)
+            {
+                Globales.MiFormGestionProductos = new FrmProductosGestion();
+
+                Globales.MiFormGestionProductos.Show();
+            }
         }
     }
 }
