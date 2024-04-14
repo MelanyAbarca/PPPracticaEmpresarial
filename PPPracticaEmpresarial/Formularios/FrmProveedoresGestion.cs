@@ -11,13 +11,11 @@ using System.Windows.Forms;
 namespace PPPracticaEmpresarial.Formularios
 {
     public partial class FrmProveedoresGestion : Form
-    {
-
+    { 
         //OBJETO LOCAL PARA PROVEEDORES
         private Logica.Models.Proveedor MiProveedorLocal { get; set; }
 
-
-
+        // DT lista de los provvedores
         private DataTable ListaProveedores { get; set; }
         public FrmProveedoresGestion()
         {
@@ -92,6 +90,7 @@ namespace PPPracticaEmpresarial.Formularios
             if (!string.IsNullOrEmpty(TxtProveedorNombre.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtProveedorCedula.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtProveedorCorreo.Text.Trim()) &&
+                !string.IsNullOrEmpty(TxtProveedorDireccion.Text.Trim()) &&
                 CbTipoProveedor.SelectedIndex > -1)
             {
 
@@ -123,6 +122,14 @@ namespace PPPracticaEmpresarial.Formularios
                     return false;
                 }
 
+                //Correo
+                if (string.IsNullOrEmpty(TxtProveedorDireccion.Text.Trim()))
+                {
+                    MessageBox.Show("Debe digitar una direccion para el proveedor", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TxtProveedorDireccion.Focus();
+                    return false;
+                }
+
             }
 
             return R;
@@ -150,17 +157,15 @@ namespace PPPracticaEmpresarial.Formularios
                 MiProveedorLocal.MiTipoProveedor.Id = Convert.ToInt32(CbTipoProveedor.SelectedValue);
                 MiProveedorLocal.ProveedorDireccion = TxtProveedorDireccion.Text.Trim();
 
-
+                // Consultas por cedula / email del proveedor
                 CedulaOK = MiProveedorLocal.ConsultarPorCedula();
                 EmailOK = MiProveedorLocal.ConsultarPorEmail();
 
 
                 if (CedulaOK == false && EmailOK == false)
                 {
-                    // Se puede agregar el proveedor ya que no existe un usuario con cedula y correo
-                    //digitados 
-
-                    // Se solicita al usuario confirmacion de si quiere agregar o no al proveedor
+                    //Si no existe ningun provedoor con esta informacion, se solicita al usuario confirmacion de si
+                    //quiere agregar o no al proveedor
 
                     string msg = string.Format("¿Está seguro que desea agregar al proveedor {0}?", MiProveedorLocal.ProveedorNombre);
                     DialogResult respuesta = MessageBox.Show(msg, "???", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -171,14 +176,14 @@ namespace PPPracticaEmpresarial.Formularios
 
                         if (ok)
                         {
-                            MessageBox.Show("Proveedor guardado corectamente!", ":)", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("Proveedor guardado corectamente!", "Acción satisfactoria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             LimpiarFormulario();
 
                             CargarListaProveedores();
                         }
                         else
                         {
-                            MessageBox.Show("El proveedor no se pudo agregar!", ":/", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("El proveedor no se pudo agregar!", "Error al agregar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
 
@@ -229,7 +234,7 @@ namespace PPPracticaEmpresarial.Formularios
             CargarListaProveedores();
         }
 
-        private void TxtUsuarioCorreo_Leave(object sender, EventArgs e)
+        private void TxtProveedorCorreo_Leave(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(TxtProveedorCorreo.Text.Trim()))
             {
@@ -280,7 +285,7 @@ namespace PPPracticaEmpresarial.Formularios
                 MiProveedorLocal = new Logica.Models.Proveedor();
 
 
-                //Valor obtenido por la fila ID del proveedor local
+                //Valor de la fila ID 
                 MiProveedorLocal.ProveedorID = IdProveedor;
 
                 //Ralizar consultar el usuario por ese id y llenar el resto de atributos.
@@ -301,7 +306,6 @@ namespace PPPracticaEmpresarial.Formularios
 
                     // Combobox
                     CbTipoProveedor.SelectedValue = MiProveedorLocal.MiTipoProveedor.Id;
-
                 }
             }
         }
@@ -419,7 +423,7 @@ namespace PPPracticaEmpresarial.Formularios
 
             ListaProveedores = new DataTable();
 
-            // Filtro de la lista de ususarios
+            // Filtro de la lista de proveedores
 
             string FiltroBusqueda = "";
             if (!string.IsNullOrEmpty(TxtBuscarProveedor.Text.Trim()) && TxtBuscarProveedor.Text.Count() >= 3)

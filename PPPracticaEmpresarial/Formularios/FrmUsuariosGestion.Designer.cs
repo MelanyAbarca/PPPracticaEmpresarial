@@ -220,6 +220,7 @@
             // CbRolesUsuario
             // 
             this.CbRolesUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbRolesUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CbRolesUsuario.FormattingEnabled = true;
             this.CbRolesUsuario.Location = new System.Drawing.Point(771, 78);
             this.CbRolesUsuario.Name = "CbRolesUsuario";

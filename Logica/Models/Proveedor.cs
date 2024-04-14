@@ -35,6 +35,8 @@ namespace Logica.Models
         }
 
         // Funciones y Metodos
+
+        // PARA LOS BOTONES //
         public bool Agregar()
         {
 
@@ -66,9 +68,6 @@ namespace Logica.Models
         }
 
 
-
-        // PARA LOS BOTONES //
-
         public bool Editar()
         {
             bool R = false;
@@ -95,7 +94,7 @@ namespace Logica.Models
         }
 
 
-        // Eliminar el usuario
+        // Eliminar el proveedor(DESACTIVARLO)
         public bool Eliminar()
         {
             bool R = false;
@@ -113,7 +112,7 @@ namespace Logica.Models
             return R;
         }
 
-        // Activar el usuario
+        // Activar el proveedor
         public bool Activar()
         {
             bool R = false;
@@ -179,7 +178,7 @@ namespace Logica.Models
 
         }
 
-        // Consulta por medio de la cedila 
+        // Consulta por medio de la cedula 
         public bool ConsultarPorCedula()
         {
             bool R = false;

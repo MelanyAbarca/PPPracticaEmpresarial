@@ -41,6 +41,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.LblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.MnuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +70,7 @@
             this.MnuGestiones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gestiónDeUsuariosToolStripMenuItem,
             this.gestiónDeProveedoresToolStripMenuItem,
+            this.toolStripSeparator1,
             this.gestiónDeProductosToolStripMenuItem});
             this.MnuGestiones.Name = "MnuGestiones";
             this.MnuGestiones.Size = new System.Drawing.Size(158, 36);
@@ -106,8 +108,8 @@
             // registroDeComprasToolStripMenuItem
             // 
             this.registroDeComprasToolStripMenuItem.Name = "registroDeComprasToolStripMenuItem";
-            this.registroDeComprasToolStripMenuItem.Size = new System.Drawing.Size(339, 40);
-            this.registroDeComprasToolStripMenuItem.Text = "Registro de Compras";
+            this.registroDeComprasToolStripMenuItem.Size = new System.Drawing.Size(324, 40);
+            this.registroDeComprasToolStripMenuItem.Text = "Consulta Productos";
             // 
             // MnuReportes
             // 
@@ -155,6 +157,11 @@
             this.LblUsuario.Size = new System.Drawing.Size(82, 25);
             this.LblUsuario.Text = "[Usuario]";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(369, 6);
+            // 
             // FrmDMI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -193,5 +200,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel LblUsuario;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

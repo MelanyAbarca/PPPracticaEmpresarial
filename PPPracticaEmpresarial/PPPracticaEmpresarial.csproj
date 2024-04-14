@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formularios\FrmCompraAgregarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmCompraAgregarProducto.Designer.cs">
+      <DependentUpon>FrmCompraAgregarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmDMI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +63,12 @@
     </Compile>
     <Compile Include="Formularios\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmProveedorBuscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmProveedorBuscar.Designer.cs">
+      <DependentUpon>FrmProveedorBuscar.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmProveedoresGestion.cs">
       <SubType>Form</SubType>
@@ -79,12 +91,23 @@
     <Compile Include="Globales.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\DS_Reportes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Reportes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Validaciones.cs" />
+    <EmbeddedResource Include="Formularios\FrmCompraAgregarProducto.resx">
+      <DependentUpon>FrmCompraAgregarProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmDMI.resx">
       <DependentUpon>FrmDMI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmProveedorBuscar.resx">
+      <DependentUpon>FrmProveedorBuscar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmProveedoresGestion.resx">
       <DependentUpon>FrmProveedoresGestion.cs</DependentUpon>
@@ -118,11 +141,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Reportes\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Resources\AgregarProducto.png" />
     <Content Include="Resources\Logo Kelmar.png" />
+    <None Include="Reportes\DS_Reportes.xsc">
+      <DependentUpon>DS_Reportes.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_Reportes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Reportes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_Reportes.xss">
+      <DependentUpon>DS_Reportes.xsd</DependentUpon>
+    </None>
     <None Include="Resources\Logo Kelmar1.png" />
   </ItemGroup>
   <ItemGroup>

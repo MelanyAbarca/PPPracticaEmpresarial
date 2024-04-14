@@ -36,7 +36,7 @@ namespace PPPracticaEmpresarial.Formularios
         }
         private void CargarListaDeUsuarios()
         {
-            // Reseteo de la lista mediante una reinstancia
+            // Instancia de reseteo
 
             ListaUsuarios = new DataTable();
 
@@ -177,7 +177,7 @@ namespace PPPracticaEmpresarial.Formularios
                 // Cedula
                 if (CedulaOK == false && EmailOK == false)
                 {
-                    // Se procede a agregar el usuario y se lepregunta si esta seguro 
+                    // Se procede a agregar el usuario y se le pregunta si esta seguro 
                     string msg = string.Format("¿Está seguro que desea agregar al usuario {0}?", MiUsuarioLocal.UsuarioNombre);
                     DialogResult respuesta = MessageBox.Show(msg, "Añadir nuevo usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
