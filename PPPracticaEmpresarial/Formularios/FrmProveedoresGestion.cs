@@ -29,7 +29,7 @@ namespace PPPracticaEmpresarial.Formularios
         private void FrmProveedoresGestion_Load(object sender, EventArgs e)
         {
             MdiParent = Globales.MiFormPrincipal;
-            CargarListaDeProveedores();
+            CargarListaProveedores();
             CargarListaTiposProveedor();
         }
 
@@ -174,7 +174,7 @@ namespace PPPracticaEmpresarial.Formularios
                             MessageBox.Show("Proveedor guardado corectamente!", ":)", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             LimpiarFormulario();
 
-                            CargarListaDeProveedores();
+                            CargarListaProveedores();
                         }
                         else
                         {
@@ -226,7 +226,7 @@ namespace PPPracticaEmpresarial.Formularios
 
         private void TxtBuscarProveedor_TextChanged(object sender, EventArgs e)
         {
-            CargarListaDeProveedores();
+            CargarListaProveedores();
         }
 
         private void TxtUsuarioCorreo_Leave(object sender, EventArgs e)
@@ -300,7 +300,7 @@ namespace PPPracticaEmpresarial.Formularios
                     TxtProveedorDireccion.Text = MiProveedorLocal.ProveedorDireccion;
 
                     // Combobox
-                    CbTipoProveedor.SelectedValue = MiProveedorLocal.MiTipoProveedor.ProveedorTipoDescripcion;
+                    CbTipoProveedor.SelectedValue = MiProveedorLocal.MiTipoProveedor.Id;
 
                 }
             }
@@ -323,7 +323,7 @@ namespace PPPracticaEmpresarial.Formularios
 
                 // Atributo que en el SP se evalua si tiene o no datos.
 
-                MiProveedorLocal.MiTipoProveedor.ProveedorTipoDescripcion= Convert.ToString(CbTipoProveedor.SelectedValue);
+                MiProveedorLocal.MiTipoProveedor.Id= Convert.ToInt32(CbTipoProveedor.SelectedValue);
 
                 MiProveedorLocal.ProveedorDireccion = TxtProveedorDireccion.Text.Trim();
 
@@ -341,8 +341,7 @@ namespace PPPracticaEmpresarial.Formularios
                             MessageBox.Show("El proveedor ha sido modificado correctamente", "Proveedor modificado",
                                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             LimpiarFormulario();
-                            CargarListaDeProveedores();
-
+                            CargarListaProveedores();
                         }
                     }
 
@@ -365,7 +364,7 @@ namespace PPPracticaEmpresarial.Formularios
 
                 if (CboxVerActivos.Checked)
                 {
-                    // Desactivar usuario
+                    // Desactivar proveedor
                     DialogResult r = MessageBox.Show("Esta seguro de eliminar al usuario", "Eliminar usuario",
                                                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -377,14 +376,14 @@ namespace PPPracticaEmpresarial.Formularios
                                              "Usuario eliminado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                             LimpiarFormulario();
-                            CargarListaDeProveedores();
+                            CargarListaProveedores();
                         }
                     }
 
                 }
                 else
                 {
-                    // Activar usuario
+                    // Activar proveedor
                     DialogResult r = MessageBox.Show("Esta seguro de activar nuevamente al proveedor", "Reactivar Usuario",
                                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -395,11 +394,50 @@ namespace PPPracticaEmpresarial.Formularios
                             MessageBox.Show("El proveedor ha sido activado correctamente",
                                              "Activación satisfactoria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             LimpiarFormulario();
-                            CargarListaDeProveedores();
+                            CargarListaProveedores();
                         }
                     }
                 }
             }
+        }
+
+        private void CboxVerActivos_CheckedChanged(object sender, EventArgs e)
+        {
+            CargarListaProveedores();
+            if (CboxVerActivos.Checked)
+            {
+                BtnEliminar.Text = "Eliminar";
+            }
+            else
+            {
+                BtnEliminar.Text = "Activar";
+            }
+        }
+        private void CargarListaProveedores()
+        {
+            // Reseteo de la lista mediante una reinstancia
+
+            ListaProveedores = new DataTable();
+
+            // Filtro de la lista de ususarios
+
+            string FiltroBusqueda = "";
+            if (!string.IsNullOrEmpty(TxtBuscarProveedor.Text.Trim()) && TxtBuscarProveedor.Text.Count() >= 3)
+            {
+                FiltroBusqueda = TxtBuscarProveedor.Text.Trim();
+            }
+
+
+            if (CboxVerActivos.Checked)
+            {
+                ListaProveedores = MiProveedorLocal.ListarActivos(FiltroBusqueda);
+            }
+            else
+            {
+                ListaProveedores = MiProveedorLocal.ListarInactivos(FiltroBusqueda);
+            }
+
+            DgLista.DataSource = ListaProveedores;
         }
     }
 }

@@ -81,7 +81,8 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.ProveedorCedula));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Direccion", this.ProveedorDireccion));
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@IdRol", this.MiTipoProveedor.ProveedorTipoDescripcion));
+            // MiCnn.ListaDeParametros.Add(new SqlParameter("@IdProveedor", this.MiTipoProveedor.ProveedorTipoDescripcion));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@IdProveedor", this.MiTipoProveedor.Id));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProveedorID));
 
             int resultado = MiCnn.EjecutarInsertUpdateDelete("SPProveedorModificar");
@@ -222,14 +223,13 @@ namespace Logica.Models
                 R.ProveedorID = Convert.ToInt32(dr["ProveedorID"]);
                 R.ProveedorNombre = Convert.ToString(dr["ProveedorNombre"]);
                 R.ProveedorCedula = Convert.ToString(dr["ProveedorCedula"]);
-                R.ProveedorEmail = Convert.ToString(dr["ProveedorCorreo"]);
-                R.ProveedorDireccion = Convert.ToString(dr["ProveedoroDireccion"]);
+                R.ProveedorEmail = Convert.ToString(dr["ProveedorEmail"]);
+                R.ProveedorDireccion = Convert.ToString(dr["ProveedorDireccion"]);
 
                 //Composiciones 
 
                 R.MiTipoProveedor.ProveedorTipoDescripcion = Convert.ToString(dr["ProveedorTipoID"]);
                 R.MiTipoProveedor.ProveedorTipoDescripcion = Convert.ToString(dr["ProveedorTipoDescripcion"]);
-
             }
 
 
@@ -274,8 +274,6 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@FiltroBusqueda", pFiltroBusqueda));
 
             R = MiCnn.EjecutarSELECT("SPProveedoresListar");
-
-
 
             return R;
         }

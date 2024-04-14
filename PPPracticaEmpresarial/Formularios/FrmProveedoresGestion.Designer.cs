@@ -71,6 +71,7 @@
             this.CboxVerActivos.TabIndex = 5;
             this.CboxVerActivos.Text = "Ver Proveedores Activos";
             this.CboxVerActivos.UseVisualStyleBackColor = true;
+            this.CboxVerActivos.CheckedChanged += new System.EventHandler(this.CboxVerActivos_CheckedChanged);
             // 
             // TxtBuscarProveedor
             // 
@@ -266,7 +267,7 @@
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(196, 43);
             this.BtnEliminar.TabIndex = 14;
-            this.BtnEliminar.Text = "Eliminar";
+            this.BtnEliminar.Text = "ELIMINAR";
             this.BtnEliminar.UseVisualStyleBackColor = false;
             this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
@@ -331,16 +332,17 @@
             this.CProveedorID.MinimumWidth = 8;
             this.CProveedorID.Name = "CProveedorID";
             this.CProveedorID.ReadOnly = true;
-            this.CProveedorID.Width = 190;
+            this.CProveedorID.Width = 185;
             // 
             // CProveedorNombre
             // 
-            this.CProveedorNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CProveedorNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.CProveedorNombre.DataPropertyName = "ProveedorNombre";
             this.CProveedorNombre.HeaderText = "Nombre";
             this.CProveedorNombre.MinimumWidth = 8;
             this.CProveedorNombre.Name = "CProveedorNombre";
             this.CProveedorNombre.ReadOnly = true;
+            this.CProveedorNombre.Width = 300;
             // 
             // CProveedorCedula
             // 
@@ -350,7 +352,7 @@
             this.CProveedorCedula.MinimumWidth = 8;
             this.CProveedorCedula.Name = "CProveedorCedula";
             this.CProveedorCedula.ReadOnly = true;
-            this.CProveedorCedula.Width = 230;
+            this.CProveedorCedula.Width = 245;
             // 
             // CProveedorCorreo
             // 
@@ -360,7 +362,7 @@
             this.CProveedorCorreo.MinimumWidth = 8;
             this.CProveedorCorreo.Name = "CProveedorCorreo";
             this.CProveedorCorreo.ReadOnly = true;
-            this.CProveedorCorreo.Width = 400;
+            this.CProveedorCorreo.Width = 300;
             // 
             // CTipoProveedorDescripcion
             // 
@@ -370,12 +372,12 @@
             this.CTipoProveedorDescripcion.MinimumWidth = 8;
             this.CTipoProveedorDescripcion.Name = "CTipoProveedorDescripcion";
             this.CTipoProveedorDescripcion.ReadOnly = true;
-            this.CTipoProveedorDescripcion.Width = 160;
+            this.CTipoProveedorDescripcion.Width = 170;
             // 
             // FrmProveedoresGestion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1494, 694);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnCancelar);
