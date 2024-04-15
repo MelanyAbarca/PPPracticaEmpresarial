@@ -179,6 +179,7 @@
             this.DgvLista.Size = new System.Drawing.Size(1130, 150);
             this.DgvLista.TabIndex = 1;
             this.DgvLista.VirtualMode = true;
+            this.DgvLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLista_CellClick);
             // 
             // CPrecioVentaUnitario
             // 

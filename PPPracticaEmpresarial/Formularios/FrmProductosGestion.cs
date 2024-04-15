@@ -208,5 +208,9 @@ namespace PPPracticaEmpresarial.Formularios
             return R;
         }
 
+        private void DgvLista_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
