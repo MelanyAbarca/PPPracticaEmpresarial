@@ -369,15 +369,15 @@ namespace PPPracticaEmpresarial.Formularios
                 if (CboxVerActivos.Checked)
                 {
                     // Desactivar proveedor
-                    DialogResult r = MessageBox.Show("Esta seguro de eliminar al usuario", "Eliminar usuario",
+                    DialogResult r = MessageBox.Show("Esta seguro de eliminar al proveedor?", "Eliminar Proveedor",
                                                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (r == DialogResult.Yes)
                     {
                         if (MiProveedorLocal.Eliminar())
                         {
-                            MessageBox.Show("El usuario ha sido eliminado correctamente",
-                                             "Usuario eliminado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("El proveedor ha sido eliminado correctamente",
+                                             "Proveedor Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                             LimpiarFormulario();
                             CargarListaProveedores();
