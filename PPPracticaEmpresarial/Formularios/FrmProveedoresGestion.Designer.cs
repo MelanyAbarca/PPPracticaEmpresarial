@@ -82,6 +82,7 @@
             this.TxtBuscarProveedor.Size = new System.Drawing.Size(1032, 35);
             this.TxtBuscarProveedor.TabIndex = 4;
             this.TxtBuscarProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtBuscarProveedor.TextChanged += new System.EventHandler(this.TxtBuscarProveedor_TextChanged_1);
             // 
             // LblBuscar
             // 

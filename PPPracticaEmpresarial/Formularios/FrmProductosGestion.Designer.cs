@@ -131,8 +131,10 @@
             // 
             // TxtProveedorNombre
             // 
+            this.TxtProveedorNombre.BackColor = System.Drawing.Color.MintCream;
             this.TxtProveedorNombre.Location = new System.Drawing.Point(204, 66);
             this.TxtProveedorNombre.Name = "TxtProveedorNombre";
+            this.TxtProveedorNombre.ReadOnly = true;
             this.TxtProveedorNombre.Size = new System.Drawing.Size(411, 35);
             this.TxtProveedorNombre.TabIndex = 1;
             // 

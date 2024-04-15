@@ -28,7 +28,7 @@ namespace Logica.Models
 
         public List<CompraDetalle> ListaDetalles { get; }
 
-        // Contructor
+        // Ctor
         public Compra()
         {
             MiUsuario = new Usuario();

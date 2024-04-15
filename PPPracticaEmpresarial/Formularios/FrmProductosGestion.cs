@@ -146,7 +146,7 @@ namespace PPPracticaEmpresarial.Formularios
                     MessageBox.Show("Compra agregada correctamente!!", ":)", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
-                // TO DO: Realizar la creacion de reporte de la compra.
+                // TO DO: Realizar la creacion de reporte de la compra(productos de stock).
 
                 LimpiarForm();
             }

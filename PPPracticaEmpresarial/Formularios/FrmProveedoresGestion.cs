@@ -443,5 +443,13 @@ namespace PPPracticaEmpresarial.Formularios
 
             DgLista.DataSource = ListaProveedores;
         }
+
+        private void TxtBuscarProveedor_TextChanged_1(object sender, EventArgs e)
+        {
+            if (TxtBuscarProveedor.Text.Count() > 2 || string.IsNullOrEmpty(TxtBuscarProveedor.Text.Trim()))
+            {
+                CargarListaProveedores();
+            }
+        }
     }
 }

@@ -239,7 +239,7 @@ namespace Logica.Models
         {
             DataTable R = new DataTable();
 
-            // Codigo para llamar a una operacion listar en un procedimiento almacenado 
+            // Codigo para llamar a una operacion listar en el procedimiento almacenado 
 
             Conexion MiCnn = new Conexion();
             MiCnn.ListaDeParametros.Add(new SqlParameter("@VerActivos", verActivos));

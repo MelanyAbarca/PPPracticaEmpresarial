@@ -18,8 +18,6 @@ namespace Logica.Models
         public decimal PrecioVentaUnitario { get; set; }
         public bool Activo { get; set; }
 
-
-
         public bool Agregar()
         {
             throw new System.Exception("Not implemented");
