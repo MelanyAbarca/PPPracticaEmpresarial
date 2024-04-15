@@ -47,8 +47,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TxtTotalCantidad = new System.Windows.Forms.TextBox();
-            this.TxtTotal = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.LblTotal = new System.Windows.Forms.Label();
+            this.TxtTotal = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BtnCrearProducto = new System.Windows.Forms.Button();
             this.BtnProductoAgregar = new System.Windows.Forms.ToolStripButton();
@@ -262,32 +262,32 @@
             this.TxtTotalCantidad.Text = "0";
             this.TxtTotalCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // LblTotal
+            // 
+            this.LblTotal.AutoSize = true;
+            this.LblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotal.Location = new System.Drawing.Point(730, 41);
+            this.LblTotal.Name = "LblTotal";
+            this.LblTotal.Size = new System.Drawing.Size(97, 29);
+            this.LblTotal.TabIndex = 2;
+            this.LblTotal.Text = "TOTAL";
+            // 
             // TxtTotal
             // 
-            this.TxtTotal.AutoSize = true;
-            this.TxtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTotal.Location = new System.Drawing.Point(720, 40);
+            this.TxtTotal.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.TxtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtTotal.Location = new System.Drawing.Point(634, 73);
             this.TxtTotal.Name = "TxtTotal";
-            this.TxtTotal.Size = new System.Drawing.Size(97, 29);
-            this.TxtTotal.TabIndex = 2;
-            this.TxtTotal.Text = "TOTAL";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(634, 73);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(267, 39);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "0";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtTotal.ReadOnly = true;
+            this.TxtTotal.Size = new System.Drawing.Size(267, 39);
+            this.TxtTotal.TabIndex = 3;
+            this.TxtTotal.Text = "0";
+            this.TxtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.Controls.Add(this.TxtTotal);
+            this.groupBox3.Controls.Add(this.LblTotal);
             this.groupBox3.Controls.Add(this.TxtTotalCantidad);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Location = new System.Drawing.Point(29, 472);
@@ -397,8 +397,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TxtTotalCantidad;
-        private System.Windows.Forms.Label TxtTotal;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label LblTotal;
+        private System.Windows.Forms.TextBox TxtTotal;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button BtnCrearProducto;
     }
