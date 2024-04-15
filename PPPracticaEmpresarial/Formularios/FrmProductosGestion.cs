@@ -49,7 +49,7 @@ namespace PPPracticaEmpresarial.Formularios
         {
             TxtProveedorNombre.Clear();
             TxtNotas.Clear();
-            LblTotal.Text = "0";
+            TxtTotal.Text = "0";
             TxtTotalCantidad.Text = "0";
             CboxCompraTipo.SelectedIndex = -1;
 
@@ -119,7 +119,7 @@ namespace PPPracticaEmpresarial.Formularios
                 // significa que va a mostrar con 2 decimales 
 
                 // Este formato, formula 2 para valores monetarios
-                LblTotal.Text = string.Format("{0:C2}", totalMonto);
+                TxtTotal.Text = string.Format("{0:C2}", totalMonto);
             }
         }
 

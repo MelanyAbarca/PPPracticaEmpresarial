@@ -47,13 +47,13 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TxtTotalCantidad = new System.Windows.Forms.TextBox();
-            this.LblTotal = new System.Windows.Forms.Label();
             this.TxtTotal = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BtnCrearProducto = new System.Windows.Forms.Button();
             this.BtnProductoAgregar = new System.Windows.Forms.ToolStripButton();
             this.BtnProductoEditar = new System.Windows.Forms.ToolStripButton();
             this.BtnProductoEliminar = new System.Windows.Forms.ToolStripButton();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLista)).BeginInit();
@@ -262,16 +262,6 @@
             this.TxtTotalCantidad.Text = "0";
             this.TxtTotalCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // LblTotal
-            // 
-            this.LblTotal.AutoSize = true;
-            this.LblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTotal.Location = new System.Drawing.Point(730, 41);
-            this.LblTotal.Name = "LblTotal";
-            this.LblTotal.Size = new System.Drawing.Size(97, 29);
-            this.LblTotal.TabIndex = 2;
-            this.LblTotal.Text = "TOTAL";
-            // 
             // TxtTotal
             // 
             this.TxtTotal.BackColor = System.Drawing.Color.PaleTurquoise;
@@ -286,8 +276,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.TxtTotal);
-            this.groupBox3.Controls.Add(this.LblTotal);
             this.groupBox3.Controls.Add(this.TxtTotalCantidad);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Location = new System.Drawing.Point(29, 472);
@@ -344,6 +334,16 @@
             this.BtnProductoEliminar.Size = new System.Drawing.Size(232, 33);
             this.BtnProductoEliminar.Text = "Eliminar Producto";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(721, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 29);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "TOTAL";
+            // 
             // FrmProductosGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -397,9 +397,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TxtTotalCantidad;
-        private System.Windows.Forms.Label LblTotal;
         private System.Windows.Forms.TextBox TxtTotal;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button BtnCrearProducto;
+        private System.Windows.Forms.Label label4;
     }
 }
