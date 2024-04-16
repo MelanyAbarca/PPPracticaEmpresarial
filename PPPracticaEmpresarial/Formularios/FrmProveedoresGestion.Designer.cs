@@ -50,11 +50,11 @@
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
-            this.CProveedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CProveedorNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CProveedorCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CProveedorCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CTipoProveedorDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProveedorCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProveedorCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProveedorNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProveedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgLista)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -326,34 +326,15 @@
             this.BtnAgregar.UseVisualStyleBackColor = false;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // CProveedorID
+            // CTipoProveedorDescripcion
             // 
-            this.CProveedorID.DataPropertyName = "ProveedorID";
-            this.CProveedorID.HeaderText = "Cod.Proveedor";
-            this.CProveedorID.MinimumWidth = 8;
-            this.CProveedorID.Name = "CProveedorID";
-            this.CProveedorID.ReadOnly = true;
-            this.CProveedorID.Width = 185;
-            // 
-            // CProveedorNombre
-            // 
-            this.CProveedorNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CProveedorNombre.DataPropertyName = "ProveedorNombre";
-            this.CProveedorNombre.HeaderText = "Nombre";
-            this.CProveedorNombre.MinimumWidth = 8;
-            this.CProveedorNombre.Name = "CProveedorNombre";
-            this.CProveedorNombre.ReadOnly = true;
-            this.CProveedorNombre.Width = 300;
-            // 
-            // CProveedorCedula
-            // 
-            this.CProveedorCedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CProveedorCedula.DataPropertyName = "ProveedorCedula";
-            this.CProveedorCedula.HeaderText = "Cédula";
-            this.CProveedorCedula.MinimumWidth = 8;
-            this.CProveedorCedula.Name = "CProveedorCedula";
-            this.CProveedorCedula.ReadOnly = true;
-            this.CProveedorCedula.Width = 245;
+            this.CTipoProveedorDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CTipoProveedorDescripcion.DataPropertyName = "TipoProveedorDescripcion";
+            this.CTipoProveedorDescripcion.HeaderText = "Tipo Proveedor";
+            this.CTipoProveedorDescripcion.MinimumWidth = 8;
+            this.CTipoProveedorDescripcion.Name = "CTipoProveedorDescripcion";
+            this.CTipoProveedorDescripcion.ReadOnly = true;
+            this.CTipoProveedorDescripcion.Width = 170;
             // 
             // CProveedorCorreo
             // 
@@ -365,15 +346,34 @@
             this.CProveedorCorreo.ReadOnly = true;
             this.CProveedorCorreo.Width = 300;
             // 
-            // CTipoProveedorDescripcion
+            // CProveedorCedula
             // 
-            this.CTipoProveedorDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CTipoProveedorDescripcion.DataPropertyName = "TipoProveedorDescripcion";
-            this.CTipoProveedorDescripcion.HeaderText = "Tipo Proveedor";
-            this.CTipoProveedorDescripcion.MinimumWidth = 8;
-            this.CTipoProveedorDescripcion.Name = "CTipoProveedorDescripcion";
-            this.CTipoProveedorDescripcion.ReadOnly = true;
-            this.CTipoProveedorDescripcion.Width = 170;
+            this.CProveedorCedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CProveedorCedula.DataPropertyName = "ProveedorCedula";
+            this.CProveedorCedula.HeaderText = "Cédula";
+            this.CProveedorCedula.MinimumWidth = 8;
+            this.CProveedorCedula.Name = "CProveedorCedula";
+            this.CProveedorCedula.ReadOnly = true;
+            this.CProveedorCedula.Width = 245;
+            // 
+            // CProveedorNombre
+            // 
+            this.CProveedorNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CProveedorNombre.DataPropertyName = "ProveedorNombre";
+            this.CProveedorNombre.HeaderText = "Nombre";
+            this.CProveedorNombre.MinimumWidth = 8;
+            this.CProveedorNombre.Name = "CProveedorNombre";
+            this.CProveedorNombre.ReadOnly = true;
+            this.CProveedorNombre.Width = 300;
+            // 
+            // CProveedorID
+            // 
+            this.CProveedorID.DataPropertyName = "ProveedorID";
+            this.CProveedorID.HeaderText = "Cod.Proveedor";
+            this.CProveedorID.MinimumWidth = 8;
+            this.CProveedorID.Name = "CProveedorID";
+            this.CProveedorID.ReadOnly = true;
+            this.CProveedorID.Width = 185;
             // 
             // FrmProveedoresGestion
             // 

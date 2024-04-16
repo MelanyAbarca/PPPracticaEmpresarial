@@ -71,20 +71,22 @@ namespace PPPracticaEmpresarial.Formularios
 
 
         // BOTON INGRESO RAPIDO ELIMINAR DESPUES ************************
-        private void BtnIngresoDirecto_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Shift & e.Alt & e.KeyCode == Keys.A)
-            {
-                // "Shift + Alt + A" combinaci'on de teclas 
-                BtnIngresoDirecto.Visible = true;
-            }
-        }
-
+       
         private void BtnIngresoDirecto_Click(object sender, EventArgs e)
         {
             Globales.MiFormPrincipal.Show();
             this.Hide();
         }
+
+        private void FrmLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+                if (e.Shift & e.Alt & e.KeyCode == Keys.A)
+                {
+                    // "Shift + Alt + A" combinacion de teclas 
+                    BtnIngresoDirecto.Visible = true;
+                }
+        }
         // BOTON INGRESO RAPIDO ELIMINAR DESPUES ************************
+
     }
 }

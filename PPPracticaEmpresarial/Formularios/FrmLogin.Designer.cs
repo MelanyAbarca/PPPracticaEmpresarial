@@ -144,7 +144,6 @@
             this.BtnIngresoDirecto.Text = "Ingreso Direc";
             this.BtnIngresoDirecto.UseVisualStyleBackColor = true;
             this.BtnIngresoDirecto.Click += new System.EventHandler(this.BtnIngresoDirecto_Click);
-            this.BtnIngresoDirecto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BtnIngresoDirecto_KeyDown);
             // 
             // FrmLogin
             // 
@@ -167,6 +166,7 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLogin_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

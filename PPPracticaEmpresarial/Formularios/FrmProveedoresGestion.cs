@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace PPPracticaEmpresarial.Formularios
 {
     public partial class FrmProveedoresGestion : Form
-    { 
+    {
         //OBJETO LOCAL PARA PROVEEDORES
         private Logica.Models.Proveedor MiProveedorLocal { get; set; }
 
@@ -83,7 +83,7 @@ namespace PPPracticaEmpresarial.Formularios
 
 
         // VALIDACION DE LOS DATOS PARA AGREGAR UN NUEVO PROVEEDOR // 
-        private bool ValidarDatosDigitados(bool OmitirPassword = false)
+        private bool ValidarDatosDigitados()
         {
             Boolean R = false;
 
@@ -122,7 +122,7 @@ namespace PPPracticaEmpresarial.Formularios
                     return false;
                 }
 
-                //Correo
+                //Direccion
                 if (string.IsNullOrEmpty(TxtProveedorDireccion.Text.Trim()))
                 {
                     MessageBox.Show("Debe digitar una direccion para el proveedor", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -139,8 +139,6 @@ namespace PPPracticaEmpresarial.Formularios
         {
             if (ValidarDatosDigitados())
             {
-
-
                 // Estas variables almacenan el resultado de las consultas por correo y cedula
                 bool CedulaOK;
                 bool EmailOK;
@@ -317,7 +315,7 @@ namespace PPPracticaEmpresarial.Formularios
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            if (ValidarDatosDigitados(true))
+            if (ValidarDatosDigitados())
             {
 
                 MiProveedorLocal.ProveedorNombre = TxtProveedorNombre.Text.Trim();
@@ -327,7 +325,7 @@ namespace PPPracticaEmpresarial.Formularios
 
                 // Atributo que en el SP se evalua si tiene o no datos.
 
-                MiProveedorLocal.MiTipoProveedor.Id= Convert.ToInt32(CbTipoProveedor.SelectedValue);
+                MiProveedorLocal.MiTipoProveedor.Id = Convert.ToInt32(CbTipoProveedor.SelectedValue);
 
                 MiProveedorLocal.ProveedorDireccion = TxtProveedorDireccion.Text.Trim();
 
@@ -359,7 +357,7 @@ namespace PPPracticaEmpresarial.Formularios
             LimpiarFormulario();
             DgLista.ClearSelection();
         }
-      
+
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
