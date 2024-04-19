@@ -218,5 +218,21 @@ namespace PPPracticaEmpresarial.Formularios
         {
 
         }
+
+        private void BtnListaCompras_Click(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormConsultaProductos.Visible)
+            {
+                Globales.MiFormConsultaProductos = new FrmConsultaProductos();
+
+                Globales.MiFormConsultaProductos.Show();
+            }
+
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -63,7 +63,14 @@ namespace PPPracticaEmpresarial.Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!Globales.MiFormGestionProductos.Visible)
+            {
+                Globales.MiFormGestionProductos = new FrmProductosGestion();
 
+                Globales.MiFormGestionProductos.Show();
+
+                CargarListaDeCompras();
+            }
         }
 
         private void BtnModificar_Click(object sender, EventArgs e)
@@ -115,7 +122,7 @@ namespace PPPracticaEmpresarial.Formularios
                 }
                 else
                 {
-                    // Activar usuario
+                    // Activar la compra
                     DialogResult r = MessageBox.Show("Esta seguro de activar nuevamente la compra", "Reactivar Productos",
                                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
