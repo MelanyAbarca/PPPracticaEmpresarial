@@ -24,5 +24,9 @@ namespace PPPracticaEmpresarial
         public static Formularios.FrmProveedoresGestion MiFormGestionProveedores = new Formularios.FrmProveedoresGestion();
 
         public static Logica.Models.Proveedor MiProveedorGlobal = new Logica.Models.Proveedor();
+
+        // Formulario Consulta de productos en el menu procesos
+        public static Formularios.FrmConsultaProductos MiFormConsultaProductos = new Formularios.FrmConsultaProductos();
+
     }
 }

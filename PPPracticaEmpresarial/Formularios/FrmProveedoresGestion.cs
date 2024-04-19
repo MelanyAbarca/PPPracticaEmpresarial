@@ -83,7 +83,7 @@ namespace PPPracticaEmpresarial.Formularios
 
 
         // VALIDACION DE LOS DATOS PARA AGREGAR UN NUEVO PROVEEDOR // 
-        private bool ValidarDatosDigitados()
+        private bool ValidarDatosDigitados() //bool OmitirCedula = false
         {
             Boolean R = false;
 
@@ -92,8 +92,31 @@ namespace PPPracticaEmpresarial.Formularios
                 !string.IsNullOrEmpty(TxtProveedorCorreo.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtProveedorDireccion.Text.Trim()) &&
                 CbTipoProveedor.SelectedIndex > -1)
+
             {
 
+                //if (OmitirCedula)
+                //{
+                //    R = true;
+                //}
+                //else
+                //{
+                //    // Evaluacion de la contra al agregar un proveedor nuevo
+                //    //condicion / logica
+
+                //    if (!string.IsNullOrEmpty(TxtProveedorCedula.Text.Trim()))
+                //    {
+                //        R = true;
+                //    }
+                //    else
+                //    {
+                //        // Indicacion de que hace falta una contra
+                //        MessageBox.Show("Debe digitar una contraseña para el usuario", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //        TxtProveedorCedula.Focus();
+                //        return false;
+
+                //    }
+                //}
             }
             else
             {

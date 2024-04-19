@@ -108,5 +108,106 @@ namespace Logica.Models
             return R;
 
         }
+
+
+
+
+        // Para Eliminar y activar y desactivar los productos o compras.
+
+        public DataTable ListarActivos(string pFiltroBusqueda)
+        {
+            DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            // Definicion de los parametros de la conexion
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@VerActivos", true));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@FiltroBusqueda", pFiltroBusqueda));
+
+            R = MiCnn.EjecutarSELECT("SPComprasListar");
+
+
+
+            return R;
+        }
+       
+
+        public DataTable ListarInactivos(string pFiltroBusqueda)
+        {
+            DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            // En este caso como el procedimiento almacenado tiene un parametro, debemos
+            // por lo tanto definir ese parametro en la lista de parametros del objeto de
+            //conexion
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@VerActivos", false));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@FiltroBusqueda", pFiltroBusqueda));
+
+            R = MiCnn.EjecutarSELECT("SPComprasListar");
+
+
+
+            return R;
+        }
+
+        public bool ConsultarCompraPorID()
+        {
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.CompraID));
+
+            // Captura la informacion del usuario
+            DataTable dt = new DataTable();
+
+            dt = MiCnn.EjecutarSELECT("SPCompraConsultarPorID");
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                R = true;
+            }
+
+            return R;
+
+        }
+
+        // Funcion para eliminar la compra/ productos
+        public bool Eliminar()
+        {
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.CompraID));
+
+            int respuesta = MiCnn.EjecutarInsertUpdateDelete("SPCompraDesactivar");
+
+            if (respuesta > 0)
+            {
+                R = true;
+            }
+
+            return R;
+        }
+
+        public bool Activar()
+        {
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.CompraID));
+
+            int respuesta = MiCnn.EjecutarInsertUpdateDelete("SPCompraActivar");
+
+            if (respuesta > 0)
+            {
+                R = true;
+            }
+
+            return R;
+        }
+
     }
 }

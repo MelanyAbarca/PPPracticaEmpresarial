@@ -39,6 +39,7 @@ namespace PPPracticaEmpresarial.Formularios
             DgvLista.ClearSelection();
         }
 
+
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
             // Pasar los datos al formulario anterior 

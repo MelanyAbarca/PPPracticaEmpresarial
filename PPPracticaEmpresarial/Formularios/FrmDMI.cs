@@ -78,5 +78,15 @@ namespace PPPracticaEmpresarial.Formularios
                 Globales.MiFormGestionProductos.Show();
             }
         }
+
+        private void ConsultaProductosDeComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormConsultaProductos.Visible)
+            {
+                Globales.MiFormConsultaProductos = new FrmConsultaProductos();
+
+                Globales.MiFormConsultaProductos.Show();
+            }
+        }
     }
 }

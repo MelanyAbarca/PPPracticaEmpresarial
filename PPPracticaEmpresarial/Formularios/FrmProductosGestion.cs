@@ -93,6 +93,8 @@ namespace PPPracticaEmpresarial.Formularios
             }
         }
 
+        // Funcion del total de los productos.
+
         private void Totalizar()
         {
             //Validar que el datatable tenga filas 
@@ -102,6 +104,7 @@ namespace PPPracticaEmpresarial.Formularios
                 decimal totalItems = 0;
                 decimal totalMonto = 0;
 
+                // Usar el recorrido de las filas
                 foreach (DataRow row in ListaProductos.Rows)
                 {
                     totalItems += Convert.ToDecimal(row["Cantidad"]);
@@ -186,18 +189,21 @@ namespace PPPracticaEmpresarial.Formularios
             }
             else
             {
+                // Caso en que no haya seleccionado un proveedor
                 if (string.IsNullOrEmpty(TxtProveedorNombre.Text.Trim()))
                 {
                     MessageBox.Show("Se debe seleccionar un proveedor", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
 
+                // Caso en que no haya seleccionado un tipo de compra
                 if (CboxCompraTipo.SelectedIndex == -1)
                 {
                     MessageBox.Show("Se debe seleccionar un tipo compra", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
 
+                // Caso en que no haya dilas en el detalle
                 if (ListaProductos.Rows.Count == 0)
                 {
                     MessageBox.Show("Debe haber al menos una fila en el detalle", "Error de validacion", MessageBoxButtons.OK);

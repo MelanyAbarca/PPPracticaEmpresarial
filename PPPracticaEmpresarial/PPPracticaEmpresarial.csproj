@@ -52,6 +52,12 @@
     <Compile Include="Formularios\FrmCompraAgregarProducto.Designer.cs">
       <DependentUpon>FrmCompraAgregarProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmConsultaProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmConsultaProductos.Designer.cs">
+      <DependentUpon>FrmConsultaProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmDMI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <Compile Include="Validaciones.cs" />
     <EmbeddedResource Include="Formularios\FrmCompraAgregarProducto.resx">
       <DependentUpon>FrmCompraAgregarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmConsultaProductos.resx">
+      <DependentUpon>FrmConsultaProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmDMI.resx">
       <DependentUpon>FrmDMI.cs</DependentUpon>
