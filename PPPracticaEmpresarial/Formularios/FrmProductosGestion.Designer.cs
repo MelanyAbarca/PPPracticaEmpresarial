@@ -363,7 +363,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmProductosGestion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registro Productos";
+            this.Text = "Registro de Compras de Productos";
             this.Load += new System.EventHandler(this.FrmProductosGestion_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

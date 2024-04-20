@@ -100,6 +100,9 @@ namespace PPPracticaEmpresarial.Formularios
             }
         }
 
-       
+        private void MnuSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

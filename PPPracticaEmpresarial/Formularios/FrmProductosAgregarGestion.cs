@@ -224,12 +224,15 @@ namespace PPPracticaEmpresarial.Formularios
                     }
 
                 }
-
-
             }
         }
 
-        
+        private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
 
 
 

@@ -32,6 +32,13 @@
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.LblBuscar = new System.Windows.Forms.Label();
             this.DgvLista = new System.Windows.Forms.DataGridView();
+            this.CProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProductoCodigoBarras = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCantidadStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecioVentaUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCostoUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCategoriaDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
@@ -52,13 +59,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.CProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CProductoCodigoBarras = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCantidadStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPrecioVentaUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCostoUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCategoriaDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLista)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -122,6 +122,70 @@
             this.DgvLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLista_CellClick);
             this.DgvLista.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvLista_DataBindingComplete);
             // 
+            // CProductoID
+            // 
+            this.CProductoID.DataPropertyName = "ProductoID";
+            this.CProductoID.HeaderText = "Código";
+            this.CProductoID.MinimumWidth = 8;
+            this.CProductoID.Name = "CProductoID";
+            this.CProductoID.ReadOnly = true;
+            this.CProductoID.Width = 150;
+            // 
+            // CProductoCodigoBarras
+            // 
+            this.CProductoCodigoBarras.DataPropertyName = "ProductoCodigoBarras";
+            this.CProductoCodigoBarras.HeaderText = "Código Barras";
+            this.CProductoCodigoBarras.MinimumWidth = 8;
+            this.CProductoCodigoBarras.Name = "CProductoCodigoBarras";
+            this.CProductoCodigoBarras.ReadOnly = true;
+            this.CProductoCodigoBarras.Width = 200;
+            // 
+            // CProductoNombre
+            // 
+            this.CProductoNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CProductoNombre.DataPropertyName = "ProductoNombre";
+            this.CProductoNombre.HeaderText = "Producto";
+            this.CProductoNombre.MinimumWidth = 8;
+            this.CProductoNombre.Name = "CProductoNombre";
+            this.CProductoNombre.ReadOnly = true;
+            this.CProductoNombre.Width = 400;
+            // 
+            // CCantidadStock
+            // 
+            this.CCantidadStock.DataPropertyName = "CantidadStock";
+            this.CCantidadStock.HeaderText = "Stock";
+            this.CCantidadStock.MinimumWidth = 8;
+            this.CCantidadStock.Name = "CCantidadStock";
+            this.CCantidadStock.ReadOnly = true;
+            this.CCantidadStock.Width = 150;
+            // 
+            // CPrecioVentaUnitario
+            // 
+            this.CPrecioVentaUnitario.DataPropertyName = "PrecioVentaUnitario";
+            this.CPrecioVentaUnitario.HeaderText = "Precio Unitario";
+            this.CPrecioVentaUnitario.MinimumWidth = 8;
+            this.CPrecioVentaUnitario.Name = "CPrecioVentaUnitario";
+            this.CPrecioVentaUnitario.ReadOnly = true;
+            this.CPrecioVentaUnitario.Width = 150;
+            // 
+            // CCostoUnitario
+            // 
+            this.CCostoUnitario.DataPropertyName = "CostoUnitario";
+            this.CCostoUnitario.HeaderText = "Costo Unitario";
+            this.CCostoUnitario.MinimumWidth = 8;
+            this.CCostoUnitario.Name = "CCostoUnitario";
+            this.CCostoUnitario.ReadOnly = true;
+            this.CCostoUnitario.Width = 150;
+            // 
+            // CCategoriaDescripcion
+            // 
+            this.CCategoriaDescripcion.DataPropertyName = "CategoriaDescripcion";
+            this.CCategoriaDescripcion.HeaderText = "Categoria Producto";
+            this.CCategoriaDescripcion.MinimumWidth = 8;
+            this.CCategoriaDescripcion.Name = "CCategoriaDescripcion";
+            this.CCategoriaDescripcion.ReadOnly = true;
+            this.CCategoriaDescripcion.Width = 150;
+            // 
             // BtnEliminar
             // 
             this.BtnEliminar.BackColor = System.Drawing.Color.CadetBlue;
@@ -182,6 +246,7 @@
             this.BtnAgregar.TabIndex = 28;
             this.BtnAgregar.Text = "AGREGAR";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // groupBox1
             // 
@@ -323,70 +388,6 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Código Producto:";
             // 
-            // CProductoID
-            // 
-            this.CProductoID.DataPropertyName = "ProductoID";
-            this.CProductoID.HeaderText = "Código";
-            this.CProductoID.MinimumWidth = 8;
-            this.CProductoID.Name = "CProductoID";
-            this.CProductoID.ReadOnly = true;
-            this.CProductoID.Width = 150;
-            // 
-            // CProductoCodigoBarras
-            // 
-            this.CProductoCodigoBarras.DataPropertyName = "ProductoCodigoBarras";
-            this.CProductoCodigoBarras.HeaderText = "Código Barras";
-            this.CProductoCodigoBarras.MinimumWidth = 8;
-            this.CProductoCodigoBarras.Name = "CProductoCodigoBarras";
-            this.CProductoCodigoBarras.ReadOnly = true;
-            this.CProductoCodigoBarras.Width = 200;
-            // 
-            // CProductoNombre
-            // 
-            this.CProductoNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CProductoNombre.DataPropertyName = "ProductoNombre";
-            this.CProductoNombre.HeaderText = "Producto";
-            this.CProductoNombre.MinimumWidth = 8;
-            this.CProductoNombre.Name = "CProductoNombre";
-            this.CProductoNombre.ReadOnly = true;
-            this.CProductoNombre.Width = 400;
-            // 
-            // CCantidadStock
-            // 
-            this.CCantidadStock.DataPropertyName = "CantidadStock";
-            this.CCantidadStock.HeaderText = "Stock";
-            this.CCantidadStock.MinimumWidth = 8;
-            this.CCantidadStock.Name = "CCantidadStock";
-            this.CCantidadStock.ReadOnly = true;
-            this.CCantidadStock.Width = 150;
-            // 
-            // CPrecioVentaUnitario
-            // 
-            this.CPrecioVentaUnitario.DataPropertyName = "PrecioVentaUnitario";
-            this.CPrecioVentaUnitario.HeaderText = "Precio Unitario";
-            this.CPrecioVentaUnitario.MinimumWidth = 8;
-            this.CPrecioVentaUnitario.Name = "CPrecioVentaUnitario";
-            this.CPrecioVentaUnitario.ReadOnly = true;
-            this.CPrecioVentaUnitario.Width = 150;
-            // 
-            // CCostoUnitario
-            // 
-            this.CCostoUnitario.DataPropertyName = "CostoUnitario";
-            this.CCostoUnitario.HeaderText = "Costo Unitario";
-            this.CCostoUnitario.MinimumWidth = 8;
-            this.CCostoUnitario.Name = "CCostoUnitario";
-            this.CCostoUnitario.ReadOnly = true;
-            this.CCostoUnitario.Width = 150;
-            // 
-            // CCategoriaDescripcion
-            // 
-            this.CCategoriaDescripcion.DataPropertyName = "CategoriaDescripcion";
-            this.CCategoriaDescripcion.HeaderText = "Categoria Producto";
-            this.CCategoriaDescripcion.MinimumWidth = 8;
-            this.CCategoriaDescripcion.Name = "CCategoriaDescripcion";
-            this.CCategoriaDescripcion.ReadOnly = true;
-            this.CCategoriaDescripcion.Width = 150;
-            // 
             // FrmProductosAgregarGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -406,7 +407,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmProductosAgregarGestion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Agregar Nuevos Productos";
+            this.Text = "Gestión de Productos";
             this.Load += new System.EventHandler(this.FrmProductosAgregarGestion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvLista)).EndInit();
             this.groupBox1.ResumeLayout(false);

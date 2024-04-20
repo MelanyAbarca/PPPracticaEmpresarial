@@ -159,6 +159,7 @@
             this.MnuSalir.Name = "MnuSalir";
             this.MnuSalir.Size = new System.Drawing.Size(89, 36);
             this.MnuSalir.Text = "SALIR";
+            this.MnuSalir.Click += new System.EventHandler(this.MnuSalir_Click);
             // 
             // statusStrip1
             // 
