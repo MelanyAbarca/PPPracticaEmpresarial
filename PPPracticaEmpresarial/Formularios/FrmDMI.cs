@@ -69,7 +69,8 @@ namespace PPPracticaEmpresarial.Formularios
         }
 
         // Control para el formulario (inicializacion de gestion de usuarios)
-        private void gestiónDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void gestiónDeComprasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!Globales.MiFormGestionProductos.Visible)
             {
@@ -88,5 +89,17 @@ namespace PPPracticaEmpresarial.Formularios
                 Globales.MiFormConsultaProductos.Show();
             }
         }
+
+        private void agregarProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormGestionAgregarProductos.Visible)
+            {
+                Globales.MiFormGestionAgregarProductos = new FrmProductosAgregarGestion();
+
+                Globales.MiFormGestionAgregarProductos.Show();
+            }
+        }
+
+       
     }
 }

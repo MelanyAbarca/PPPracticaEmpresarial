@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace PPPracticaEmpresarial.Formularios
 {
@@ -83,7 +84,7 @@ namespace PPPracticaEmpresarial.Formularios
 
 
         // VALIDACION DE LOS DATOS PARA AGREGAR UN NUEVO PROVEEDOR // 
-        private bool ValidarDatosDigitados() //bool OmitirCedula = false
+        private bool ValidarDatosDigitados(bool cedula) 
         {
             Boolean R = false;
 
@@ -94,29 +95,7 @@ namespace PPPracticaEmpresarial.Formularios
                 CbTipoProveedor.SelectedIndex > -1)
 
             {
-
-                //if (OmitirCedula)
-                //{
-                //    R = true;
-                //}
-                //else
-                //{
-                //    // Evaluacion de la contra al agregar un proveedor nuevo
-                //    //condicion / logica
-
-                //    if (!string.IsNullOrEmpty(TxtProveedorCedula.Text.Trim()))
-                //    {
-                //        R = true;
-                //    }
-                //    else
-                //    {
-                //        // Indicacion de que hace falta una contra
-                //        MessageBox.Show("Debe digitar una contraseña para el usuario", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //        TxtProveedorCedula.Focus();
-                //        return false;
-
-                //    }
-                //}
+                R = true;
             }
             else
             {
@@ -160,7 +139,7 @@ namespace PPPracticaEmpresarial.Formularios
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            if (ValidarDatosDigitados())
+            if (ValidarDatosDigitados(true))
             {
                 // Estas variables almacenan el resultado de las consultas por correo y cedula
                 bool CedulaOK;
@@ -338,7 +317,7 @@ namespace PPPracticaEmpresarial.Formularios
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            if (ValidarDatosDigitados())
+            if (ValidarDatosDigitados(true))
             {
 
                 MiProveedorLocal.ProveedorNombre = TxtProveedorNombre.Text.Trim();

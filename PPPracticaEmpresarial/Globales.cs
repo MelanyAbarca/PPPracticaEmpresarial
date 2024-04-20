@@ -28,5 +28,7 @@ namespace PPPracticaEmpresarial
         // Formulario Consulta de productos en el menu procesos
         public static Formularios.FrmConsultaProductos MiFormConsultaProductos = new Formularios.FrmConsultaProductos();
 
+        // Formulario Para Agregar nuevos productos
+        public static Formularios.FrmProductosAgregarGestion MiFormGestionAgregarProductos = new Formularios.FrmProductosAgregarGestion();
     }
 }

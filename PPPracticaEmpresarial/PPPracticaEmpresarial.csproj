@@ -70,6 +70,12 @@
     <Compile Include="Formularios\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmProductosAgregarGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmProductosAgregarGestion.Designer.cs">
+      <DependentUpon>FrmProductosAgregarGestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmProveedorBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmProductosAgregarGestion.resx">
+      <DependentUpon>FrmProductosAgregarGestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmProveedorBuscar.resx">
       <DependentUpon>FrmProveedorBuscar.cs</DependentUpon>

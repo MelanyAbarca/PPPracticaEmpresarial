@@ -55,7 +55,7 @@ namespace Logica.Models
 
             //Extraccion del fk que se debe extraer del valor del objeto compuesto "Tipo proveedor"
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@IdTipoProveedor", this.MiTipoProveedor.ProveedorTipoDescripcion));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@IdTipoProveedor", this.MiTipoProveedor.Id));
 
             int resultado = MiCnn.EjecutarInsertUpdateDelete("SPProveedorAgregar");
 
@@ -80,7 +80,6 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.ProveedorCedula));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Direccion", this.ProveedorDireccion));
 
-            // MiCnn.ListaDeParametros.Add(new SqlParameter("@IdProveedor", this.MiTipoProveedor.ProveedorTipoDescripcion));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@IdProveedor", this.MiTipoProveedor.Id));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProveedorID));
 

@@ -33,8 +33,11 @@
             this.gestiónDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónDeProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.gestiónDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónDeComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuProcesos = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.ConsultaProductosDeComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoDeInventariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +74,7 @@
             this.gestiónDeUsuariosToolStripMenuItem,
             this.gestiónDeProveedoresToolStripMenuItem,
             this.toolStripSeparator1,
-            this.gestiónDeProductosToolStripMenuItem});
+            this.gestiónDeComprasToolStripMenuItem});
             this.MnuGestiones.Name = "MnuGestiones";
             this.MnuGestiones.Size = new System.Drawing.Size(158, 36);
             this.MnuGestiones.Text = "GESTIONES ";
@@ -95,20 +98,40 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(369, 6);
             // 
-            // gestiónDeProductosToolStripMenuItem
+            // gestiónDeComprasToolStripMenuItem
             // 
-            this.gestiónDeProductosToolStripMenuItem.Name = "gestiónDeProductosToolStripMenuItem";
-            this.gestiónDeProductosToolStripMenuItem.Size = new System.Drawing.Size(372, 40);
-            this.gestiónDeProductosToolStripMenuItem.Text = "Gestión de Productos";
-            this.gestiónDeProductosToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeProductosToolStripMenuItem_Click);
+            this.gestiónDeComprasToolStripMenuItem.Name = "gestiónDeComprasToolStripMenuItem";
+            this.gestiónDeComprasToolStripMenuItem.Size = new System.Drawing.Size(372, 40);
+            this.gestiónDeComprasToolStripMenuItem.Text = "Gestión de Compras";
+            this.gestiónDeComprasToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeComprasToolStripMenuItem_Click);
             // 
             // MnuProcesos
             // 
             this.MnuProcesos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agregarProductosToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.toolStripSeparator3,
             this.ConsultaProductosDeComprasToolStripMenuItem});
             this.MnuProcesos.Name = "MnuProcesos";
             this.MnuProcesos.Size = new System.Drawing.Size(146, 36);
             this.MnuProcesos.Text = "PROCESOS";
+            // 
+            // agregarProductosToolStripMenuItem
+            // 
+            this.agregarProductosToolStripMenuItem.Name = "agregarProductosToolStripMenuItem";
+            this.agregarProductosToolStripMenuItem.Size = new System.Drawing.Size(324, 40);
+            this.agregarProductosToolStripMenuItem.Text = "Agregar Productos";
+            this.agregarProductosToolStripMenuItem.Click += new System.EventHandler(this.agregarProductosToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(321, 6);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(321, 6);
             // 
             // ConsultaProductosDeComprasToolStripMenuItem
             // 
@@ -195,12 +218,15 @@
         private System.Windows.Forms.ToolStripMenuItem MnuSalir;
         private System.Windows.Forms.ToolStripMenuItem gestiónDeUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestiónDeProveedoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestiónDeProductosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestiónDeComprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ConsultaProductosDeComprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listadoDeInventariosToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel LblUsuario;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem agregarProductosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
