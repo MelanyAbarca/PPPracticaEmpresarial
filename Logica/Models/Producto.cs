@@ -21,7 +21,32 @@ namespace Logica.Models
 
         public bool Agregar()
         {
-            throw new System.Exception("Not implemented");
+            bool R = false;
+
+            // Codigo funcional que invoca a un  procedimiento almacenado que contiene el DML Insert
+
+            Conexion MiCnn = new Conexion();
+
+            //Agregar Parametros
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.ProductoNombre));
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@CodigoBarras", this.ProductoCodigoBarras));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Stock", this.CantidadStock));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@CostoUnitario", this.CostoUnitario));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@PrecioVentaUnitario", this.PrecioVentaUnitario));
+
+            //Extraccion del fk que se debe extraer del valor del objeto compuesto "Categoria del producto"
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@IdCategoriaProducto", this.MiCategoria.CategoriaID));
+
+            int resultado = MiCnn.EjecutarInsertUpdateDelete("SPProductosAgregar");
+
+            if (resultado > 0)
+            {
+                R = true;
+            }
+
+            return R;
         }
         public bool Editar()
         {
@@ -35,7 +60,7 @@ namespace Logica.Models
             Conexion MiCnn = new Conexion();
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProductoID));
 
-            int respuesta = MiCnn.EjecutarInsertUpdateDelete("SPProductoDesactivar");
+            int respuesta = MiCnn.EjecutarInsertUpdateDelete("SPProductoActivar");
 
             if (respuesta > 0)
             {
@@ -182,7 +207,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.ProductoNombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.ProductoNombre));
 
             DataTable consulta = new DataTable();
 

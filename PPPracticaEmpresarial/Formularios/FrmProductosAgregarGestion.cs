@@ -117,21 +117,19 @@ namespace PPPracticaEmpresarial.Formularios
                 MiProductoLocal = new Logica.Models.Producto();
 
 
-                //Ahora le agregamos el valor obtenido por la fila ID del usuario local
+                //Valor obtenido por la fila ID del producto local
                 MiProductoLocal.ProductoID = IdProducto;
 
-                //Una vez que tengo el objeto local con el valor del ID, puedo ir a consultar
-                //el usuario por ese id y llenar el resto de atributos.
+                //Consultar el producto por el ID
 
                 MiProductoLocal = MiProductoLocal.ConsultarPorIDRetornaProducto();
 
-                // Validamos que el usuario local tenga datos 
+                // Validacion de que el producto local tenga datos
 
                 if (MiProductoLocal != null && MiProductoLocal.ProductoID > 0)
                 {
 
-                    // Si lo cargamos correctamente el usuario local llenamos los
-                    // controles
+                    // Si se carga el producto correctamente se procede a llenar los ddatos
 
                     TxtProductoID.Text = Convert.ToString(MiProductoLocal.ProductoID);
                     TxtProductoCodigoBarras.Text = MiProductoLocal.ProductoCodigoBarras;
@@ -245,7 +243,7 @@ namespace PPPracticaEmpresarial.Formularios
             }
             else
             {
-                // Evaluar que pasa cuando algo falta
+                // Evaluacion cuando algo falta
                 // Codigo Barras
                 if (string.IsNullOrEmpty(TxtProductoCodigoBarras.Text.Trim()))
                 {
@@ -310,10 +308,8 @@ namespace PPPracticaEmpresarial.Formularios
 
                 // Composicion del tipo de Producto
                 MiProductoLocal.MiCategoria.CategoriaID = Convert.ToInt32(CbCategoriasProductos.SelectedValue);
-               
 
-
-                // Consultas por cedula / email del Producto
+                // Consultas por codigo barras / nombre del Producto
                 CodigoBarrasOK = MiProductoLocal.ConsultarPorCodigoDeBarras();
                 NombreOK = MiProductoLocal.ConsultarPorNombre();
 
@@ -342,7 +338,6 @@ namespace PPPracticaEmpresarial.Formularios
                             MessageBox.Show("El producto no se pudo agregar!", "Error al agregar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-
 
                 }
                 else
