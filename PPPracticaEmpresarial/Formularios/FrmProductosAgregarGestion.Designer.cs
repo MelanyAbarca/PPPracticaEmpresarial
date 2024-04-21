@@ -84,6 +84,7 @@
             this.TxtBuscar.Size = new System.Drawing.Size(923, 35);
             this.TxtBuscar.TabIndex = 5;
             this.TxtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // LblBuscar
             // 
@@ -222,6 +223,7 @@
             this.BtnModificar.TabIndex = 30;
             this.BtnModificar.Text = "MODIFICAR";
             this.BtnModificar.UseVisualStyleBackColor = false;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // BtnLimpiar
             // 

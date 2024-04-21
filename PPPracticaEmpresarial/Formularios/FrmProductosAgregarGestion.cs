@@ -358,22 +358,79 @@ namespace PPPracticaEmpresarial.Formularios
 
                 }
 
-                
+            }
+        }
 
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            if (ValidarDatosDigitados())
+            {
 
+                MiProductoLocal.ProductoCodigoBarras = TxtProductoCodigoBarras.Text.Trim();
+                MiProductoLocal.ProductoNombre = TxtProductoNombre.Text.Trim();
+                MiProductoLocal.CantidadStock = Convert.ToDecimal(TxtCantidadStock.Text.Trim());
+                MiProductoLocal.CostoUnitario = Convert.ToDecimal(TxtProductoCostoUnitario.Text.Trim());
+                MiProductoLocal.PrecioVentaUnitario = Convert.ToDecimal(TxtProductoPrecioVentaUnitario.Text.Trim());
 
+                // Composicion del tipo de Producto: Atributo evaluado en el SP
+                MiProductoLocal.MiCategoria.CategoriaID = Convert.ToInt32(CbCategoriasProductos.SelectedValue);
 
+                // Al editar se toma en cuenta el ID
 
+                if (MiProductoLocal.ConsultarPorID())
+                {
+                    DialogResult respuesta = MessageBox.Show(" Esta seguro que desea modificar el producto?", "Modificación de productos",
+                                                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        if (MiProductoLocal.Editar())
+                        {
 
+                            MessageBox.Show("El producto ha sido modificado correctamente", "Modificación de productos",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            LimpiarFormulario();
+                            CargarListaProductos();
+                        }
+                    }
 
+                }
 
             }
         }
 
+        private void CargarListaProductos()
+        {
+            // Reseteo de la lista mediante una reinstancia
+
+            ListaProductos = new DataTable();
+
+            // Filtro de la lista de proveedores
+
+            string FiltroBusqueda = "";
+            if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()) && TxtBuscar.Text.Count() >= 3)
+            {
+                FiltroBusqueda = TxtBuscar.Text.Trim();
+            }
 
 
+            if (CboxVerActivos.Checked)
+            {
+                ListaProductos = MiProductoLocal.ListarActivos(FiltroBusqueda);
+            }
+            else
+            {
+                ListaProductos = MiProductoLocal.ListarInactivos(FiltroBusqueda);
+            }
 
-
+            DgvLista.DataSource = ListaProductos;
+        }
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (TxtBuscar.Text.Count() > 2 || string.IsNullOrEmpty(TxtBuscar.Text.Trim()))
+            {
+                CargarListaProductos();
+            }
+        }
     }
 }
 

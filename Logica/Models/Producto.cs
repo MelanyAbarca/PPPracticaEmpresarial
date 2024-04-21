@@ -50,7 +50,27 @@ namespace Logica.Models
         }
         public bool Editar()
         {
-            throw new System.Exception("Not implemented");
+            bool R = false;
+            Conexion MiCnn = new Conexion();
+
+            //Agregar Parametros
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.ProductoNombre));
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@CodigoBarras", this.ProductoCodigoBarras));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Stock", this.CantidadStock));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@CostoUnitario", this.CostoUnitario));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@PrecioVentaUnitario", this.PrecioVentaUnitario));
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@IdCategoriaProducto", this.MiCategoria.CategoriaID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProductoID));
+
+            int resultado = MiCnn.EjecutarInsertUpdateDelete("SPProductoModificar");
+
+            if (resultado > 0)
+            {
+                R = true;
+            }
+            return R;
         }
 
         public bool Activar()
@@ -139,6 +159,27 @@ namespace Logica.Models
         }
 
         // FUNCIONES PARA LAS CONSULTAS
+
+        public bool ConsultarPorID()
+        {
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProductoID));
+
+            // Necesito un datatable para capturar la info proveedor
+            DataTable dt = new DataTable();
+
+            dt = MiCnn.EjecutarSELECT("SPProductoConsultarPorID");
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                R = true;
+            }
+
+            return R;
+        }
 
         public Producto ConsultarPorIDRetornaProducto()
         {

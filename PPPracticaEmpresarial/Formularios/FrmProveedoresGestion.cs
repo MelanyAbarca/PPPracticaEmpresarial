@@ -335,14 +335,14 @@ namespace PPPracticaEmpresarial.Formularios
 
                 if (MiProveedorLocal.ConsultarPorID())
                 {
-                    DialogResult respuesta = MessageBox.Show(" Esta seguro que desea modificar el proveedor?", "Modificación de usuarios",
+                    DialogResult respuesta = MessageBox.Show(" Esta seguro que desea modificar el proveedor?", "Modificación de proveedores",
                                                              MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (respuesta == DialogResult.Yes)
                     {
                         if (MiProveedorLocal.Editar())
                         {
 
-                            MessageBox.Show("El proveedor ha sido modificado correctamente", "Proveedor modificado",
+                            MessageBox.Show("El proveedor ha sido modificado correctamente", "Modificación de proveedores",
                                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             LimpiarFormulario();
                             CargarListaProveedores();
@@ -388,7 +388,7 @@ namespace PPPracticaEmpresarial.Formularios
                 else
                 {
                     // Activar proveedor
-                    DialogResult r = MessageBox.Show("Esta seguro de activar nuevamente al proveedor", "Reactivar Usuario",
+                    DialogResult r = MessageBox.Show("Esta seguro de activar nuevamente al proveedor", "Reactivar Proveedor",
                                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (r == DialogResult.Yes)
