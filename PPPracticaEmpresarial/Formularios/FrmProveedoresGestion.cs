@@ -407,7 +407,7 @@ namespace PPPracticaEmpresarial.Formularios
 
         private void CboxVerActivos_CheckedChanged(object sender, EventArgs e)
         {
-            CargarListaProveedores();
+            CargarListaDeProveedores();
             if (CboxVerActivos.Checked)
             {
                 BtnEliminar.Text = "Eliminar";

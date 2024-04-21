@@ -28,11 +28,6 @@ namespace Logica.Models
             throw new System.Exception("Not implemented");
         }
 
-        public bool ConsultarPorCodigoDeBarras(ref string codigoBarras)
-        {
-            throw new System.Exception("Not implemented");
-        }
-
         public bool Activar()
         {
             bool R = false;
@@ -177,6 +172,48 @@ namespace Logica.Models
                 R = true;
             }
 
+            return R;
+        }
+
+        public bool ConsultarPorNombre()
+        {
+            bool R = false;
+
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.ProductoNombre));
+
+            DataTable consulta = new DataTable();
+
+            consulta = MiCnn.EjecutarSELECT("SPProductoConsultarPorNombre");
+
+
+            if (consulta != null && consulta.Rows.Count > 0)
+            {
+                R = true;
+            }
+
+            return R;
+        }
+
+        public bool ConsultarPorCodigoDeBarras()
+        {
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            // Paramentreo cedula agregado
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@CodigoBarras", this.ProductoCodigoBarras));
+
+            DataTable consulta = new DataTable();
+
+            consulta = MiCnn.EjecutarSELECT("SPProductoConsultarPorCodigoBarras");
+
+            if (consulta != null && consulta.Rows.Count > 0)
+            {
+                R = true;
+            }
             return R;
         }
 

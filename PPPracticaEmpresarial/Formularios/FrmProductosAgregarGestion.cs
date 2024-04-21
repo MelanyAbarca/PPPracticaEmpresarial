@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -208,7 +209,7 @@ namespace PPPracticaEmpresarial.Formularios
                 else
                 {
                     // Reactivar el producto
-                    DialogResult r = MessageBox.Show("Esta seguro de activar nuevamente al usuario", "??",
+                    DialogResult r = MessageBox.Show("Esta seguro de activar nuevamente el producto", "??",
                                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (r == DialogResult.Yes)
@@ -227,16 +228,154 @@ namespace PPPracticaEmpresarial.Formularios
             }
         }
 
+        // Funcion que valida los datos 
+        private bool ValidarDatosDigitados()
+        {
+            Boolean R = false;
+
+            if (!string.IsNullOrEmpty(TxtProductoCodigoBarras.Text.Trim()) &&
+                !string.IsNullOrEmpty(TxtProductoNombre.Text.Trim()) &&
+                !string.IsNullOrEmpty(TxtCantidadStock.Text.Trim()) &&
+                !string.IsNullOrEmpty(TxtProductoCostoUnitario.Text.Trim()) &&
+                 !string.IsNullOrEmpty(TxtProductoPrecioVentaUnitario.Text.Trim()) &&
+                CbCategoriasProductos.SelectedIndex > -1)
+
+            {
+                R = true;
+            }
+            else
+            {
+                // Evaluar que pasa cuando algo falta
+                // Codigo Barras
+                if (string.IsNullOrEmpty(TxtProductoCodigoBarras.Text.Trim()))
+                {
+                    MessageBox.Show("Debe digitar un ncodigo de barras para el producto", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TxtProductoCodigoBarras.Focus();
+                    return false;
+                }
+
+                //Nombre
+                if (string.IsNullOrEmpty(TxtProductoNombre.Text.Trim()))
+                {
+                    MessageBox.Show("Debe digitar un nombre para el produto", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TxtProductoNombre.Focus();
+                    return false;
+                }
+
+                //Cantidad en Stock
+                if (string.IsNullOrEmpty(TxtCantidadStock.Text.Trim()))
+                {
+                    MessageBox.Show("Debe digitar una cantidad de items para el producto", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TxtCantidadStock.Focus();
+                    return false;
+                }
+
+                //Costo del producto unitario
+                if (string.IsNullOrEmpty(TxtProductoCostoUnitario.Text.Trim()))
+                {
+                    MessageBox.Show("Debe digitar el costo por unidad del producto", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TxtProductoCostoUnitario.Focus();
+                    return false;
+                }
+
+                //Precio de venta: si es el mismo del costo es por que el producto no se vende
+                if (string.IsNullOrEmpty(TxtProductoPrecioVentaUnitario.Text.Trim()))
+                {
+                    MessageBox.Show("Debe digitar el costo por unidad del producto", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TxtProductoCostoUnitario.Focus();
+                    return false;
+                }
+            }
+
+            return R;
+        }
+
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
+            if (ValidarDatosDigitados())
+            {
+                // Estas variables almacenan el resultado de las consultas por codigo de barras y nombre
+                bool CodigoBarrasOK;
+                bool NombreOK;
 
+
+                MiProductoLocal = new Logica.Models.Producto();
+
+                // Llenar los valores de los atributos con los datos digitados en el form
+                MiProductoLocal.ProductoCodigoBarras = TxtProductoCodigoBarras.Text.Trim();
+                MiProductoLocal.ProductoNombre = TxtProductoNombre.Text.Trim();
+                MiProductoLocal.CantidadStock = Convert.ToDecimal(TxtCantidadStock.Text.Trim());
+                MiProductoLocal.CostoUnitario = Convert.ToDecimal(TxtProductoCostoUnitario.Text.Trim());
+                MiProductoLocal.PrecioVentaUnitario = Convert.ToDecimal(TxtProductoPrecioVentaUnitario.Text.Trim());
+
+                // Composicion del tipo de Producto
+                MiProductoLocal.MiCategoria.CategoriaID = Convert.ToInt32(CbCategoriasProductos.SelectedValue);
+               
+
+
+                // Consultas por cedula / email del Producto
+                CodigoBarrasOK = MiProductoLocal.ConsultarPorCodigoDeBarras();
+                NombreOK = MiProductoLocal.ConsultarPorNombre();
+
+
+                if (CodigoBarrasOK == false && NombreOK == false)
+                {
+                    //Si no existe ningun provedoor con esta informacion, se solicita al usuario confirmacion de si
+                    //quiere agregar o no al proveedor
+
+                    string msg = string.Format("¿Está seguro que desea agregar al productor {0}?", MiProductoLocal.ProductoNombre);
+                    DialogResult respuesta = MessageBox.Show(msg, "???", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        bool ok = MiProductoLocal.Agregar();
+
+                        if (ok)
+                        {
+                            MessageBox.Show("Producto agregado corectamente!", "Acción satisfactoria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            LimpiarFormulario();
+
+                            CargarListaDeProductos();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El producto no se pudo agregar!", "Error al agregar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+
+                }
+                else
+                {
+                    // Indicar al usuario si falla alguna consulta
+
+                    if (CodigoBarrasOK)
+                    {
+                        MessageBox.Show("Ya existe un producto con el codigo de barras digitado", "ERROR DE VALIDACION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (NombreOK)
+                    {
+                        MessageBox.Show("Ya existe un producto con el nombre digitado", "ERROR DE VALIDACION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                }
+
+                
+
+
+
+
+
+
+
+
+            }
         }
 
 
-
-
-
-        // TODO LA FUNCION DE LA VALIDACION DE TODOS LOS DATOS ****
 
 
 

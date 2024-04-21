@@ -47,17 +47,6 @@ namespace PPPracticaEmpresarial.Formularios
                 FiltroBusqueda = TxtBuscar.Text.Trim();
             }
 
-
-            if (CboxVerActivos.Checked)
-            {
-                ListaCompras = MiCompraLocal.ListarActivos(FiltroBusqueda);
-            }
-            else
-            {
-                ListaCompras = MiCompraLocal.ListarInactivos(FiltroBusqueda);
-            }
-
-            DgvLista.DataSource = ListaCompras;
         }
 
 
@@ -96,49 +85,6 @@ namespace PPPracticaEmpresarial.Formularios
         //    TxtUsuarioDireccion.Clear();
         //}
 
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            if (MiCompraLocal.CompraID > 0 && MiCompraLocal.ConsultarCompraPorID())
-            {
-
-                if (CboxVerActivos.Checked)
-                {
-                    // Desactivar usuario
-                    DialogResult r = MessageBox.Show("Esta seguro de eliminar la informacion de la compra", "Eliminar Productos",
-                                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (r == DialogResult.Yes)
-                    {
-                        if (MiCompraLocal.Eliminar())
-                        {
-                            MessageBox.Show("La compra ha sido eliminada correctamente",
-                                             "Productos Eliminados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                            // LimpiarFormulario();
-                            CargarListaDeCompras();
-                        }
-                    }
-
-                }
-                else
-                {
-                    // Activar la compra
-                    DialogResult r = MessageBox.Show("Esta seguro de activar nuevamente la compra", "Reactivar Productos",
-                                                   MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (r == DialogResult.Yes)
-                    {
-                        if (MiCompraLocal.Activar())
-                        {
-                            MessageBox.Show("Los productos de la compra han sido activados correctamente",
-                                             "Activación satisfactoria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                           // LimpiarFormulario();
-                            CargarListaDeCompras();
-                        }
-                    }
-                }
-            }
-        }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
@@ -149,21 +95,6 @@ namespace PPPracticaEmpresarial.Formularios
         {
             CargarListaDeCompras();
         }
-
-
-        private void CboxVerActivos_CheckedChanged(object sender, EventArgs e)
-        {
-            CargarListaDeCompras();
-            if (CboxVerActivos.Checked)
-            {
-                BtnEliminar.Text = "Eliminar";
-            }
-            else
-            {
-                BtnEliminar.Text = "Activar";
-            }
-        }
-
         private void DgvLista_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             DgvLista.ClearSelection();
