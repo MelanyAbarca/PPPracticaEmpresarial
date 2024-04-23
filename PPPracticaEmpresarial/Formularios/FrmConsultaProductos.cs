@@ -50,7 +50,7 @@ namespace PPPracticaEmpresarial.Formularios
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnAgregar_Click(object sender, EventArgs e)
         {
             if (!Globales.MiFormGestionProductos.Visible)
             {
@@ -60,11 +60,6 @@ namespace PPPracticaEmpresarial.Formularios
 
                 CargarListaDeCompras();
             }
-        }
-
-        private void BtnModificar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void BtnLimpiar_Click(object sender, EventArgs e)
@@ -99,12 +94,5 @@ namespace PPPracticaEmpresarial.Formularios
         {
             DgvLista.ClearSelection();
         }
-
-        private void DgvLista_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        
     }
 }

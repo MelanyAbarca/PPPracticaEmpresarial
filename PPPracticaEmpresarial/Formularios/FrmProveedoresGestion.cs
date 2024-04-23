@@ -84,7 +84,7 @@ namespace PPPracticaEmpresarial.Formularios
 
 
         // VALIDACION DE LOS DATOS PARA AGREGAR UN NUEVO PROVEEDOR // 
-        private bool ValidarDatosDigitados(bool cedula) 
+        private bool ValidarDatosDigitados() 
         {
             Boolean R = false;
 
@@ -139,7 +139,7 @@ namespace PPPracticaEmpresarial.Formularios
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            if (ValidarDatosDigitados(true))
+            if (ValidarDatosDigitados())
             {
                 // Estas variables almacenan el resultado de las consultas por correo y cedula
                 bool CedulaOK;
@@ -317,7 +317,7 @@ namespace PPPracticaEmpresarial.Formularios
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            if (ValidarDatosDigitados(true))
+            if (ValidarDatosDigitados())
             {
 
                 MiProveedorLocal.ProveedorNombre = TxtProveedorNombre.Text.Trim();
