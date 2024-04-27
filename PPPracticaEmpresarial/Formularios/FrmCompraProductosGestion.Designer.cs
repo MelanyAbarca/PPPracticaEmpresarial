@@ -1,6 +1,6 @@
 ﻿namespace PPPracticaEmpresarial.Formularios
 {
-    partial class FrmProductosGestion
+    partial class FrmCompraProductosGestion
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProductosGestion));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCompraProductosGestion));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TxtNotas = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();

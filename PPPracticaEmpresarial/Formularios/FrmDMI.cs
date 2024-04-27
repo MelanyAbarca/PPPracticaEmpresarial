@@ -74,7 +74,7 @@ namespace PPPracticaEmpresarial.Formularios
         {
             if (!Globales.MiFormGestionProductos.Visible)
             {
-                Globales.MiFormGestionProductos = new FrmProductosGestion();
+                Globales.MiFormGestionProductos = new FrmCompraProductosGestion();
 
                 Globales.MiFormGestionProductos.Show();
             }
@@ -84,7 +84,7 @@ namespace PPPracticaEmpresarial.Formularios
         {
             if (!Globales.MiFormConsultaProductos.Visible)
             {
-                Globales.MiFormConsultaProductos = new FrmConsultaProductos();
+                Globales.MiFormConsultaProductos = new FrmConsultaInformacionCompra();
 
                 Globales.MiFormConsultaProductos.Show();
             }

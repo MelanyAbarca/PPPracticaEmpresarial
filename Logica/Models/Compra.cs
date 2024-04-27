@@ -112,9 +112,8 @@ namespace Logica.Models
 
 
 
-        // Para Eliminar y activar y desactivar los productos o compras.
-
-        public DataTable ListarActivos(string pFiltroBusqueda)
+        // Para Ver la lista de las compras activas
+        public DataTable ListarActivos(string pFiltroListaBusqueda)
         {
             DataTable R = new DataTable();
 
@@ -122,28 +121,7 @@ namespace Logica.Models
 
             // Definicion de los parametros de la conexion
             MiCnn.ListaDeParametros.Add(new SqlParameter("@VerActivos", true));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@FiltroBusqueda", pFiltroBusqueda));
-
-            R = MiCnn.EjecutarSELECT("SPComprasListar");
-
-
-
-            return R;
-        }
-       
-
-        public DataTable ListarInactivos(string pFiltroBusqueda)
-        {
-            DataTable R = new DataTable();
-
-            Conexion MiCnn = new Conexion();
-
-            // En este caso como el procedimiento almacenado tiene un parametro, debemos
-            // por lo tanto definir ese parametro en la lista de parametros del objeto de
-            //conexion
-
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@VerActivos", false));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@FiltroBusqueda", pFiltroBusqueda));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@FiltroBusqueda", pFiltroListaBusqueda));
 
             R = MiCnn.EjecutarSELECT("SPComprasListar");
 
@@ -173,6 +151,41 @@ namespace Logica.Models
             return R;
 
         }
+
+
+        public Compra ConsultarPorIDRetornaCompra()
+        {
+            Compra R = new Compra();
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.CompraID));
+
+            // Dt que captura la info para la ompra
+            DataTable dt = new DataTable();
+
+            dt = MiCnn.EjecutarSELECT("SPCompraConsultarPorID");
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+
+                R.CompraID = Convert.ToInt32(dr["CompraID"]);
+                R.MiProveedor.ProveedorID = Convert.ToInt32(dr["ProveedorID"]);
+                R.CompraNotas = Convert.ToString(dr["CompraNotas"]);
+                R.CompraFecha = Convert.ToDateTime(dr["CompraFecha"]);
+
+                //Composiciones 
+
+                R.MiTipoCompra.CompraTipoID = Convert.ToInt32(dr["CompraTipoID"]);
+                R.MiTipoCompra.ComptaTipoDescripcion = Convert.ToString(dr["CompraTipoDescripcion"]);
+            }
+
+            return R;
+
+        }
+
+
 
         // Funcion para eliminar la compra/ productos
         public bool Eliminar()

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PPPracticaEmpresarial.Formularios
 {
-    public partial class FrmConsultaProductos : Form
+    public partial class FrmConsultaInformacionCompra : Form
     {
         // Onjeto local de compra
         private Logica.Models.Compra MiCompraLocal { get; set; }
@@ -19,7 +19,7 @@ namespace PPPracticaEmpresarial.Formularios
 
         private DataTable ListaCompras { get; set; }
 
-        public FrmConsultaProductos()
+        public FrmConsultaInformacionCompra()
         {
             InitializeComponent();
             MiCompraLocal = new Logica.Models.Compra();
@@ -47,6 +47,10 @@ namespace PPPracticaEmpresarial.Formularios
                 FiltroBusqueda = TxtBuscar.Text.Trim();
             }
 
+            // Listar 
+
+            ListaCompras = MiCompraLocal.ListarActivos(FiltroBusqueda);
+            DgvLista.DataSource = ListaCompras;
         }
 
 
@@ -54,7 +58,7 @@ namespace PPPracticaEmpresarial.Formularios
         {
             if (!Globales.MiFormGestionProductos.Visible)
             {
-                Globales.MiFormGestionProductos = new FrmProductosGestion();
+                Globales.MiFormGestionProductos = new FrmCompraProductosGestion();
 
                 Globales.MiFormGestionProductos.Show();
 
@@ -64,21 +68,17 @@ namespace PPPracticaEmpresarial.Formularios
 
         private void BtnLimpiar_Click(object sender, EventArgs e)
         {
-
+            LimpiarFormulario();
+            DgvLista.ClearSelection();
         }
-        //private void LimpiarFormulario()
-        //{
-        //    TxtUsuarioID.Clear();
-        //    TxtUsuarioNombre.Clear();
-        //    TxtUsuarioCedula.Clear();
-        //    TxtUsuarioTelefono.Clear();
-        //    TxtUsuarioCorreo.Clear();
-        //    TxtUsuarioContrasennia.Clear();
-
-        //    CbRolesUsuario.SelectedIndex = -1;
-
-        //    TxtUsuarioDireccion.Clear();
-        //}
+        private void LimpiarFormulario()
+        {
+            TxtUsuarioID.Clear();
+            TxtCompraID.Clear();
+            TxtProveedorID.Clear();
+            TxtCompraNotas.Clear();
+            TxtCompraFecha.Clear();
+        }
 
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -93,6 +93,41 @@ namespace PPPracticaEmpresarial.Formularios
         private void DgvLista_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             DgvLista.ClearSelection();
+        }
+
+        private void DgvLista_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DgvLista.SelectedRows.Count == 1)
+            {
+                LimpiarFormulario();
+
+                DataGridViewRow MiFila = DgvLista.SelectedRows[0];
+
+                int IdCompra = Convert.ToInt32(MiFila.Cells["CCompraID"].Value);
+
+                // Reinstancia del usuario local
+                MiCompraLocal = new Logica.Models.Compra();
+
+
+                // Valor ID del usuario local
+                MiCompraLocal.CompraID = IdCompra;
+                MiCompraLocal = MiCompraLocal.ConsultarPorIDRetornaCompra();
+
+                // Validamos que el usuario local tenga datos 
+
+                if (MiCompraLocal != null && MiCompraLocal.CompraID > 0)
+                {
+
+                    // Se llena los controles 
+
+                    TxtUsuarioID.Text = Convert.ToString(MiCompraLocal.MiUsuario.UsuarioID);
+                    TxtCompraID.Text = Convert.ToString(MiCompraLocal.CompraID);
+                    TxtProveedorID.Text = Convert.ToString(MiCompraLocal.MiProveedor.ProveedorID);
+                    TxtCompraNotas.Text = MiCompraLocal.CompraNotas;
+                    TxtCompraFecha.Text = Convert.ToString(MiCompraLocal.CompraFecha);
+
+                }
+            }
         }
     }
 }

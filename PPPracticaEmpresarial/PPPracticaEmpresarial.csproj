@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,11 +55,11 @@
     <Compile Include="Formularios\FrmCompraAgregarProducto.Designer.cs">
       <DependentUpon>FrmCompraAgregarProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmConsultaProductos.cs">
+    <Compile Include="Formularios\FrmConsultaInformacionCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmConsultaProductos.Designer.cs">
-      <DependentUpon>FrmConsultaProductos.cs</DependentUpon>
+    <Compile Include="Formularios\FrmConsultaInformacionCompra.Designer.cs">
+      <DependentUpon>FrmConsultaInformacionCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmDMI.cs">
       <SubType>Form</SubType>
@@ -88,11 +91,11 @@
     <Compile Include="Formularios\FrmProveedoresGestion.Designer.cs">
       <DependentUpon>FrmProveedoresGestion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmProductosGestion.cs">
+    <Compile Include="Formularios\FrmCompraProductosGestion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmProductosGestion.Designer.cs">
-      <DependentUpon>FrmProductosGestion.cs</DependentUpon>
+    <Compile Include="Formularios\FrmCompraProductosGestion.Designer.cs">
+      <DependentUpon>FrmCompraProductosGestion.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmUsuariosGestion.cs">
       <SubType>Form</SubType>
@@ -108,12 +111,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_Reportes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Validaciones.cs" />
     <EmbeddedResource Include="Formularios\FrmCompraAgregarProducto.resx">
       <DependentUpon>FrmCompraAgregarProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmConsultaProductos.resx">
-      <DependentUpon>FrmConsultaProductos.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FrmConsultaInformacionCompra.resx">
+      <DependentUpon>FrmConsultaInformacionCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmDMI.resx">
       <DependentUpon>FrmDMI.cs</DependentUpon>
@@ -130,8 +134,8 @@
     <EmbeddedResource Include="Formularios\FrmProveedoresGestion.resx">
       <DependentUpon>FrmProveedoresGestion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmProductosGestion.resx">
-      <DependentUpon>FrmProductosGestion.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FrmCompraProductosGestion.resx">
+      <DependentUpon>FrmCompraProductosGestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmUsuariosGestion.resx">
       <DependentUpon>FrmUsuariosGestion.cs</DependentUpon>
@@ -146,6 +150,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,6 +168,19 @@
   <ItemGroup>
     <Content Include="Resources\AgregarProducto.png" />
     <Content Include="Resources\Logo Kelmar.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Reportes\DS_Reportes.xsc">
       <DependentUpon>DS_Reportes.xsd</DependentUpon>
     </None>

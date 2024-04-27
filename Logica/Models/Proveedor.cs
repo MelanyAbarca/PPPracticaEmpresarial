@@ -226,7 +226,7 @@ namespace Logica.Models
 
                 //Composiciones 
 
-                R.MiTipoProveedor.ProveedorTipoDescripcion = Convert.ToString(dr["ProveedorTipoID"]);
+                R.MiTipoProveedor.Id = Convert.ToInt32(dr["ProveedorTipoID"]);
                 R.MiTipoProveedor.ProveedorTipoDescripcion = Convert.ToString(dr["ProveedorTipoDescripcion"]);
             }
 

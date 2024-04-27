@@ -18,7 +18,7 @@ namespace PPPracticaEmpresarial
         public static Logica.Models.Usuario MiUsuarioGlobal = new Logica.Models.Usuario();
 
         // Creacion Global para atraer el formulario.
-        public static Formularios.FrmProductosGestion MiFormGestionProductos = new Formularios.FrmProductosGestion();
+        public static Formularios.FrmCompraProductosGestion MiFormGestionProductos = new Formularios.FrmCompraProductosGestion();
 
         // Formulario Gestion de Proveedores
         public static Formularios.FrmProveedoresGestion MiFormGestionProveedores = new Formularios.FrmProveedoresGestion();
@@ -26,7 +26,7 @@ namespace PPPracticaEmpresarial
         public static Logica.Models.Proveedor MiProveedorGlobal = new Logica.Models.Proveedor();
 
         // Formulario Consulta de productos en el menu procesos
-        public static Formularios.FrmConsultaProductos MiFormConsultaProductos = new Formularios.FrmConsultaProductos();
+        public static Formularios.FrmConsultaInformacionCompra MiFormConsultaProductos = new Formularios.FrmConsultaInformacionCompra();
 
         // Formulario Para Agregar nuevos productos
         public static Formularios.FrmProductosAgregarGestion MiFormGestionAgregarProductos = new Formularios.FrmProductosAgregarGestion();

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace PPPracticaEmpresarial.Formularios
 {
-    public partial class FrmProductosGestion : Form
+    public partial class FrmCompraProductosGestion : Form
     {
 
         // Objetos de compra locales 
@@ -19,7 +19,7 @@ namespace PPPracticaEmpresarial.Formularios
 
         public DataTable ListaProductos { get; set; }
 
-        public FrmProductosGestion()
+        public FrmCompraProductosGestion()
         {
             InitializeComponent();
             MiCompraLocal = new Compra();
@@ -137,8 +137,8 @@ namespace PPPracticaEmpresarial.Formularios
                 MiCompraLocal.MiTipoCompra.CompraTipoID = Convert.ToInt32(CboxCompraTipo.SelectedValue);
                 MiCompraLocal.CompraNotas = TxtNotas.Text.Trim();
 
-                // Usuario direccto quemado
-                MiCompraLocal.MiUsuario.UsuarioID = 2;
+                // Usuario direccto quemado(Masiel, por solicitid de Lorena)
+                MiCompraLocal.MiUsuario.UsuarioID = 6;
 
                 TrasladoDetalleListaVisualAObjetoCompra();
 
@@ -223,7 +223,7 @@ namespace PPPracticaEmpresarial.Formularios
         {
             if (!Globales.MiFormConsultaProductos.Visible)
             {
-                Globales.MiFormConsultaProductos = new FrmConsultaProductos();
+                Globales.MiFormConsultaProductos = new FrmConsultaInformacionCompra();
 
                 Globales.MiFormConsultaProductos.Show();
             }
