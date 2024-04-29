@@ -115,6 +115,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -180,6 +181,12 @@
     <Compile Include="Formularios\FrmUsuariosGestion.Designer.cs">
       <DependentUpon>FrmUsuariosGestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmVisualizadorReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmVisualizadorReportes.Designer.cs">
+      <DependentUpon>FrmVisualizadorReportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Globales.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -211,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmUsuariosGestion.resx">
       <DependentUpon>FrmUsuariosGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmVisualizadorReportes.resx">
+      <DependentUpon>FrmVisualizadorReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -262,6 +272,9 @@
       <Project>{34e78c55-9801-4672-bdd2-44c8dfd49409}</Project>
       <Name>Logica</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
