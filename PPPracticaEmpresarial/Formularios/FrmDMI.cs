@@ -104,5 +104,15 @@ namespace PPPracticaEmpresarial.Formularios
         {
             Application.Exit();
         }
+
+        private void VerReportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormVerReportes.Visible)
+            {
+                Globales.MiFormVerReportes = new FrmVisualizadorReportes();
+
+                Globales.MiFormVerReportes.Show();
+            }
+        }
     }
 }

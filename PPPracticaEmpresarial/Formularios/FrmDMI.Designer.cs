@@ -40,7 +40,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.ConsultaProductosDeComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuReportes = new System.Windows.Forms.ToolStripMenuItem();
-            this.listadoDeInventariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.VerReportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -143,16 +143,17 @@
             // MnuReportes
             // 
             this.MnuReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listadoDeInventariosToolStripMenuItem});
+            this.VerReportesToolStripMenuItem});
             this.MnuReportes.Name = "MnuReportes";
             this.MnuReportes.Size = new System.Drawing.Size(138, 36);
             this.MnuReportes.Text = "REPORTES";
             // 
-            // listadoDeInventariosToolStripMenuItem
+            // VerReportesToolStripMenuItem
             // 
-            this.listadoDeInventariosToolStripMenuItem.Name = "listadoDeInventariosToolStripMenuItem";
-            this.listadoDeInventariosToolStripMenuItem.Size = new System.Drawing.Size(351, 40);
-            this.listadoDeInventariosToolStripMenuItem.Text = "Listado de Inventarios";
+            this.VerReportesToolStripMenuItem.Name = "VerReportesToolStripMenuItem";
+            this.VerReportesToolStripMenuItem.Size = new System.Drawing.Size(270, 40);
+            this.VerReportesToolStripMenuItem.Text = "Ver Reportes";
+            this.VerReportesToolStripMenuItem.Click += new System.EventHandler(this.VerReportesToolStripMenuItem_Click);
             // 
             // MnuSalir
             // 
@@ -221,7 +222,7 @@
         private System.Windows.Forms.ToolStripMenuItem gestiónDeProveedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestiónDeComprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ConsultaProductosDeComprasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listadoDeInventariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem VerReportesToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel LblUsuario;

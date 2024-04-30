@@ -30,5 +30,8 @@ namespace PPPracticaEmpresarial
 
         // Formulario Para Agregar nuevos productos
         public static Formularios.FrmProductosAgregarGestion MiFormGestionAgregarProductos = new Formularios.FrmProductosAgregarGestion();
+
+        // Formulario de reportes
+        public static Formularios.FrmVisualizadorReportes MiFormVerReportes = new Formularios.FrmVisualizadorReportes();
     }
 }

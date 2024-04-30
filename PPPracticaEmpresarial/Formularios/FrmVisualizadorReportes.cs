@@ -16,5 +16,10 @@ namespace PPPracticaEmpresarial.Formularios
         {
             InitializeComponent();
         }
+
+        private void FrmVisualizadorReportes_Load(object sender, EventArgs e)
+        {
+            MdiParent = Globales.MiFormPrincipal;
+        }
     }
 }
