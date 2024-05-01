@@ -52,6 +52,7 @@ namespace PPPracticaEmpresarial.Formularios
                 case 2:
                     // Normal: en este caso se ocupa esconder algunas opciones (Gestion de usuarios)
                     gestiónDeUsuariosToolStripMenuItem.Visible = false;
+                    reporteDeComprasToolStripMenuItem.Visible = false;
                     break;
             }
 
@@ -105,7 +106,7 @@ namespace PPPracticaEmpresarial.Formularios
             Application.Exit();
         }
 
-        private void VerReportesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void reporteDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!Globales.MiFormVerReportes.Visible)
             {
@@ -113,6 +114,9 @@ namespace PPPracticaEmpresarial.Formularios
 
                 Globales.MiFormVerReportes.Show();
             }
+
+
+
         }
     }
 }
