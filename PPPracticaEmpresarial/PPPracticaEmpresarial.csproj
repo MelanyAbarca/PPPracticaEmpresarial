@@ -208,12 +208,6 @@
       <DependentUpon>ProductosV2.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reportes\ReporteGestionProductos.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReporteGestionProductos.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Validaciones.cs" />
     <EmbeddedResource Include="Formularios\FrmCompraAgregarProducto.resx">
@@ -266,10 +260,6 @@
     <EmbeddedResource Include="Reportes\ProductosV2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ProductosV2.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ReporteGestionProductos.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReporteGestionProductos.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

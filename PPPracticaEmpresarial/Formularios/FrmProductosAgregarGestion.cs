@@ -320,7 +320,7 @@ namespace PPPracticaEmpresarial.Formularios
                     //Si no existe ningun provedoor con esta informacion, se solicita al usuario confirmacion de si
                     //quiere agregar o no al proveedor
 
-                    string msg = string.Format("¿Está seguro que desea agregar al productor {0}?", MiProductoLocal.ProductoNombre);
+                    string msg = string.Format("¿Está seguro que desea agregar el producto {0}?", MiProductoLocal.ProductoNombre);
                     DialogResult respuesta = MessageBox.Show(msg, "???", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (respuesta == DialogResult.Yes)
@@ -336,7 +336,7 @@ namespace PPPracticaEmpresarial.Formularios
                             ReportDocument MiReporteCompra = new ReportDocument();
 
                             //se asigna un reporte al documento 
-                            MiReporteCompra = new Reportes.ReporteGestionProductos();
+                            MiReporteCompra = new Reportes.ProductosV2();
 
                             MiReporteCompra = MiProductoLocal.Imprimir(MiReporteCompra);
 
