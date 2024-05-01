@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace Logica.Models
 {
@@ -217,6 +218,32 @@ namespace Logica.Models
             if (respuesta > 0)
             {
                 R = true;
+            }
+
+            return R;
+        }
+
+        // Constructor para los reportes (Imprimir)
+        public ReportDocument Imprimir(ReportDocument repo)
+        {
+            ReportDocument R = repo;
+
+            CrystalReportsClass ObjCrytal = new CrystalReportsClass(R);
+
+            //Data visual del reporte
+            DataTable Datos = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.CompraID));
+
+            Datos = MiCnn.EjecutarSELECT("SPCompraReporte");
+
+            if (Datos != null && Datos.Rows.Count > 0)
+            {
+                ObjCrytal.Datos = Datos;
+
+                R = ObjCrytal.GenerarReporte();
             }
 
             return R;

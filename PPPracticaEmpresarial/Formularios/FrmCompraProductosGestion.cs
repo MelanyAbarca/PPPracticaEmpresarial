@@ -1,4 +1,5 @@
-﻿using Logica.Models;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using Logica.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -149,7 +150,24 @@ namespace PPPracticaEmpresarial.Formularios
                     MessageBox.Show("Compra agregada correctamente!!", ":)", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
-                // TO DO: Realizar la creacion de reporte de la compra(productos de stock).
+                //  Almacenar la informacion para el reporte //
+                //se crea una var de tipo documento
+                ReportDocument MiReporteCompra = new ReportDocument();
+
+                //se asigna un reporte al documento 
+                MiReporteCompra = new Reportes.ReporteGestionCompras();
+
+                MiReporteCompra = MiCompraLocal.Imprimir(MiReporteCompra);
+
+                //se asigna este documento al visulizador de reportes (se usa para TODOS los reportes) 
+                FrmComprasVisualizadorReportes MiFormCRV = new FrmComprasVisualizadorReportes();
+
+                MiFormCRV.CrvComprasVisualizador.ReportSource = MiReporteCompra;
+
+                MiFormCRV.Show();
+
+                //para visualizar la página completa
+                MiFormCRV.CrvComprasVisualizador.Zoom(1);
 
                 LimpiarForm();
             }

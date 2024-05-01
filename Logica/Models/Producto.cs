@@ -1,4 +1,5 @@
-﻿using Logica.Services;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using Logica.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -283,7 +284,31 @@ namespace Logica.Models
             return R;
         }
 
+        // Constructor para los reportes (Imprimir)
+        public ReportDocument Imprimir(ReportDocument repo)
+        {
+            ReportDocument R = repo;
 
+            CrystalReportsClass ObjCrytal = new CrystalReportsClass(R);
+
+            //Data visual del reporte
+            DataTable Datos = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProductoID));
+
+            Datos = MiCnn.EjecutarSELECT("SPProductoReporte");
+
+            if (Datos != null && Datos.Rows.Count > 0)
+            {
+                ObjCrytal.Datos = Datos;
+
+                R = ObjCrytal.GenerarReporte();
+            }
+
+            return R;
+        }
 
     }
 }

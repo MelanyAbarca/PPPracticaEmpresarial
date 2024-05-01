@@ -16,5 +16,7 @@ namespace PPPracticaEmpresarial.Formularios
         {
             InitializeComponent();
         }
+
+       
     }
 }

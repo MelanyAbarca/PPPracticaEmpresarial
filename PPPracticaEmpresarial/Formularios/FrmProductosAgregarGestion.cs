@@ -1,4 +1,5 @@
-﻿using Logica.Models;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using Logica.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -329,6 +330,29 @@ namespace PPPracticaEmpresarial.Formularios
                         if (ok)
                         {
                             MessageBox.Show("Producto agregado corectamente!", "Acción satisfactoria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+
+
+
+                            //  Almacenar la informacion para el reporte //
+                            //se crea una var de tipo documento
+                            ReportDocument MiReporteCompra = new ReportDocument();
+
+                            //se asigna un reporte al documento 
+                            MiReporteCompra = new Reportes.ReporteGestionCompras();
+
+                            MiReporteCompra = MiProductoLocal.Imprimir(MiReporteCompra);
+
+                            //se asigna este documento al visulizador de reportes (se usa para TODOS los reportes) 
+                            FrmComprasVisualizadorReportes MiFormCRV = new FrmComprasVisualizadorReportes();
+
+                            MiFormCRV.CrvComprasVisualizador.ReportSource = MiReporteCompra;
+
+                            MiFormCRV.Show();
+
+                            //para visualizar la página completa
+                            MiFormCRV.CrvComprasVisualizador.Zoom(1);
+
                             LimpiarFormulario();
 
                             CargarListaDeProductos();
