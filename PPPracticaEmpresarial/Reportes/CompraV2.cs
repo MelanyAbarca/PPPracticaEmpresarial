@@ -16,14 +16,14 @@ namespace PPPracticaEmpresarial.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ReporteGestionCompras : ReportClass {
+    public class CompraV2 : ReportClass {
         
-        public ReporteGestionCompras() {
+        public CompraV2() {
         }
         
         public override string ResourceName {
             get {
-                return "ReporteGestionCompras.rpt";
+                return "CompraV2.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace PPPracticaEmpresarial.Reportes {
         
         public override string FullResourceName {
             get {
-                return "PPPracticaEmpresarial.Reportes.ReporteGestionCompras.rpt";
+                return "PPPracticaEmpresarial.Reportes.CompraV2.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace PPPracticaEmpresarial.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedReporteGestionCompras : Component, ICachedReport {
+    public class CachedCompraV2 : Component, ICachedReport {
         
-        public CachedReporteGestionCompras() {
+        public CachedCompraV2() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace PPPracticaEmpresarial.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ReporteGestionCompras rpt = new ReporteGestionCompras();
+            CompraV2 rpt = new CompraV2();
             rpt.Site = this.Site;
             return rpt;
         }

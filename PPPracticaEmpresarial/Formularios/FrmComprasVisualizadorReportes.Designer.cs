@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.CrvComprasVisualizador = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.ReporteGestionCompras1 = new PPPracticaEmpresarial.Reportes.ReporteGestionCompras();
+            this.ReporteGestionCompras1 = new PPPracticaEmpresarial.Reportes.CompraV2();
             this.SuspendLayout();
             // 
             // CrvComprasVisualizador
@@ -61,6 +61,6 @@
         #endregion
 
         public CrystalDecisions.Windows.Forms.CrystalReportViewer CrvComprasVisualizador;
-        private Reportes.ReporteGestionCompras ReporteGestionCompras1;
+        private Reportes.CompraV2 ReporteGestionCompras1;
     }
 }

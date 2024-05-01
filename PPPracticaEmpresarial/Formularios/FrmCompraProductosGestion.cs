@@ -155,7 +155,7 @@ namespace PPPracticaEmpresarial.Formularios
                 ReportDocument MiReporteCompra = new ReportDocument();
 
                 //se asigna un reporte al documento 
-                MiReporteCompra = new Reportes.ReporteGestionCompras();
+                MiReporteCompra = new Reportes.CompraV2();
 
                 MiReporteCompra = MiCompraLocal.Imprimir(MiReporteCompra);
 
