@@ -331,27 +331,24 @@ namespace PPPracticaEmpresarial.Formularios
                         {
                             MessageBox.Show("Producto agregado corectamente!", "Acción satisfactoria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-
-
-
                             //  Almacenar la informacion para el reporte //
                             //se crea una var de tipo documento
                             ReportDocument MiReporteCompra = new ReportDocument();
 
                             //se asigna un reporte al documento 
-                            MiReporteCompra = new Reportes.ReporteGestionCompras();
+                            MiReporteCompra = new Reportes.ReporteGestionProductos();
 
                             MiReporteCompra = MiProductoLocal.Imprimir(MiReporteCompra);
 
                             //se asigna este documento al visulizador de reportes (se usa para TODOS los reportes) 
-                            FrmComprasVisualizadorReportes MiFormCRV = new FrmComprasVisualizadorReportes();
+                            FrmProductosVisualizadorReportes MiFormCRV = new FrmProductosVisualizadorReportes();
 
-                            MiFormCRV.CrvComprasVisualizador.ReportSource = MiReporteCompra;
+                            MiFormCRV.CrvProductosVisualizador.ReportSource = MiReporteCompra;
 
                             MiFormCRV.Show();
 
                             //para visualizar la página completa
-                            MiFormCRV.CrvComprasVisualizador.Zoom(1);
+                            MiFormCRV.CrvProductosVisualizador.Zoom(1);
 
                             LimpiarFormulario();
 

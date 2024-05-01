@@ -292,17 +292,17 @@ namespace Logica.Models
             CrystalReportsClass ObjCrytal = new CrystalReportsClass(R);
 
             //Data visual del reporte
-            DataTable Datos = new DataTable();
+            DataTable dt = new DataTable();
 
             Conexion MiCnn = new Conexion();
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProductoID));
 
-            Datos = MiCnn.EjecutarSELECT("SPProductoReporte");
+            dt = MiCnn.EjecutarSELECT("SPProductosListarReporte");
 
-            if (Datos != null && Datos.Rows.Count > 0)
+            if (dt != null && dt.Rows.Count > 0)
             {
-                ObjCrytal.Datos = Datos;
+                ObjCrytal.dt = dt;
 
                 R = ObjCrytal.GenerarReporte();
             }

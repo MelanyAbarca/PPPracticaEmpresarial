@@ -15,7 +15,7 @@ namespace Logica.Models
         public ReportDocument Reporte { get; set; }
 
         //contiene la data que se visuliza en el reporte
-        public DataTable Datos { get; set; }
+        public DataTable dt { get; set; }
 
         public CrystalReportsClass(ReportDocument pRpt)
         {
@@ -29,9 +29,9 @@ namespace Logica.Models
 
         public ReportDocument GenerarReporte()
         {
-            if (Datos.Rows.Count > 0)
+            if (dt.Rows.Count > 0)
             {
-                Reporte.SetDataSource(Datos);
+                Reporte.SetDataSource(dt);
 
                 return Reporte;
             }

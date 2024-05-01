@@ -237,11 +237,11 @@ namespace Logica.Models
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.CompraID));
 
-            Datos = MiCnn.EjecutarSELECT("SPCompraReporte");
+            Datos = MiCnn.EjecutarSELECT("SPComprasListarReporte");
 
             if (Datos != null && Datos.Rows.Count > 0)
             {
-                ObjCrytal.Datos = Datos;
+                ObjCrytal.dt = Datos;
 
                 R = ObjCrytal.GenerarReporte();
             }
