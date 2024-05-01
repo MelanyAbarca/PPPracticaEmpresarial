@@ -108,15 +108,22 @@ namespace PPPracticaEmpresarial.Formularios
 
         private void reporteDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!Globales.MiFormVerReportes.Visible)
+            if (!Globales.MiFormProductosVerReportes.Visible)
             {
-                Globales.MiFormVerReportes = new FrmVisualizadorReportes();
+                Globales.MiFormProductosVerReportes = new FrmProductosVisualizadorReportes();
 
-                Globales.MiFormVerReportes.Show();
+                Globales.MiFormProductosVerReportes.Show();
             }
+        }
 
+        private void reporteDeComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormComprasVerReportes.Visible)
+            {
+                Globales.MiFormComprasVerReportes = new FrmComprasVisualizadorReportes();
 
-
+                Globales.MiFormComprasVerReportes.Show();
+            }
         }
     }
 }

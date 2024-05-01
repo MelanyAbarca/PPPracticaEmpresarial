@@ -133,6 +133,12 @@
     <Compile Include="Formularios\FrmCompraAgregarProducto.Designer.cs">
       <DependentUpon>FrmCompraAgregarProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmComprasVisualizadorReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmComprasVisualizadorReportes.Designer.cs">
+      <DependentUpon>FrmComprasVisualizadorReportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmConsultaInformacionCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,11 +187,11 @@
     <Compile Include="Formularios\FrmUsuariosGestion.Designer.cs">
       <DependentUpon>FrmUsuariosGestion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmVisualizadorReportes.cs">
+    <Compile Include="Formularios\FrmProductosVisualizadorReportes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmVisualizadorReportes.Designer.cs">
-      <DependentUpon>FrmVisualizadorReportes.cs</DependentUpon>
+    <Compile Include="Formularios\FrmProductosVisualizadorReportes.Designer.cs">
+      <DependentUpon>FrmProductosVisualizadorReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Globales.cs" />
     <Compile Include="Program.cs" />
@@ -206,6 +212,9 @@
     <Compile Include="Validaciones.cs" />
     <EmbeddedResource Include="Formularios\FrmCompraAgregarProducto.resx">
       <DependentUpon>FrmCompraAgregarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmComprasVisualizadorReportes.resx">
+      <DependentUpon>FrmComprasVisualizadorReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConsultaInformacionCompra.resx">
       <DependentUpon>FrmConsultaInformacionCompra.cs</DependentUpon>
@@ -231,8 +240,8 @@
     <EmbeddedResource Include="Formularios\FrmUsuariosGestion.resx">
       <DependentUpon>FrmUsuariosGestion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmVisualizadorReportes.resx">
-      <DependentUpon>FrmVisualizadorReportes.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FrmProductosVisualizadorReportes.resx">
+      <DependentUpon>FrmProductosVisualizadorReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

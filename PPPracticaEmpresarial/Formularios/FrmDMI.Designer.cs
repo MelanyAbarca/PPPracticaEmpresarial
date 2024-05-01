@@ -204,6 +204,7 @@
             this.reporteDeComprasToolStripMenuItem.Name = "reporteDeComprasToolStripMenuItem";
             this.reporteDeComprasToolStripMenuItem.Size = new System.Drawing.Size(348, 40);
             this.reporteDeComprasToolStripMenuItem.Text = "Reporte de Compras";
+            this.reporteDeComprasToolStripMenuItem.Click += new System.EventHandler(this.reporteDeComprasToolStripMenuItem_Click);
             // 
             // FrmDMI
             // 

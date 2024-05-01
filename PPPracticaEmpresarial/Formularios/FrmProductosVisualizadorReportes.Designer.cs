@@ -1,6 +1,6 @@
 ﻿namespace PPPracticaEmpresarial.Formularios
 {
-    partial class FrmVisualizadorReportes
+    partial class FrmProductosVisualizadorReportes
     {
         /// <summary>
         /// Required designer variable.
@@ -52,6 +52,7 @@
             this.ClientSize = new System.Drawing.Size(1136, 488);
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "FrmVisualizadorReportes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmVisualizadorReportes";
             this.Load += new System.EventHandler(this.FrmVisualizadorReportes_Load);
             this.ResumeLayout(false);
