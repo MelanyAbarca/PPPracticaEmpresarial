@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.CrvComprasVisualizador = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.ReporteGestionCompras1 = new PPPracticaEmpresarial.Reportes.CompraV2();
+            this.CompraV21 = new PPPracticaEmpresarial.Reportes.CompraV2();
             this.SuspendLayout();
             // 
             // CrvComprasVisualizador
@@ -40,7 +40,7 @@
             this.CrvComprasVisualizador.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CrvComprasVisualizador.Location = new System.Drawing.Point(0, 0);
             this.CrvComprasVisualizador.Name = "CrvComprasVisualizador";
-            this.CrvComprasVisualizador.ReportSource = this.ReporteGestionCompras1;
+            this.CrvComprasVisualizador.ReportSource = this.CompraV21;
             this.CrvComprasVisualizador.Size = new System.Drawing.Size(1102, 611);
             this.CrvComprasVisualizador.TabIndex = 0;
             this.CrvComprasVisualizador.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
@@ -61,6 +61,6 @@
         #endregion
 
         public CrystalDecisions.Windows.Forms.CrystalReportViewer CrvComprasVisualizador;
-        private Reportes.CompraV2 ReporteGestionCompras1;
+        private Reportes.CompraV2 CompraV21;
     }
 }

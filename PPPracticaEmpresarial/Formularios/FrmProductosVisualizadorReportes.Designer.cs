@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.CrvProductosVisualizador = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.ReporteGestionProductos1 = new PPPracticaEmpresarial.Reportes.ProductosV2();
+            this.ProductosV21 = new PPPracticaEmpresarial.Reportes.ProductosV2();
             this.SuspendLayout();
             // 
             // CrvProductosVisualizador
@@ -40,7 +40,7 @@
             this.CrvProductosVisualizador.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CrvProductosVisualizador.Location = new System.Drawing.Point(0, 0);
             this.CrvProductosVisualizador.Name = "CrvProductosVisualizador";
-            this.CrvProductosVisualizador.ReportSource = this.ReporteGestionProductos1;
+            this.CrvProductosVisualizador.ReportSource = this.ProductosV21;
             this.CrvProductosVisualizador.Size = new System.Drawing.Size(1136, 488);
             this.CrvProductosVisualizador.TabIndex = 0;
             this.CrvProductosVisualizador.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
@@ -62,6 +62,6 @@
         #endregion
 
         public CrystalDecisions.Windows.Forms.CrystalReportViewer CrvProductosVisualizador;
-        private Reportes.ProductosV2 ReporteGestionProductos1;
+        private Reportes.ProductosV2 ProductosV21;
     }
 }

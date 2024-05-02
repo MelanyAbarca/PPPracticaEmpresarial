@@ -49,6 +49,8 @@ namespace Logica.Models
 
             return R;
         }
+
+
         public bool Editar()
         {
             bool R = false;
