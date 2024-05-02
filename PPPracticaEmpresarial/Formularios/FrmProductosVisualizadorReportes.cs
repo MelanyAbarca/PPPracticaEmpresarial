@@ -15,13 +15,7 @@ namespace PPPracticaEmpresarial.Formularios
         public FrmProductosVisualizadorReportes()
         {
             InitializeComponent();
-        }
-
-
-        private void FrmProductosVisualizadorReportes_Load(object sender, EventArgs e)
-        {
             MdiParent = Globales.MiFormPrincipal;
         }
-
     }
 }
