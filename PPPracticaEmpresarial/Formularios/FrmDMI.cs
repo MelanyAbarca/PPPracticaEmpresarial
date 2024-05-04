@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPPracticaEmpresarial.Reportes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -109,12 +110,13 @@ namespace PPPracticaEmpresarial.Formularios
 
         private void reporteDeComprasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!Globales.MiFormComprasVerReportes.Visible)
+            if (!Globales.MiFormComprasListarVerReporte.Visible)
             {
-                Globales.MiFormComprasVerReportes = new FrmComprasVisualizadorReportes();
+                Globales.MiFormComprasListarVerReporte = new FrmComprasRptListarPorFechas();
 
-                Globales.MiFormComprasVerReportes.Show();
+                Globales.MiFormComprasListarVerReporte.Show();
             }
         }
+
     }
 }

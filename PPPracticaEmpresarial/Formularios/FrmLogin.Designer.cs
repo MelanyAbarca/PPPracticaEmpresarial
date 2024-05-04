@@ -143,7 +143,6 @@
             this.BtnIngresoDirecto.TabIndex = 8;
             this.BtnIngresoDirecto.Text = "Ingreso Direc";
             this.BtnIngresoDirecto.UseVisualStyleBackColor = true;
-            this.BtnIngresoDirecto.Visible = false;
             this.BtnIngresoDirecto.Click += new System.EventHandler(this.BtnIngresoDirecto_Click);
             // 
             // FrmLogin

@@ -15,7 +15,9 @@ namespace PPPracticaEmpresarial.Formularios
         public FrmComprasRptListarPorFechas()
         {
             InitializeComponent();
+            MdiParent = Globales.MiFormPrincipal;
         }
 
+     
     }
 }

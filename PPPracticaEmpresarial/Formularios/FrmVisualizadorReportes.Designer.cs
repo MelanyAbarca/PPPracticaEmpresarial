@@ -1,6 +1,6 @@
 ﻿namespace PPPracticaEmpresarial.Formularios
 {
-    partial class FrmComprasVisualizadorReportes
+    partial class FrmVisualizadorReportes
     {
         /// <summary>
         /// Required designer variable.

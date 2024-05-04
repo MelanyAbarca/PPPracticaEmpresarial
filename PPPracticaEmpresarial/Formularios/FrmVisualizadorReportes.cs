@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PPPracticaEmpresarial.Formularios
 {
-    public partial class FrmComprasVisualizadorReportes : Form
+    public partial class FrmVisualizadorReportes : Form
     {
-        public FrmComprasVisualizadorReportes()
+        public FrmVisualizadorReportes()
         {
             InitializeComponent();
             MdiParent = Globales.MiFormPrincipal;

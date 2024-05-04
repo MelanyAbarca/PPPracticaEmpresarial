@@ -25,6 +25,7 @@ namespace PPPracticaEmpresarial.Formularios
             InitializeComponent();
             MiCompraLocal = new Compra();
             ListaProductos = new DataTable();
+            MdiParent = Globales.MiFormPrincipal;
         }
 
         private void FrmProductosGestion_Load(object sender, EventArgs e)
@@ -160,7 +161,7 @@ namespace PPPracticaEmpresarial.Formularios
                 MiReporteCompra = MiCompraLocal.Imprimir(MiReporteCompra);
 
                 //se asigna este documento al visulizador de reportes (se usa para TODOS los reportes) 
-                FrmComprasVisualizadorReportes MiFormCRV = new FrmComprasVisualizadorReportes();
+                FrmVisualizadorReportes MiFormCRV = new FrmVisualizadorReportes();
 
                 MiFormCRV.CrvComprasVisualizador.ReportSource = MiReporteCompra;
 
