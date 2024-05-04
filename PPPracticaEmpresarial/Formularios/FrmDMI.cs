@@ -106,15 +106,6 @@ namespace PPPracticaEmpresarial.Formularios
             Application.Exit();
         }
 
-        private void reporteDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!Globales.MiFormProductosVerReportes.Visible)
-            {
-                Globales.MiFormProductosVerReportes = new FrmProductosVisualizadorReportes();
-
-                Globales.MiFormProductosVerReportes.Show();
-            }
-        }
 
         private void reporteDeComprasToolStripMenuItem_Click(object sender, EventArgs e)
         {

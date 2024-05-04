@@ -298,7 +298,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProductoID));
+          //  MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProductoID));
 
             dt = MiCnn.EjecutarSELECT("SPProductosListarReporte");
 

@@ -40,7 +40,6 @@
             this.CrvComprasVisualizador.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CrvComprasVisualizador.Location = new System.Drawing.Point(0, 0);
             this.CrvComprasVisualizador.Name = "CrvComprasVisualizador";
-            this.CrvComprasVisualizador.ReportSource = this.CompraV21;
             this.CrvComprasVisualizador.Size = new System.Drawing.Size(1102, 611);
             this.CrvComprasVisualizador.TabIndex = 0;
             this.CrvComprasVisualizador.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
@@ -53,7 +52,7 @@
             this.Controls.Add(this.CrvComprasVisualizador);
             this.Name = "FrmComprasVisualizadorReportes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Reporte de Compras";
+            this.Text = "Visualizador de Reportes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 

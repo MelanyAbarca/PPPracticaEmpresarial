@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace PPPracticaEmpresarial.Formularios
 {
-    public partial class FrmProductosVisualizadorReportes : Form
+    public partial class FrmComprasRptListarPorFechas : Form
     {
-        public FrmProductosVisualizadorReportes()
+        public FrmComprasRptListarPorFechas()
         {
             InitializeComponent();
-            MdiParent = Globales.MiFormPrincipal;
         }
+
     }
 }

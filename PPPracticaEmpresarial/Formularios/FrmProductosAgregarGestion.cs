@@ -341,14 +341,14 @@ namespace PPPracticaEmpresarial.Formularios
                             MiReporteCompra = MiProductoLocal.Imprimir(MiReporteCompra);
 
                             //se asigna este documento al visulizador de reportes (se usa para TODOS los reportes) 
-                            FrmProductosVisualizadorReportes MiFormCRV = new FrmProductosVisualizadorReportes();
+                            FrmComprasVisualizadorReportes MiFormCRV = new FrmComprasVisualizadorReportes();
 
-                            MiFormCRV.CrvProductosVisualizador.ReportSource = MiReporteCompra;
+                            MiFormCRV.CrvComprasVisualizador.ReportSource = MiReporteCompra;
 
                             MiFormCRV.Show();
 
                             //para visualizar la página completa
-                            MiFormCRV.CrvProductosVisualizador.Zoom(1);
+                            MiFormCRV.CrvComprasVisualizador.Zoom(1);
 
                             LimpiarFormulario();
 
