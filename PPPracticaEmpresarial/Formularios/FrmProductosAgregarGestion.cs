@@ -333,17 +333,17 @@ namespace PPPracticaEmpresarial.Formularios
 
                             //  Almacenar la informacion para el reporte //
                             //se crea una var de tipo documento
-                            ReportDocument MiReporteCompra = new ReportDocument();
+                            ReportDocument MiReporteProductos = new ReportDocument();
 
                             //se asigna un reporte al documento 
-                            MiReporteCompra = new Reportes.ProductosV2();
+                            MiReporteProductos = new Reportes.ProductosV2();
 
-                            MiReporteCompra = MiProductoLocal.Imprimir(MiReporteCompra);
+                            MiReporteProductos = MiProductoLocal.Imprimir(MiReporteProductos);
 
                             //se asigna este documento al visulizador de reportes (se usa para TODOS los reportes) 
                             FrmVisualizadorReportes MiFormCRV = new FrmVisualizadorReportes();
 
-                            MiFormCRV.CrvComprasVisualizador.ReportSource = MiReporteCompra;
+                            MiFormCRV.CrvComprasVisualizador.ReportSource = MiReporteProductos;
 
                             MiFormCRV.Show();
 

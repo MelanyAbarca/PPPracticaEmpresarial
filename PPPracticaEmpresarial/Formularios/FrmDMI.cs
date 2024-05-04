@@ -1,4 +1,5 @@
-﻿using PPPracticaEmpresarial.Reportes;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using PPPracticaEmpresarial.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,14 +9,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logica.Models;
 
 namespace PPPracticaEmpresarial.Formularios
 {
     public partial class FrmDMI : Form
     {
+
+        public Compra MiCompraLocal { get; set; }
+        public Producto MiProductoLocal { get; set; }
         public FrmDMI()
         {
             InitializeComponent();
+            MiCompraLocal = new Compra();
+            MiProductoLocal = new Producto();
         }
 
         private void FrmDMI_FormClosed(object sender, FormClosedEventArgs e)
@@ -116,7 +123,62 @@ namespace PPPracticaEmpresarial.Formularios
 
                 Globales.MiFormComprasListarVerReporte.Show();
             }
+
         }
 
+        private void listadoDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormVerReportes.Visible)
+            {
+                Globales.MiFormVerReportes = new FrmVisualizadorReportes();
+
+                Globales.MiFormVerReportes.Show();
+
+                ReportDocument MiReporteProductos = new ReportDocument();
+
+                //se asigna un reporte al documento 
+                MiReporteProductos = new Reportes.ProductosV2();
+
+                MiReporteProductos = MiProductoLocal.Imprimir(MiReporteProductos);
+
+                //se asigna este documento al visulizador de reportes (se usa para TODOS los reportes) 
+                FrmVisualizadorReportes MiFormCRV = new FrmVisualizadorReportes();
+
+                MiFormCRV.CrvComprasVisualizador.ReportSource = MiReporteProductos;
+
+                MiFormCRV.Show();
+
+                //para visualizar la página completa
+                MiFormCRV.CrvComprasVisualizador.Zoom(1);
+            }
+        }
+
+        private void reporteIndividualPorComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormVerReportes.Visible)
+            {
+                Globales.MiFormVerReportes = new FrmVisualizadorReportes();
+
+                Globales.MiFormVerReportes.Show();
+            }
+
+            ReportDocument MiReporteListaCompras = new ReportDocument();
+
+            //se asigna un reporte al documento 
+            MiReporteListaCompras = new Reportes.CompraV2();
+
+            MiReporteListaCompras = MiCompraLocal.Imprimir(MiReporteListaCompras);
+
+            //se asigna este documento al visulizador de reportes (se usa para TODOS los reportes) 
+            FrmVisualizadorReportes MiFormCRV = new FrmVisualizadorReportes();
+
+            MiFormCRV.CrvComprasVisualizador.ReportSource = MiReporteListaCompras;
+
+            MiFormCRV.Show();
+
+            //para visualizar la página completa
+            MiFormCRV.CrvComprasVisualizador.Zoom(1);
+
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace PPPracticaEmpresarial.Formularios
         }
 
         //private void Buscar()
-        //{//funcion para buscar los comprobantes entre fechas
+        //{//funcion para buscar las compras
         //    try
         //    {
         //        DgvList.DataSource = DCompra.ConsultarFechas(Convert.ToDateTime(DtpFechaInicio.Value), Convert.ToDateTime(DtpFechaFin.Value));
