@@ -43,6 +43,7 @@
             this.DtpFechaInicio.Name = "DtpFechaInicio";
             this.DtpFechaInicio.Size = new System.Drawing.Size(440, 35);
             this.DtpFechaInicio.TabIndex = 0;
+            this.DtpFechaInicio.Value = new System.DateTime(2024, 5, 3, 23, 25, 59, 0);
             // 
             // DtpFechaFin
             // 
@@ -63,6 +64,7 @@
             this.BtnVerReporte.TabIndex = 2;
             this.BtnVerReporte.Text = "Ver Reporte";
             this.BtnVerReporte.UseVisualStyleBackColor = false;
+            this.BtnVerReporte.Click += new System.EventHandler(this.BtnVerReporte_Click);
             // 
             // label1
             // 

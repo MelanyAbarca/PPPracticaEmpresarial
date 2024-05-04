@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CrystalDecisions.CrystalReports.Engine;
+using System.Drawing;
 
 namespace Logica.Models
 {
@@ -150,9 +151,7 @@ namespace Logica.Models
             }
 
             return R;
-
         }
-
 
         public Compra ConsultarPorIDRetornaCompra()
         {
@@ -185,10 +184,6 @@ namespace Logica.Models
             return R;
 
         }
-
-
-
-        // Funcion para eliminar la compra/ productos
         public bool Eliminar()
         {
             bool R = false;
@@ -249,5 +244,33 @@ namespace Logica.Models
             return R;
         }
 
+
+        public ReportDocument ImprimirPorFecha(ReportDocument repo)
+        {
+            ReportDocument R = repo;
+
+            CrystalReportsClass ObjCrytal = new CrystalReportsClass(R);
+
+            //Data visual del reporte
+            DataTable Datos = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@FechaInicio", this.CompraFecha));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@FechaFin", this.CompraFecha));
+
+            Datos = MiCnn.EjecutarSELECT("SPComprasRptListarPorFechas");
+
+            if (Datos != null && Datos.Rows.Count > 0)
+            {
+                ObjCrytal.dt = Datos;
+
+                R = ObjCrytal.GenerarReporte();
+            }
+
+            return R;
+        }
     }
+
 }
+
